@@ -6,6 +6,7 @@ module.exports = {
 	},
 	plugins: ["standard", "react"],
 	rules: {
+		"operator-linebreak": "after",
 		"no-unused-vars": [
 			"error",
 			{
