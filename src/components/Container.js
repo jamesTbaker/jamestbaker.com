@@ -19,7 +19,13 @@ import LineAwesomeSVG from '../fonts/line-awesome.svg';
 const GlobalStyle = createGlobalStyle`
 	* { box-sizing: border-box; }
 	html { font-size: 10px; }
-	body { font-size: 1.6rem; font-family: 'Source Sans Pro', sans-serif; margin: 0; background-color: ${StylePatterns.Color('blue3')}; color: ${StylePatterns.Color('grey5')};}
+	body { 
+		font-size: 1.6rem;
+		font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, 'Roboto', Arial, "Lucida Grande", sans-serif;
+		margin: 0; background-color:
+		${StylePatterns.Color('blue3')};
+		color: ${StylePatterns.Color('grey5')};
+	}
 	@font-face {
 		font-family: 'LineAwesome';
 		src: url(${LineAwesomeEOT});
@@ -51,6 +57,8 @@ const TitleWrapper = styled.h1`
 	font-size: 10rem;
 	padding: 7rem 2rem;
 	margin: 0;
+	font-weight: 300;
+	color: ${StylePatterns.Color('yellow')};
 `;
 
 
@@ -71,9 +79,17 @@ export default (props) => (
 		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
 			<Header screenType="large" />
 		</MediaQuery>
-		<TitleWrapper>
-			{props.title}
-		</TitleWrapper>
+		<div className="full-screen-video-container">
+			<video autoPlay loop muted>
+				<source src="../video/workaholic/workaholic.mp4" type="video/mp4" />
+			</video>
+			<div className="full-screen-video-content">
+				{props.title}
+			</div>
+		</div>
+		{/* <TitleWrapper>
+			
+		</TitleWrapper> */}
 		{props.children}
 	</div>
 );
