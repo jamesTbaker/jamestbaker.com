@@ -8,7 +8,6 @@ import Collapsible from '../components/Collapsible';
 import { Helmet } from 'react-helmet';
 
 const LocationContainer = styled.p`
-	background-color: #ccffcc;
 `;
 
 const StrongText = styled.span`

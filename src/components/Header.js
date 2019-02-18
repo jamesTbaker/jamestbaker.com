@@ -132,7 +132,7 @@ const NavSmall = styled.nav`
 
 	${({ showSmallNav }) => showSmallNav && `
 		position: fixed;
-		top: 5rem;
+		top: 11rem;
 		width: 100%;
 		height: 100%;
 		z-index: ${StylePatterns.ZIndex('smallNav')};

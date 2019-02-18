@@ -6,6 +6,7 @@ import MediaQuery from 'react-responsive';
 import styled, { createGlobalStyle } from 'styled-components';
 import ScreenSizes from '../services/ScreenSizes';
 import Header from './Header';
+import StylePatterns from '../services/StylePatterns';
 
 import LineAwesomeEOT from '../fonts/line-awesome.eot';
 import LineAwesomeTTF from '../fonts/line-awesome.ttf';
@@ -18,7 +19,7 @@ import LineAwesomeSVG from '../fonts/line-awesome.svg';
 const GlobalStyle = createGlobalStyle`
 	* { box-sizing: border-box; }
 	html { font-size: 10px; }
-	body { font-size: 1.6rem; font-family: 'Source Sans Pro', sans-serif; margin: 0; background-color: #fff; color: #333;}
+	body { font-size: 1.6rem; font-family: 'Source Sans Pro', sans-serif; margin: 0; background-color: ${StylePatterns.Color('blue3')}; color: ${StylePatterns.Color('grey5')};}
 	@font-face {
 		font-family: 'LineAwesome';
 		src: url(${LineAwesomeEOT});
@@ -50,7 +51,6 @@ const TitleWrapper = styled.h1`
 	font-size: 10rem;
 	padding: 7rem 2rem;
 	margin: 0;
-	background-color: #ffcccc;
 `;
 
 
