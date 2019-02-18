@@ -59,6 +59,9 @@ const TitleWrapper = styled.h1`
 	margin: 0;
 	font-weight: 300;
 	color: ${StylePatterns.Color('yellow')};
+	background-size: 100% auto, 500%;
+	background-position: left top, 50% center;
+	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-80-percent')}, ${StylePatterns.Color('blue-1-80-percent')}), url('/img/bridge.jpg');
 `;
 
 
@@ -79,17 +82,9 @@ export default (props) => (
 		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
 			<Header screenType="large" />
 		</MediaQuery>
-		<div className="full-screen-video-container">
-			<video autoPlay loop muted>
-				<source src="../video/workaholic/workaholic.mp4" type="video/mp4" />
-			</video>
-			<div className="full-screen-video-content">
-				{props.title}
-			</div>
-		</div>
-		{/* <TitleWrapper>
-			
-		</TitleWrapper> */}
+		<TitleWrapper>
+			{props.title}
+		</TitleWrapper>
 		{props.children}
 	</div>
 );

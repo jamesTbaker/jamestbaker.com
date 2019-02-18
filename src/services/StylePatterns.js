@@ -56,6 +56,24 @@ module.exports = {
 		default:
 		case 'blue1':
 			return '#081015';
+		case 'blue-1-10-percent':
+			return 'rgba(8,16,21,.1)';
+		case 'blue-1-20-percent':
+			return 'rgba(8,16,21,.2)';
+		case 'blue-1-30-percent':
+			return 'rgba(8,16,21,.3)';
+		case 'blue-1-40-percent':
+			return 'rgba(8,16,21,.4)';
+		case 'blue-1-50-percent':
+			return 'rgba(8,16,21,.5)';
+		case 'blue-1-60-percent':
+			return 'rgba(8,16,21,.6)';
+		case 'blue-1-70-percent':
+			return 'rgba(8,16,21,.7)';
+		case 'blue-1-80-percent':
+			return 'rgba(8,16,21,.8)';
+		case 'blue-1-90-percent':
+			return 'rgba(8,16,21,.9)';
 		case 'blue2':
 			return '#0b171e';
 		case 'blue3':
