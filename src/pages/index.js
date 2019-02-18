@@ -1,72 +1,63 @@
+
+// ----- IMPORTS
+
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Container';
+import Container from '../components/Container';
+import Collapsible from '../components/Collapsible';
+import { Helmet } from 'react-helmet';
 
-const Container = styled.div`
-	margin: 3rem auto;
-	max-width: 600px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+const LocationContainer = styled.p`
+	background-color: #ccffcc;
 `;
 
-const UserWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	margin: 0 auto 12px auto;
-	&:last-child {
-		margin-bottom: 0;
-	}
+const StrongText = styled.span`
+	font-weight: 900;
+	color: red;
 `;
 
-const Avatar = styled.img`
-	flex: 0 0 96px;
-	width: 96px;
-	height: 96px;
-	margin: 0;
-`;
-
-const Description = styled.div`
-	flex: 1;
-	margin-left: 18px;
-	padding: 12px;
-`;
-
-const Username = styled.h2`
-	margin: 0 0 12px 0;
-	padding: 0;
-`;
-
-const Excerpt = styled.p`
-	margin: 0;
-`;
-
-const User = props => (
-	<UserWrapper>
-		<Avatar src={props.avatar} alt="" />
-		<Description>
-			<Username>{props.username}</Username>
-			<Excerpt>{props.excerpt}</Excerpt>
-		</Description>
-	</UserWrapper>
-);
+// ----- PAGE
 
 export default () => (
-	<Layout>
-		{/* <Container>
-			<h1>About Styled Components</h1>
-			<p>Styled Components is cool</p>
-			<User
-				username="Jane Doe"
-				avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
-				excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-			/>
-			<User
-				username="Bob Smith"
-				avatar="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
-				excerpt="I'm Bob smith, a vertically aligned type of guy. Lorem ipsum dolor."
-			/>
-		</Container> */}
-	</Layout>
+	<Container
+		title="Profile"
+	>
+		<Helmet>
+			<title>Profile</title>
+			<meta name="description" content="Profile of James T. Baker" />
+		</Helmet>
+		<LocationContainer>
+			Greater Boston, USA
+		</LocationContainer>
+		<div>
+			<a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a>
+		</div>
+		<p>I speak suit, geek, and creative.</p>
+		<p>
+			My <StrongText>19 years'</StrongText> experience in design, technical product development, and management 
+			have allowed me to lead and execute projects and operations 
+			at the intersection of business, software development, and 
+			visual / UX design + digital media.
+		</p>
+		<h2>Business Skills</h2>
+		<ul>
+			<li>Communicating and motivating across organizational levels and boundaries</li>
+			<li>Leadership</li>
+			<li>Analysis, research, design thinking, systems thinking</li>
+			<li>Staff development, team building</li>
+			<Collapsible
+				expandText="Discover more business skills"
+				collapseText="Show fewer business skills"
+			>
+				<li>Active listening</li>
+				<li>Financial management</li>
+				<li>Business analysis</li>
+			</Collapsible>
+		</ul>
+		<h2>Design Skills</h2>
+		<ul>
+			<li>Art direction</li>
+			<li>A/B testing</li>
+		</ul>
+	</Container>
 );
