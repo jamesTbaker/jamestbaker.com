@@ -4,8 +4,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import StylePatterns from '../services/StylePatterns';
-import SectionCollapseButton from './sb/SBMedia.Button/SBMedia.SectionCollapseButton.Pres.www';
-import SectionExpandButton from './sb/SBMedia.Button/SBMedia.SectionExpandButton.Pres.www';
 import CollapsibleSectionButton from './sb/SBMedia.Button/SBMedia.CollapsibleSectionButton.Pres.www';
 import FadeIn from './sb/SBMedia.FadeIn/SBMedia.FadeIn.Pres.www';
 

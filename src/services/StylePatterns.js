@@ -66,14 +66,18 @@ module.exports = {
 			return '#234659';
 		case 'red1':
 			return '#470006';
+		case 'interactive-active':
 		case 'red2':
 			return '#5d0007';
+		case 'interactive-default':
 		case 'red3':
 			return '#8a0009';
 		case 'red4':
 			return '#a3000b';
 		case 'red5':
 			return '#bd000d';
+		case 'red9':
+			return '#ff194f';
 		case 'grey1':
 			return '#eee';
 		case 'grey2':

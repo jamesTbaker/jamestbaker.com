@@ -15,7 +15,9 @@ import StylePatterns from '../services/StylePatterns';
 const HeaderSmall = styled.header`
 	display: grid;
 	grid-template-rows: 5rem;
-	grid-template-columns: 5rem auto 5rem;
+	grid-template-columns: 5rem auto 6rem;
+	padding: 3rem 0 3rem;
+	background-color: ${StylePatterns.Color('blue1')};
 `;
 
 const HeaderMedium = styled.header`
@@ -29,51 +31,53 @@ const HamburgerContainer = styled.div`
 
 const BrandContainer = styled.div`
 	grid-area: 1 / 3 / 2 / 4;
+	padding-right: 1rem
 `;
+
+
+
+
+
+
 
 const Hamburger = styled.button.attrs({
 	type: 'button',
 })`
-	padding: 15px 15px;
 	display: inline-block;
-	cursor: pointer;
-	font: inherit;
+	min-width: 0;
+	padding: 1.6rem 1.2rem;
+	transition-property: background-color, filter;
+	transition-duration: .15s;
+	transition-timing-function: linear;
+	font-size: 0;
 	color: inherit;
 	text-transform: none;
 	background-color: transparent;
 	border: 0;
 	margin: 0;
 	overflow: visible;
-	transition-property: opacity, filter;
-	transition-duration: 0.15s;
-	transition-timing-function: linear;
-
-	&:hover {
-		opacity: 0.7;
-	}
+	cursor: pointer;
 `;
 
 const HamburgerBox = styled.span`
-	width: 40px;
-	height: 24px;
 	display: inline-block;
 	position: relative;
+	width: 26px;
+	height: 18px;
 `;
 
 const HamburgerInner = styled.span`
 	display: block;
-	top: 50%;
-	margin-top: -2px;
-    width: 40px;
-    height: 4px;
-    background-color: #000;
-    border-radius: 4px;
     position: absolute;
+    width: 26px;
+    height: 1px;
+    background-color: ${StylePatterns.Color('red9')};
     transition-property: transform;
 	transition-duration: 0.075s;
 	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 	${({ showSmallNav }) => showSmallNav && `
+		top: 8px;
     	transform: rotate(45deg);
 		transition-delay: 0.12s;
 		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -81,20 +85,18 @@ const HamburgerInner = styled.span`
 
 	&::before {
 		display: block;
-		content: "";
-		width: 40px;
-		height: 4px;
-		top: -10px;
-		background-color: #000;
-		border-radius: 4px;
 		position: absolute;
+		content: "";
+		width: 26px;
+		height: 1px;
+		top: 8px;
+		background-color: ${StylePatterns.Color('red9')};
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
 		transition: top 0.075s 0.12s ease, opacity 0.075s ease;
 
 		${({ showSmallNav }) => showSmallNav && `
-			top: 0;
 			opacity: 0;
 			transition: top 0.075s ease, opacity 0.075s 0.12s ease;
 		`}
@@ -102,20 +104,19 @@ const HamburgerInner = styled.span`
 
 	&::after {
 		display: block;
-		content: "";
-		width: 40px;
-		height: 4px;
-		bottom: -10px; 
-		background-color: #000;
-		border-radius: 4px;
 		position: absolute;
+		content: "";
+		width: 26px;
+		height: 1px;
+		top: 16px;
+		background-color: ${StylePatterns.Color('red9')};
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
-		transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 		${({ showSmallNav }) => showSmallNav && `
-			bottom: 0;
+			top: 0px;
 			transform: rotate(-90deg);
 			transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 		`}
