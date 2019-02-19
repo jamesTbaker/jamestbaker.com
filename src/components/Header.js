@@ -129,6 +129,7 @@ const NavSmall = styled.nav`
 	height: 0;
 	overflow: hidden;
 	transition: height .25s;
+	background-color: ${StylePatterns.Color('blue1')};
 
 	${({ showSmallNav }) => showSmallNav && `
 		position: fixed;
@@ -136,7 +137,6 @@ const NavSmall = styled.nav`
 		width: 100%;
 		height: 100%;
 		z-index: ${StylePatterns.ZIndex('smallNav')};
-		background-color: #ccffcc;
 	`}
 `;
 
@@ -147,7 +147,6 @@ const NavSmallList = styled.ul`
 	padding: calc(((100vh - 25rem) / 2) - 5rem) 0 0 0;
 	margin: 0;
 	list-style: none;
-	background-color: pink;
 `;
 
 const NavSmallListItem = styled.li`
@@ -157,7 +156,6 @@ const NavSmallListItem = styled.li`
 	opacity: 0;
 	transition-property: opacity, margin-left, margin-top;
 	transition-duration: .5s;
-	background-color: yellow;
 
 	&:nth-child(1) {
 		transition-delay: .2s;

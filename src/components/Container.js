@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
 	body { 
 		font-size: 1.6rem;
 		font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, 'Roboto', Arial, "Lucida Grande", sans-serif;
-		margin: 0; background-color:
-		${StylePatterns.Color('blue3')};
+		margin: 0;
+		background-color: ${StylePatterns.Color('blue3')};
 		color: ${StylePatterns.Color('grey5')};
 	}
 	@font-face {
@@ -61,7 +61,7 @@ const TitleWrapper = styled.h1`
 	color: ${StylePatterns.Color('yellow')};
 	background-size: 100% auto, 500%;
 	background-position: left top, 50% center;
-	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-80-percent')}, ${StylePatterns.Color('blue-1-80-percent')}), url('/img/bridge.jpg');
+	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-80-percent')}, ${StylePatterns.Color('blue-1-80-percent')}), url('/img/${props => props.backgroundImage}.jpg');
 `;
 
 
@@ -82,7 +82,9 @@ export default (props) => (
 		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
 			<Header screenType="large" />
 		</MediaQuery>
-		<TitleWrapper>
+		<TitleWrapper
+			backgroundImage={props.titleBackgroundImage}
+		>
 			{props.title}
 		</TitleWrapper>
 		{props.children}

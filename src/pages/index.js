@@ -20,6 +20,7 @@ const StrongText = styled.span`
 export default () => (
 	<Container
 		title="Profile"
+		titleBackgroundImage="bridge"
 	>
 		<Helmet>
 			<title>Profile</title>
