@@ -14,7 +14,7 @@ const BodyContentContainer = styled.div`
 `;
 
 const LocationContainer = styled.p`
-	
+
 `;
 
 const StrongText = styled.span`
@@ -33,7 +33,7 @@ export default () => (
 			<title>Profile</title>
 			<meta name="description" content="Profile of James T. Baker" />
 		</Helmet>
-		<BodyContentContainer>
+		{/* <BodyContentContainer> */}
 			<p>Greater Boston, USA</p>
 			<p><a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a></p>
 			<p>I speak suit, geek, and creative.</p>
@@ -64,6 +64,6 @@ export default () => (
 				<li>Art direction</li>
 				<li>A/B testing</li>
 			</ul>
-		</BodyContentContainer>
+		{/* </BodyContentContainer> */}
 	</Container>
 );
