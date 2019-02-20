@@ -125,17 +125,17 @@ const HamburgerInner = styled.span`
 
 
 const NavSmall = styled.nav`
+	position: fixed;
+	top: 11rem;
 	width: 100%;
 	height: 0;
 	overflow: hidden;
 	transition: height .75s;
 	background-color: ${StylePatterns.Color('blue1')};
+	z-index: ${StylePatterns.ZIndex('smallNav')};
 
 	${({ showSmallNav }) => showSmallNav && `
-		position: fixed;
-		top: 11rem;
 		height: 100%;
-		z-index: ${StylePatterns.ZIndex('smallNav')};
 	`}
 `;
 
@@ -186,39 +186,37 @@ const NavSmallListItem = styled.li`
 		opacity: 1;
 	`}
 `;
+	// ${({ showSmallNav }) => showSmallNav && `
 
 const NavSmallLink = styled(Link)`
 	display: block;
+	width: 100%;
+	font-size: ${StylePatterns.FontSize('xl')} !important;
+	border: 0;
+	margin-left: 0;
+	padding: 1rem 5rem;
+	text-align: left;
+	font-size: 1.7rem;
+	background-color: transparent;
+	color: ${StylePatterns.Color('interactive-light')};
+	transition-property: background-color, color;
+	transition-duration: .25s;
 
-	${({ showSmallNav }) => showSmallNav && `
-		width: 100%;
-		font-size: ${StylePatterns.FontSize('xl')} !important;
+	&:hover {
 		border: 0;
-		margin-left: 0;
-		padding: 1rem 5rem;
-		text-align: left;
-		font-size: 1.7rem;
-		background-color: transparent;
+		color:  ${StylePatterns.Color('white')};
+		background-color: ${StylePatterns.Color('interactive-active')};
+	}
+
+	&:visited {
 		color: ${StylePatterns.Color('interactive-light')};
-		transition-property: background-color, color;
-		transition-duration: .25s;
 
 		&:hover {
 			border: 0;
 			color:  ${StylePatterns.Color('white')};
 			background-color: ${StylePatterns.Color('interactive-active')};
 		}
-
-		&:visited {
-			color: ${StylePatterns.Color('interactive-light')};
-
-			&:hover {
-				border: 0;
-				color:  ${StylePatterns.Color('white')};
-				background-color: ${StylePatterns.Color('interactive-active')};
-			}
-		}
-	`}
+	}
 `;
 
 
