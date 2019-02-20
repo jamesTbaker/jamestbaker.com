@@ -4,9 +4,30 @@
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import styled, { createGlobalStyle } from 'styled-components';
+import { Helmet } from 'react-helmet';
 import ScreenSizes from '../services/ScreenSizes';
-import Header from './Header';
 import StylePatterns from '../services/StylePatterns';
+import Header from './Header';
+
+import Favicon from '../img/favicons/favicon.ico';
+import AppleTouchIncon57 from '../img/favicons/apple-touch-icon-57x57.png';
+import AppleTouchIncon114 from '../img/favicons/apple-touch-icon-114x114.png';
+import AppleTouchIncon72 from '../img/favicons/apple-touch-icon-72x72.png';
+import AppleTouchIncon144 from '../img/favicons/apple-touch-icon-144x144.png';
+import AppleTouchIncon60 from '../img/favicons/apple-touch-icon-60x60.png';
+import AppleTouchIncon120 from '../img/favicons/apple-touch-icon-120x120.png';
+import AppleTouchIncon76 from '../img/favicons/apple-touch-icon-76x76.png';
+import AppleTouchIncon152 from '../img/favicons/apple-touch-icon-152x152.png';
+import Favicon196 from '../img/favicons/favicon-196x196.png';
+import Favicon96 from '../img/favicons/favicon-96x96.png';
+import Favicon32 from '../img/favicons/favicon-32x32.png';
+import Favicon16 from '../img/favicons/favicon-16x16.png';
+import Favicon128 from '../img/favicons/favicon-128.png';
+import MSTile144 from '../img/favicons/mstile-144x144.png';
+import MSTile70 from '../img/favicons/mstile-70x70.png';
+import MSTile150 from '../img/favicons/mstile-150x150.png';
+import MSTile310By150 from '../img/favicons/mstile-310x150.png';
+import MSTile310 from '../img/favicons/mstile-310x310.png';
 
 import LineAwesomeEOT from '../fonts/line-awesome.eot';
 import LineAwesomeTTF from '../fonts/line-awesome.ttf';
@@ -125,14 +146,43 @@ const TitleWrapper = styled.h1`
 	color: ${StylePatterns.Color('yellow')};
 	background-size: 100% auto, cover;
 	background-position: left top, 50% center;
-	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-80-percent')}, ${StylePatterns.Color('blue-1-80-percent')}), url('/img/${props => props.backgroundImage}.jpg');
+	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-80-percent')}, ${StylePatterns.Color('blue-1-80-percent')}), url('${props => props.backgroundImage}');
 `;
+
 
 
 // --- COMPONENT
 
 export default (props) => (
 	<div>
+		<Helmet
+			meta={[
+				{ name: 'application-name', content: 'James T. Baker' },
+				{ name: 'msapplication-TileColor', content: '#0B171E' },
+				{ name: 'msapplication-TileImage', content: `${MSTile144}` },
+				{ name: 'msapplication-square70x70logo', content: `${MSTile70}` },
+				{ name: 'msapplication-square150x150logo', content: `${MSTile150}` },
+				{ name: 'msapplication-wide310x150logo', content: `${MSTile310By150}` },
+				{ name: 'msapplication-square310x310logo', content: `${MSTile310}` },
+
+			]}
+			link={[
+				{ rel: 'shortcut icon', type: 'image/png', href: `${Favicon}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '57x57', href: `${AppleTouchIncon57}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '114x114', href: `${AppleTouchIncon114}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '72x72', href: `${AppleTouchIncon72}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '144x144', href: `${AppleTouchIncon144}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '60x60', href: `${AppleTouchIncon60}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '120x120', href: `${AppleTouchIncon120}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '76x76', href: `${AppleTouchIncon76}` },
+				{ rel: 'apple-touch-icon-precomposed', sizes: '152x152', href: `${AppleTouchIncon152}` },
+				{ rel: 'icon', type: 'image/png', sizes: '196x196', href: `${Favicon196}` },
+				{ rel: 'icon', type: 'image/png', sizes: '96x96', href: `${Favicon96}` },
+				{ rel: 'icon', type: 'image/png', sizes: '32x32', href: `${Favicon32}` },
+				{ rel: 'icon', type: 'image/png', sizes: '16x16', href: `${Favicon16}` },
+				{ rel: 'icon', type: 'image/png', sizes: '128x128', href: `${Favicon128}` },
+			]}
+		/>
 		<GlobalStyle />
 		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
 			<Header screenType="small" />

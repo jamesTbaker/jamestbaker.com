@@ -7,6 +7,7 @@ import Container from '../components/Container';
 import Collapsible from '../components/Collapsible';
 import { Helmet } from 'react-helmet';
 import StylePatterns from '../services/StylePatterns';
+import ImageBridge from '../img/titleImages/bridge.jpg';
 
 const BodyContentContainer = styled.div`
 	margin: 0;
@@ -27,13 +28,13 @@ const StrongText = styled.span`
 export default () => (
 	<Container
 		title="Profile"
-		titleBackgroundImage="bridge"
+		titleBackgroundImage={ImageBridge}
 	>
 		<Helmet>
 			<title>Profile</title>
 			<meta name="description" content="Profile of James T. Baker" />
 		</Helmet>
-		{/* <BodyContentContainer> */}
+		<BodyContentContainer>
 			<p>Greater Boston, USA</p>
 			<p><a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a></p>
 			<p>I speak suit, geek, and creative.</p>
@@ -64,6 +65,6 @@ export default () => (
 				<li>Art direction</li>
 				<li>A/B testing</li>
 			</ul>
-		{/* </BodyContentContainer> */}
+		</BodyContentContainer>
 	</Container>
 );
