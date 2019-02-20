@@ -45,7 +45,7 @@ const Hamburger = styled.button.attrs({
 })`
 	display: inline-block;
 	min-width: 0;
-	padding: 1.6rem 1.2rem;
+	padding: 1.6rem 1rem;
 	transition-property: background-color, filter;
 	transition-duration: .15s;
 	transition-timing-function: linear;
@@ -73,7 +73,7 @@ const HamburgerInner = styled.span`
     height: 1px;
     background-color: ${StylePatterns.Color('red9')};
     transition-property: transform;
-	transition-duration: 0.075s;
+	transition-duration: 0.3s;
 	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 	${({ showSmallNav }) => showSmallNav && `
@@ -94,11 +94,11 @@ const HamburgerInner = styled.span`
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
-		transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+		transition: top 0.3s 0.12s ease, opacity 0.3s ease;
 
 		${({ showSmallNav }) => showSmallNav && `
 			opacity: 0;
-			transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+			transition: top 0.3s ease, opacity 0.3s 0.12s ease;
 		`}
 	}
 
@@ -113,12 +113,12 @@ const HamburgerInner = styled.span`
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
-		transition: top 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.3s 0.12s ease, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 		${({ showSmallNav }) => showSmallNav && `
 			top: 0px;
 			transform: rotate(-90deg);
-			transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+			transition: bottom 0.3s ease, transform 0.3s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 		`}
 	}
 `;
@@ -128,7 +128,7 @@ const NavSmall = styled.nav`
 	width: 100%;
 	height: 0;
 	overflow: hidden;
-	transition: height .25s;
+	transition: height .75s;
 	background-color: ${StylePatterns.Color('blue1')};
 
 	${({ showSmallNav }) => showSmallNav && `
@@ -188,7 +188,39 @@ const NavSmallListItem = styled.li`
 	`}
 `;
 
+const NavSmallLink = styled(Link)`
+	display: block;
 
+	${({ showSmallNav }) => showSmallNav && `
+		width: 100%;
+		font-size: ${StylePatterns.FontSize('xl')} !important;
+		border: 0;
+		margin-left: 0;
+		padding: 1rem 5rem;
+		text-align: left;
+		font-size: 1.7rem;
+		background-color: transparent;
+		color: ${StylePatterns.Color('interactive-light')};
+		transition-property: background-color, color;
+		transition-duration: .25s;
+
+		&:hover {
+			border: 0;
+			color:  ${StylePatterns.Color('white')};
+			background-color: ${StylePatterns.Color('interactive-active')};
+		}
+
+		&:visited {
+			color: ${StylePatterns.Color('interactive-light')};
+
+			&:hover {
+				border: 0;
+				color:  ${StylePatterns.Color('white')};
+				background-color: ${StylePatterns.Color('interactive-active')};
+			}
+		}
+	`}
+`;
 
 
 export default class Header extends React.Component {
@@ -234,17 +266,32 @@ export default class Header extends React.Component {
 									<NavSmallListItem
 										showSmallNav={this.state.showSmallNav}
 									>
-										<Link to="/">Profile</Link>
+										<NavSmallLink 
+											showSmallNav={this.state.showSmallNav}
+											to="/"
+										>
+											Profile
+										</NavSmallLink>
 									</NavSmallListItem>
 									<NavSmallListItem
 										showSmallNav={this.state.showSmallNav}
 									>
-										<Link to="/work">Work</Link>
+										<NavSmallLink
+											showSmallNav={this.state.showSmallNav}
+											to="/work"
+										>
+											Work
+										</NavSmallLink>
 									</NavSmallListItem>
 									<NavSmallListItem
 										showSmallNav={this.state.showSmallNav}
 									>
-										<Link to="/contact">Contact</Link>
+										<NavSmallLink
+											showSmallNav={this.state.showSmallNav}
+											to="/contact"
+										>
+											Contact
+										</NavSmallLink>
 									</NavSmallListItem>
 								</NavSmallList>
 							</NavSmall>
