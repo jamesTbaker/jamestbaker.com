@@ -73,13 +73,13 @@ const HamburgerInner = styled.span`
     height: 1px;
     background-color: ${StylePatterns.Color('red9')};
     transition-property: transform;
-	transition-duration: 0.3s;
+	transition-duration: .15s;
 	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 	${({ showSmallNav }) => showSmallNav && `
 		top: 8px;
     	transform: rotate(45deg);
-		transition-delay: 0.12s;
+		transition-delay: .24s;
 		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 	`}
 
@@ -94,11 +94,11 @@ const HamburgerInner = styled.span`
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
-		transition: top 0.3s 0.12s ease, opacity 0.3s ease;
+		transition: top .15s .24s ease, opacity .15s ease;
 
 		${({ showSmallNav }) => showSmallNav && `
 			opacity: 0;
-			transition: top 0.3s ease, opacity 0.3s 0.12s ease;
+			transition: top .15s ease, opacity .15s .24s ease;
 		`}
 	}
 
@@ -113,12 +113,12 @@ const HamburgerInner = styled.span`
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
-		transition: top 0.3s 0.12s ease, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top .15s .24s ease, transform .15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
 		${({ showSmallNav }) => showSmallNav && `
 			top: 0px;
 			transform: rotate(-90deg);
-			transition: bottom 0.3s ease, transform 0.3s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+			transition: bottom .15s ease, transform .15s .24s cubic-bezier(0.215, 0.61, 0.355, 1);
 		`}
 	}
 `;
@@ -192,11 +192,11 @@ const NavSmallLink = styled(Link)`
 	display: block;
 	width: 100%;
 	font-size: ${StylePatterns.FontSize('xl')} !important;
+	font-weight: ${StylePatterns.FontWeight('light')};
 	border: 0;
 	margin-left: 0;
 	padding: 1rem 5rem;
 	text-align: left;
-	font-size: 1.7rem;
 	background-color: transparent;
 	color: ${StylePatterns.Color('interactive-light')};
 	transition-property: background-color, color;
