@@ -26,10 +26,6 @@ export default () => (
 		title="Profile"
 		titleBackgroundImage={ImageBridge}
 	>
-		<Helmet>
-			<title>Profile</title>
-			<meta name="description" content="Profile of James T. Baker" />
-		</Helmet>
 		<div style={SidePaddingNoMargin}>
 			<p>Greater Boston, USA</p>
 			<p><a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a></p>
