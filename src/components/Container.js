@@ -201,6 +201,8 @@ export default (props) => (
 		>
 			{props.title}
 		</TitleWrapper>
-		{props.children}
+		<div>
+			{props.children}
+		</div>
 	</div>
 );
