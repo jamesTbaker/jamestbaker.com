@@ -9,13 +9,9 @@ import { Helmet } from 'react-helmet';
 import StylePatterns from '../services/StylePatterns';
 import ImageBridge from '../img/titleImages/bridge.jpg';
 
-const BodyContentContainer = styled.div`
+const BodyHeadContainer = styled.div`
 	margin: 0;
 	padding: 1rem;
-`;
-
-const LocationContainer = styled.p`
-
 `;
 
 const StrongText = styled.span`
@@ -34,11 +30,11 @@ export default () => (
 			<title>Profile</title>
 			<meta name="description" content="Profile of James T. Baker" />
 		</Helmet>
-		<div>
-			<BodyContentContainer>
-				<p>Greater Boston, USA</p>
-				<p><a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a></p>
-				<p>I speak suit, geek, and creative.</p>
+		<BodyHeadContainer>
+			<p>Greater Boston, USA</p>
+			<p><a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a></p>
+			<p>I speak suit, geek, and creative.</p>
+		</BodyHeadContainer>
 				<p>
 					My <StrongText>19 years'</StrongText> experience in <StrongText>design</StrongText>,&nbsp;
 					<StrongText>technical product development</StrongText>, and <StrongText>management</StrongText> 
@@ -66,7 +62,5 @@ export default () => (
 					<li>Art direction</li>
 					<li>A/B testing</li>
 				</ul>
-			</BodyContentContainer>
-		</div>
 	</Container>
 );
