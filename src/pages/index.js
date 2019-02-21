@@ -3,7 +3,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Container from '../components/Container';
+import XYZ from '../components/XYZ';
 import Collapsible from '../components/Collapsible';
 import { Helmet } from 'react-helmet';
 import StylePatterns from '../services/StylePatterns';
@@ -22,7 +22,7 @@ const StrongText = styled.span`
 // ----- PAGE
 
 export default () => (
-	<Container
+	<XYZ
 		title="Profile"
 		titleBackgroundImage={ImageBridge}
 	>
@@ -62,5 +62,5 @@ export default () => (
 					<li>A/B testing</li>
 				</ul>
 		</div>
-	</Container>
+	</XYZ>
 );
