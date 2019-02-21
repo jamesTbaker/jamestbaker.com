@@ -34,12 +34,6 @@ const BrandContainer = styled.div`
 	padding-right: 1rem
 `;
 
-
-
-
-
-
-
 const Hamburger = styled.button.attrs({
 	type: 'button',
 })`
