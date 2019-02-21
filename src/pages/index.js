@@ -9,10 +9,10 @@ import { Helmet } from 'react-helmet';
 import StylePatterns from '../services/StylePatterns';
 import ImageBridge from '../img/titleImages/bridge.jpg';
 
-const BodyHeadContainer = styled.div`
-	margin: 0;
-	padding: 1rem;
-`;
+const SidePaddingNoMargin = {
+	margin: 0,
+	padding: '1rem',
+}
 
 const StrongText = styled.span`
 	font-weight: ${StylePatterns.FontWeight('bold')};
@@ -30,18 +30,21 @@ export default () => (
 			<title>Profile</title>
 			<meta name="description" content="Profile of James T. Baker" />
 		</Helmet>
-		<BodyHeadContainer>
+		<div style={SidePaddingNoMargin}>
 			<p>Greater Boston, USA</p>
 			<p><a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a></p>
 			<p>I speak suit, geek, and creative.</p>
-		</BodyHeadContainer>
-				<p>
-					My <StrongText>19 years'</StrongText> experience in <StrongText>design</StrongText>,&nbsp;
-					<StrongText>technical product development</StrongText>, and <StrongText>management</StrongText> 
-					have allowed me to <StrongText>lead and execute</StrongText> projects and operations 
-					at the intersection of business, software development, and 
-					visual / UX design + digital media.
-				</p>
+		</div>
+		<div style={SidePaddingNoMargin}>
+			<p>
+				My <StrongText>19 years'</StrongText> experience in <StrongText>design</StrongText>,&nbsp;
+				<StrongText>technical product development</StrongText>, and <StrongText>management</StrongText> 
+				have allowed me to <StrongText>lead and execute</StrongText> projects and operations 
+				at the intersection of business, software development, and 
+				visual / UX design + digital media.
+			</p>
+		</div>
+		<div style={SidePaddingNoMargin}>
 				<h2>Business Skills</h2>
 				<ul>
 					<li>Communicating and motivating across organizational levels and boundaries</li>
@@ -62,5 +65,6 @@ export default () => (
 					<li>Art direction</li>
 					<li>A/B testing</li>
 				</ul>
+		</div>
 	</Container>
 );
