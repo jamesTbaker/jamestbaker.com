@@ -12,23 +12,11 @@ import StylePatterns from '../services/StylePatterns';
 
 // ----- COMPONENT
 
-const HeaderSmall = styled.header`
-	display: grid;
-	grid-template-rows: 5rem;
-	grid-template-columns: 5rem auto 5rem;
-	padding: 3rem 0 3rem;
-	background-color: ${StylePatterns.Color('blue-1')};
-`;
-
-const HeaderMedium = styled.header`
-	grid-template-rows: 10rem;
-	grid-template-columns: auto 5rem;
-`;
 
 const HamburgerContainer = styled.div`
 	grid-area: 1 / 1 / 2 / 2;
 `;
-/* 
+/*
 	padding: 1rem 1rem 0 0;
 	text-align: right;
 	font-size: ${StylePatterns.FontSize('l')};
@@ -36,10 +24,6 @@ const HamburgerContainer = styled.div`
 	font-weight: ${StylePatterns.FontWeight('regular')};
 
 */
-const BrandContainer = styled.div`
-	grid-area: 1 / 3 / 2 / 4;
-	padding-right: 1rem;
-`;
 
 const Hamburger = styled.button.attrs({
 	type: 'button',
@@ -125,6 +109,37 @@ const HamburgerInner = styled.span`
 `;
 
 
+const VerticalAlignMiddleContainer = styled.div`
+	${StylePatterns.VerticalAlignMiddle()};
+`;
+const HeaderSmall = styled.header`
+	display: grid;
+	grid-template-rows: 5rem;
+	grid-template-columns: 5rem auto 5rem;
+	padding: 3rem 0;
+	background-color: ${StylePatterns.Color('blue-1')};
+`;
+const HeaderMedium = styled.header`
+	display: grid;
+	grid-template-rows: 7rem;
+	grid-template-columns: auto 10rem;
+	padding: 3rem 0;
+	background-color: ${StylePatterns.Color('blue-1')};
+`;
+const BrandContainerSmall = styled.div`
+	grid-area: 1 / 3 / 2 / 4;
+	padding-right: 1rem;
+`;
+const BrandContainerMedium = styled.div`
+	grid-area: 1 / 2 / 2 / 3;
+	padding-right: 5rem;
+`;
+
+const NavMedium = styled.nav`
+	width: 100%;
+	padding-left: 5rem;
+`;
+
 const NavSmall = styled.nav`
 	position: fixed;
 	top: 11rem;
@@ -148,7 +163,11 @@ const NavSmallList = styled.ul`
 	margin: 0;
 	list-style: none;
 `;
-
+const NavMediumList = styled.ul`
+	padding: 0;
+	margin: 0;
+	list-style: none;
+`;
 const NavSmallListItem = styled.li`
 	list-style: none;
 	margin-top: -2rem;
@@ -187,8 +206,13 @@ const NavSmallListItem = styled.li`
 		opacity: 1;
 	`}
 `;
-	// ${({ showSmallNav }) => showSmallNav && `
-
+const NavMediumListItem = styled.li`
+	display: inline-block;	
+	list-style: none;
+	margin: 0 2rem 0 0;
+	font-size: ${StylePatterns.FontSize('l')};
+	font-weight: ${StylePatterns.FontWeight('regular')};
+`;
 const NavSmallLink = styled(Link)`
 	display: block;
 	width: 100%;
@@ -254,10 +278,9 @@ export default class Header extends React.Component {
 									</HamburgerBox>
 								</Hamburger>
 							</HamburgerContainer>
-							<BrandContainer>
-							<Brand />
-								{/* JTB */}
-							</BrandContainer>
+							<BrandContainerSmall>
+								<Brand />
+							</BrandContainerSmall>
 							<NavSmall
 								showSmallNav={this.state.showSmallNav}
 							>
@@ -303,14 +326,20 @@ export default class Header extends React.Component {
 
 					(
 						<HeaderMedium>
-							<nav>
-								<ul>
-									<li><Brand /></li>
-									<li><Link to="/">Profile</Link></li>
-									<li><Link to="/work">Work</Link></li>
-									<li><Link to="/contact">Contact</Link></li>
-								</ul>
-							</nav>
+							<NavMedium>
+								<VerticalAlignMiddleContainer>
+									<NavMediumList>
+										<NavMediumListItem><Link to="/">Profile</Link></NavMediumListItem>
+										<NavMediumListItem><Link to="/work">Work</Link></NavMediumListItem>
+										<NavMediumListItem><Link to="/contact">Contact</Link></NavMediumListItem>
+									</NavMediumList>
+								</VerticalAlignMiddleContainer>
+							</NavMedium>
+							<BrandContainerMedium>
+								<VerticalAlignMiddleContainer>
+									<Brand />
+								</VerticalAlignMiddleContainer>
+							</BrandContainerMedium>
 						</HeaderMedium>
 					)
 				}

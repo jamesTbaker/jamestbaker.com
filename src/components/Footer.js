@@ -3,7 +3,6 @@
 
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Brand from './Brand';
 import StylePatterns from '../services/StylePatterns';
@@ -13,11 +12,12 @@ import ScreenSizes from '../services/ScreenSizes';
 
 // --- COMPONENT
 
-const FooterSmall = styled.footer`
+const FooterContainer = styled.footer`
 	display: grid;
 	grid-template-columns: 3rem auto;
 	grid-column-gap: 1.5rem;
-	padding: 2rem 1rem 2rem;
+	padding: ${props => props.screenType === 'small' ?
+		'2rem 1rem 2rem' : '2rem 5rem 2rem' };
 	margin: 2rem 0 0;
 	font-size: ${StylePatterns.FontSize('xs')};
 	background-color: ${StylePatterns.Color('blue-1')};
@@ -36,17 +36,12 @@ const VerticalAlignMiddleContainer = styled.div`
 	${StylePatterns.VerticalAlignMiddle()};
 `;
 
-const FooterMedium = styled.footer`
-	padding: 2rem 1rem 1rem;
-	margin: 2rem 0 0;
-	background-color: ${StylePatterns.Color('blue-1')};
-`;
-
-
 export default (props) => (
 	<div>
 		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
-			<FooterSmall>
+			<FooterContainer
+				screenType="small"
+			>
 				<BrandContainer>
 					<VerticalAlignMiddleContainer>
 						<Brand />
@@ -54,19 +49,45 @@ export default (props) => (
 				</BrandContainer>
 				<CopyrightContainer>
 					<VerticalAlignMiddleContainer>
-						&copy; 1999 - 2019, James T. Baker. All Rights Reserved.
+						&copy; 1999&ndash;2019, James T. Baker. All Rights Reserved.
 					</VerticalAlignMiddleContainer>
 				</CopyrightContainer>
-			</FooterSmall>
+			</FooterContainer>
 		</MediaQuery>
 		<MediaQuery
 			minWidth={ScreenSizes.ReturnMediumMin()}
+			maxWidth={ScreenSizes.ReturnMediumMax()}
 		>
-			<FooterMedium>
+			<FooterContainer
+				screenType="medium"
+			>
 				<BrandContainer>
-					<Brand />
+					<VerticalAlignMiddleContainer>
+						<Brand />
+					</VerticalAlignMiddleContainer>
 				</BrandContainer>
-			</FooterMedium>
+				<CopyrightContainer>
+					<VerticalAlignMiddleContainer>
+						&copy; 1999&ndash;2019, James T. Baker. All Rights Reserved.
+					</VerticalAlignMiddleContainer>
+				</CopyrightContainer>
+			</FooterContainer>
+		</MediaQuery>
+		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
+			<FooterContainer
+				screenType="large"
+			>
+				<BrandContainer>
+					<VerticalAlignMiddleContainer>
+						<Brand />
+					</VerticalAlignMiddleContainer>
+				</BrandContainer>
+				<CopyrightContainer>
+					<VerticalAlignMiddleContainer>
+						&copy; 1999&ndash;2019, James T. Baker. All Rights Reserved.
+					</VerticalAlignMiddleContainer>
+				</CopyrightContainer>
+			</FooterContainer>
 		</MediaQuery>
 	</div>
 );

@@ -8,20 +8,22 @@ import StylePatterns from '../services/StylePatterns';
 
 // --- COMPONENT
 
-const TitleWrapper = styled.h1`
-	padding: 7rem 1rem;
+const TitleContainer = styled.h1`
+	padding: ${props => props.screenType === 'small' ? 
+		'7rem 1rem' : '10rem 5rem' };
 	margin: 0;
-	font-weight: 300;
+	font-weight: ${props => props.screenType === 'small' ? StylePatterns.FontWeight('light') : StylePatterns.FontWeight('light')};
 	color: ${StylePatterns.Color('yellow-1')};
 	background-size: 100% auto, cover;
 	background-position: left top, 50% center;
-	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-80-percent')}, ${StylePatterns.Color('blue-1-80-percent')}), url('${props => props.backgroundImage}');
+	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-60-percent')}, ${StylePatterns.Color('blue-1-20-percent')}), url('${props => props.backgroundImage}');
 	`;
 
 export default (props) => (
-	<TitleWrapper
+	<TitleContainer
 		backgroundImage={props.backgroundImage}
+		screenType={props.screenType}
 	>
 		{props.text}
-	</TitleWrapper>
+	</TitleContainer>
 );

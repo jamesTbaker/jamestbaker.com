@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
 	html { font-size: 10px; }
 	body { 
 		font-size: ${StylePatterns.FontSize('m')};
-		font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, 'Roboto', Arial, "Lucida Grande", sans-serif;
+		font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 0;
 		background-color: ${StylePatterns.Color('blue-2')};
@@ -138,6 +138,15 @@ const GlobalStyle = createGlobalStyle`
 			color: ${StylePatterns.Color('interactive-active')};
 		}
 	}
+	a[aria-current="page"] {
+		color: ${StylePatterns.Color('yellow-1')};
+		transition: color .25s;
+
+		&:hover,
+		&:active {
+			color: ${StylePatterns.Color('yellow-2')};
+		}
+	}
 `;
 
 // --- COMPONENT
@@ -176,19 +185,30 @@ export default (props) => (
 		<GlobalStyle />
 		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
 			<BrandAndNav screenType="small" />
+			<PageTitle
+				backgroundImage={props.titleBackgroundImage}
+				text={props.title}
+				screenType="small"
+			/>
 		</MediaQuery>
 		<MediaQuery
 			minWidth={ScreenSizes.ReturnMediumMin()}
 			maxWidth={ScreenSizes.ReturnMediumMax()}
 		>
 			<BrandAndNav screenType="medium" />
+			<PageTitle
+				backgroundImage={props.titleBackgroundImage}
+				text={props.title}
+				screenType="medium"
+			/>
 		</MediaQuery>
 		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
 			<BrandAndNav screenType="large" />
+			<PageTitle
+				backgroundImage={props.titleBackgroundImage}
+				text={props.title}
+				screenType="large"
+			/>
 		</MediaQuery>
-		<PageTitle
-			backgroundImage={props.titleBackgroundImage}
-			text={props.title}
-		/>
 	</div>
 );

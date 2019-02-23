@@ -99,8 +99,10 @@ module.exports = {
 				return '#4f93b1';
 			case 'blue-9':
 				return '#5ba8cb';
+			// case 'interactive-active':
 			case 'blue-10':
 				return '#67bee5';
+			// case 'interactive-default':
 			case 'blue-11':
 				return '#73d4ff';
 
