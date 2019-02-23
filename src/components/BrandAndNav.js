@@ -229,7 +229,7 @@ const NavSmallLink = styled(Link)`
 	&:hover {
 		border: 0;
 		color:  ${StylePatterns.Color('white')};
-		background-color: ${StylePatterns.Color('red-5')};
+		background-color: ${StylePatterns.Color('interactive-dark')};
 	}
 
 	&:visited {
@@ -238,7 +238,7 @@ const NavSmallLink = styled(Link)`
 		&:hover {
 			border: 0;
 			color:  ${StylePatterns.Color('white')};
-			background-color: ${StylePatterns.Color('red-5')};
+			background-color: ${StylePatterns.Color('interactive-dark')};
 		}
 	}
 	&[aria-current="page"] {
@@ -247,7 +247,7 @@ const NavSmallLink = styled(Link)`
 		&:hover {
 			border: 0;
 			color:  ${StylePatterns.Color('white')};
-			background-color: ${StylePatterns.Color('red-5')};
+			background-color: ${StylePatterns.Color('interactive-dark')};
 		}
 
 		&:visited {
@@ -256,13 +256,50 @@ const NavSmallLink = styled(Link)`
 			&:hover {
 				border: 0;
 				color:  ${StylePatterns.Color('white')};
-				background-color: ${StylePatterns.Color('red-5')};
+				background-color: ${StylePatterns.Color('interactive-dark')};
 			}
 		}
 	}
 `;
+const NavMediumLink = styled(Link)`
+	border: 0;
+	color:  ${StylePatterns.Color('interactive-dark')};
+
+	&:hover {
+		border: 0;
+		color:  ${StylePatterns.Color('interactive-dark-active')};
+	}
+
+	&:visited {
+		color: ${StylePatterns.Color('interactive-dark')};
+
+		&:hover {
+			border: 0;
+			color:  ${StylePatterns.Color('interactive-dark-active')};
+		}
+	}
+	&[aria-current="page"] {
+		border-bottom: 1px solid;
+	}
+`;
+
+/* 
+		&:hover {
+			border: 0;
+			color:  ${StylePatterns.Color('interactive-alternate-active')};
+		}
+
+		&:visited {
+			color: ${StylePatterns.Color('interactive-alternate')};
+
+			&:hover {
+				border: 0;
+				color:  ${StylePatterns.Color('interactive-alternate-active')};
+			}
+		}
 
 
+ */
 export default class Header extends React.Component {
 	constructor(props) {
 		super(props);

@@ -53,14 +53,19 @@ module.exports = {
 
 	Color: (token) => {
 		switch (token) {
-			case 'yellow':
 			case 'yellow-1':
-				return '#fbbd4e';
+				return '#ffa200';
 			case 'yellow-2':
-				return '#fcc86a';
+				return '#fdb027';
 			case 'yellow-3':
-				return '#fed285';
+			case 'interactive-alternate':
+				return '#fbbd4e';
+			case 'interactive-alternate-active':
 			case 'yellow-4':
+				return '#fcc86a';
+			case 'yellow-5':
+				return '#fed285';
+			case 'yellow-6':
 				return '#ffdda1';
 
 			case 'blue-1':
@@ -99,10 +104,8 @@ module.exports = {
 				return '#4f93b1';
 			case 'blue-9':
 				return '#5ba8cb';
-			// case 'interactive-active':
 			case 'blue-10':
 				return '#67bee5';
-			// case 'interactive-default':
 			case 'blue-11':
 				return '#73d4ff';
 
@@ -111,34 +114,26 @@ module.exports = {
 
 
 
-			case 'red-1':
-				return '#1f0002';
-			case 'red-2':
-				return '#38060d';
-			case 'red-3':
-				return '#510c18';
-			case 'red-4':
-				return '#6a1324';
-			case 'red-5':
-				return '#83192f';
-			case 'red-6':
-				return '#9b1f3a';
-			case 'red-7':
-				return '#b42545';
-			case 'red-8':
-				return '#cd2c51';
-			case 'interactive-active':
-			case 'red-9':
-				return '#e6325c';
+			case 'interactive-dark':
+			case 'green-6':
+				return '#00a36d';
+			case 'interactive-dark-active':
+			case 'green-7':
+				return '#00bf99';
+			
 			case 'interactive-default':
-			case 'red-10':
-				return '#ff3867';
+			case 'green-8':
+				return '#00dbaf';
+			case 'interactive-default-active':
+			case 'green-9':
+				return '#38ffc3';
+			case 'green-10':
+				return '#96ffd4';
 
 
 
 			case 'white':
 				return '#fff';
-
 
 			case 'grey-1':
 				return '#eee';
@@ -148,6 +143,7 @@ module.exports = {
 				return '#ddd';
 			case 'grey-4':
 				return '#d4d4d4';
+			case 'body-copy':
 			case 'grey-5':
 				return '#ccc';
 			case 'grey-6':

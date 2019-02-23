@@ -135,19 +135,25 @@ const GlobalStyle = createGlobalStyle`
 
 		&:hover,
 		&:active {
-			color: ${StylePatterns.Color('interactive-active')};
+			color: ${StylePatterns.Color('interactive-default-active')};
 		}
 	}
 	a[aria-current="page"] {
-		color: ${StylePatterns.Color('yellow-1')};
+		border-bottom: 1px solid;
+	}
+`;
+
+
+/* 
+		color: ${StylePatterns.Color('interactive-alternate')};
 		transition: color .25s;
 
 		&:hover,
 		&:active {
-			color: ${StylePatterns.Color('yellow-2')};
+			color: ${StylePatterns.Color('interactive-alternate-active')};
 		}
-	}
-`;
+
+ */
 
 // --- COMPONENT
 

@@ -38,7 +38,7 @@ export default class Collapsible extends React.Component {
 						defaultBackgroundColor="transparent"
 						defaultContentColor={StylePatterns.Color('interactive-default')}
 						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('interactive-active')}
+						activeContentColor={StylePatterns.Color('interactive-default-active')}
 						clickHandler={this.handleCollapsibleClick}
 					/>
 				}
@@ -59,7 +59,7 @@ export default class Collapsible extends React.Component {
 						defaultBackgroundColor="transparent"
 						defaultContentColor={StylePatterns.Color('interactive-default')}
 						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('interactive-active')}
+						activeContentColor={StylePatterns.Color('interactive-default-active')}
 						clickHandler={this.handleCollapsibleClick}
 					/>
 				}
