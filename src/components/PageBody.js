@@ -16,10 +16,12 @@ const BodyContainer = styled.div`
 `;
 
 export default (props) => (
-	<BodyContainer
-		className="body-container"
-		screenType={props.screenType}
-	>
-		{props.children}
-	</BodyContainer>
+	<div>
+		<BodyContainer
+			className="body-container"
+			screenType={props.screenType}
+		>
+			{props.children}
+		</BodyContainer>
+	</div>
 );
