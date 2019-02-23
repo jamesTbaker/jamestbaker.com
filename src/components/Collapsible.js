@@ -27,54 +27,42 @@ export default class Collapsible extends React.Component {
 		return (
 			<div>
 				{
-					/* this.state.collapsed && 
+					this.props.buttonPosition === "before" && 
 
-					<SectionExpandButton
+					<CollapsibleSectionButton
 						buttonHeight="3"
 						iconPosition="before"
-						iconContent="angle-down"
-						contentHeight="2.2"
-						text={this.props.expandText}
+						iconContent={this.state.collapsed ? "angle-down" : "angle-up"}
+						contentHeight="1.8"
+						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
 						defaultBackgroundColor="transparent"
-						defaultContentColor={StylePatterns.Color('red5')}
+						defaultContentColor={StylePatterns.Color('interactive-default')}
 						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('red3')}
+						activeContentColor={StylePatterns.Color('interactive-active')}
 						clickHandler={this.handleCollapsibleClick}
-					/> */
+					/>
 				}
-				{
-					/* !this.state.collapsed && 
-					
-					<SectionCollapseButton
-						buttonHeight="3"
-						iconPosition="before"
-						iconContent="angle-up"
-						contentHeight="2.2"
-						text={this.props.collapseText}
-						defaultBackgroundColor="transparent"
-						defaultContentColor={StylePatterns.Color('red5')}
-						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('red3')}
-						clickHandler={this.handleCollapsibleClick}
-					/> */
-				}
-				<CollapsibleSectionButton
-					buttonHeight="3"
-					iconPosition="before"
-					iconContent={this.state.collapsed ? "angle-down" : "angle-up"}
-					contentHeight="2.2"
-					text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
-					defaultBackgroundColor="transparent"
-					defaultContentColor={StylePatterns.Color('red5')}
-					activeBackgroundColor="transparent"
-					activeContentColor={StylePatterns.Color('red3')}
-					clickHandler={this.handleCollapsibleClick}
-				/>
 				<FadeIn
 					in={!this.state.collapsed}
 				>
 					{this.props.children}
 				</FadeIn>
+				{
+					this.props.buttonPosition === "after" &&
+
+					<CollapsibleSectionButton
+						buttonHeight="3"
+						iconPosition="before"
+						iconContent={this.state.collapsed ? "angle-down" : "angle-up"}
+						contentHeight="1.8"
+						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
+						defaultBackgroundColor="transparent"
+						defaultContentColor={StylePatterns.Color('interactive-default')}
+						activeBackgroundColor="transparent"
+						activeContentColor={StylePatterns.Color('interactive-active')}
+						clickHandler={this.handleCollapsibleClick}
+					/>
+				}
 			</div>
 		);
 	}
