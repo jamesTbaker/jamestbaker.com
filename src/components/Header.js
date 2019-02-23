@@ -42,12 +42,12 @@ const GlobalStyle = createGlobalStyle`
 	* { box-sizing: border-box; }
 	html { font-size: 10px; }
 	body { 
-		font-size: 1.6rem;
+		font-size: ${StylePatterns.FontSize('m')};
 		font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, 'Roboto', Arial, "Lucida Grande", sans-serif;
-		font-weight: ${StylePatterns.FontWeight('regular')};
+		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 0;
-		background-color: ${StylePatterns.Color('blue3')};
-		color: ${StylePatterns.Color('grey5')};
+		background-color: ${StylePatterns.Color('blue-2')};
+		color: ${StylePatterns.Color('grey-5')};
 	}
 	@font-face {
 		font-family: 'LineAwesome';
@@ -76,12 +76,12 @@ const GlobalStyle = createGlobalStyle`
 	}
 	h1 {
 		font-size: ${StylePatterns.FontSize('xxxl')};
-		font-weight: ${StylePatterns.FontWeight('regular')};
+		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h2 {
 		font-size: ${StylePatterns.FontSize('xxl')};
-		font-weight: ${StylePatterns.FontWeight('regular')};
+		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h3 {
@@ -91,22 +91,22 @@ const GlobalStyle = createGlobalStyle`
 	}
 	h4 {
 		font-size: ${StylePatterns.FontSize('l')};
-		font-weight: ${StylePatterns.FontWeight('regular')};
+		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h5 {
 		font-size: ${StylePatterns.FontSize('xxxl')};
-		font-weight: ${StylePatterns.FontWeight('regular')};
+		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: .5rem 0 .25rem;
 	}
 	h6 {
 		font-size: ${StylePatterns.FontSize('xxxl')};
-		font-weight: ${StylePatterns.FontWeight('regular')};
+		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: .5rem 0 .25rem;
 	}
-	ul {
+	p, ul, ol {
 		margin: 0;
-		padding: 0;
+		padding: 0 0 2rem 0;
 	}
 	ul ul,
 	ol ol {
@@ -130,12 +130,12 @@ const GlobalStyle = createGlobalStyle`
 	a,
 	a:visited {
 		text-decoration: none;
-		color: ${StylePatterns.Color('interactive-light')};
+		color: ${StylePatterns.Color('interactive-default')};
 		transition: color .25s;
 
 		&:hover,
 		&:active {
-			color: ${StylePatterns.Color('interactive-light-active')};
+			color: ${StylePatterns.Color('interactive-active')};
 		}
 	}
 `;

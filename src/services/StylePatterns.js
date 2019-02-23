@@ -34,7 +34,7 @@ module.exports = {
 			case 'regular':
 				return '400';
 			case 'bold':
-				return '700';
+				return '500';
 		}
 	},
 
@@ -54,9 +54,16 @@ module.exports = {
 	Color: (token) => {
 		switch (token) {
 			case 'yellow':
+			case 'yellow-1':
 				return '#fbbd4e';
-			default:
-			case 'blue1':
+			case 'yellow-2':
+				return '#fcc86a';
+			case 'yellow-3':
+				return '#fed285';
+			case 'yellow-4':
+				return '#ffdda1';
+
+			case 'blue-1':
 				return '#081015';
 			case 'blue-1-10-percent':
 				return 'rgba(8,16,21,.1)';
@@ -76,73 +83,96 @@ module.exports = {
 				return 'rgba(8,16,21,.8)';
 			case 'blue-1-90-percent':
 				return 'rgba(8,16,21,.9)';
-			case 'blue2':
-				return '#0b171e';
-			case 'blue3':
-				return '#102029';
-			case 'blue4':
-				return '#18303d';
-			case 'blue5':
-				return '#234659';
-			case 'red1':
-				return '#470006';
+			case 'blue-2':
+				return '#0e1b22';
+			case 'blue-3':
+				return '#14262f';
+			case 'blue-4':
+				return '#203c49';
+			case 'blue-5':
+				return '#2c5163';
+			case 'blue-6':
+				return '#38677d';
+			case 'blue-7':
+				return '#437d97';
+			case 'blue-8':
+				return '#4f93b1';
+			case 'blue-9':
+				return '#5ba8cb';
+			case 'blue-10':
+				return '#67bee5';
+			case 'blue-11':
+				return '#73d4ff';
+
+
+
+
+
+
+			case 'red-1':
+				return '#1f0002';
+			case 'red-2':
+				return '#38060d';
+			case 'red-3':
+				return '#510c18';
+			case 'red-4':
+				return '#6a1324';
+			case 'red-5':
+				return '#83192f';
+			case 'red-6':
+				return '#9b1f3a';
+			case 'red-7':
+				return '#b42545';
+			case 'red-8':
+				return '#cd2c51';
 			case 'interactive-active':
-			case 'red2':
-				return '#5d0007';
+			case 'red-9':
+				return '#e6325c';
 			case 'interactive-default':
-			case 'red3':
-				return '#8a0009';
-			case 'red4':
-				return '#a3000b';
-			case 'red5':
-				return '#bd000d';
-			case 'interactive-light':
-			case 'red8':
-				return '#fa003a';
-			case 'interactive-light-active':
-			case 'red9':
-				return '#ff194f';
+			case 'red-10':
+				return '#ff3867';
+
 
 
 			case 'white':
 				return '#fff';
 
 
-			case 'grey1':
+			case 'grey-1':
 				return '#eee';
-			case 'grey2':
+			case 'grey-2':
 				return '#e6e6e6';
-			case 'grey3':
+			case 'grey-3':
 				return '#ddd';
-			case 'grey4':
+			case 'grey-4':
 				return '#d4d4d4';
-			case 'grey5':
+			case 'grey-5':
 				return '#ccc';
-			case 'grey6':
+			case 'grey-6':
 				return '#c3c3c3';
-			case 'grey7':
+			case 'grey-7':
 				return '#bbb';
-			case 'grey8':
+			case 'grey-8':
 				return '#b2b2b2';
-			case 'grey9':
+			case 'grey-9':
 				return '#aaa';
-			case 'grey10':
+			case 'grey-10':
 				return '#999';
-			case 'grey11':
+			case 'grey-11':
 				return '#888';
-			case 'grey12':
+			case 'grey-12':
 				return '#777';
-			case 'grey13':
+			case 'grey-13':
 				return '#666';
-			case 'grey14':
+			case 'grey-14':
 				return '#555';
-			case 'grey15':
+			case 'grey-15':
 				return '#444';
-			case 'grey16':
+			case 'grey-16':
 				return '#333';
-			case 'grey17':
+			case 'grey-17':
 				return '#222';
-			case 'grey18':
+			case 'grey-18':
 				return '#111';
 		}
 	},

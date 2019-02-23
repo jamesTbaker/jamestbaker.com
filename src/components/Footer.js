@@ -15,30 +15,31 @@ import ScreenSizes from '../services/ScreenSizes';
 
 const FooterSmall = styled.footer`
 	display: grid;
-	grid-template-columns: 10rem auto 6rem;
-	padding: 2rem 1rem 1rem;
+	grid-template-columns: 3rem auto;
+	grid-column-gap: 1.5rem;
+	padding: 2rem 1rem 2rem;
 	margin: 2rem 0 0;
 	font-size: ${StylePatterns.FontSize('xs')};
-	background-color: ${StylePatterns.Color('blue1')};
-`;
-
-const BrandAndCopyrightContainer = styled.div`
-	grid-area: 1 / 1 / 2 / 2;
+	background-color: ${StylePatterns.Color('blue-1')};
+	color: ${StylePatterns.Color('grey-9')};
 `;
 
 const BrandContainer = styled.div`
-	width: 3rem;
+	grid-area: 1 / 1 / 2 / 2;
 `;
 
-const NavContainer = styled.div`
-	grid-area: 1 / 3 / 2 / 4;
-	padding-right: 1rem
+const CopyrightContainer = styled.div`
+	grid-area: 1 / 2 / 2 / 3;
+`;
+
+const VerticalAlignMiddleContainer = styled.div`
+	${StylePatterns.VerticalAlignMiddle()};
 `;
 
 const FooterMedium = styled.footer`
 	padding: 2rem 1rem 1rem;
 	margin: 2rem 0 0;
-	background-color: ${StylePatterns.Color('blue1')};
+	background-color: ${StylePatterns.Color('blue-1')};
 `;
 
 
@@ -46,15 +47,16 @@ export default (props) => (
 	<div>
 		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
 			<FooterSmall>
-				<BrandAndCopyrightContainer>
-					<BrandContainer>
+				<BrandContainer>
+					<VerticalAlignMiddleContainer>
 						<Brand />
-					</BrandContainer>
-					&copy; 1999 - 2019, James T. Baker. All Rights Reserved.
-				</BrandAndCopyrightContainer>
-				<NavContainer>
-					Hello
-				</NavContainer>
+					</VerticalAlignMiddleContainer>
+				</BrandContainer>
+				<CopyrightContainer>
+					<VerticalAlignMiddleContainer>
+						&copy; 1999 - 2019, James T. Baker. All Rights Reserved.
+					</VerticalAlignMiddleContainer>
+				</CopyrightContainer>
 			</FooterSmall>
 		</MediaQuery>
 		<MediaQuery

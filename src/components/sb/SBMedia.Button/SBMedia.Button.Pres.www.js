@@ -36,7 +36,7 @@ const ButtonBase = styled.button`
 `;
 
 const VisibleTextWrapper = styled.span`
-	font-size: ${props => props.contentHeight}rem;
+	font-size: ${props => props.textSize}rem;
 	font-weight: normal;
 	text-align: ${props => props.textAlignment || 'left'};
 	${props => ReturnVisibleTextWrapperHorizontalPadding(props.iconPosition)}

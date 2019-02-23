@@ -8,18 +8,33 @@ import Footer from '../components/Footer';
 import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
 import ImageBridge from '../img/titleImages/bridge.jpg';
+import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 
-const SidePaddingNoMargin = {
-	margin: 0,
-	padding: '1rem',
-}
+// ----- PAGE
 
 const StrongText = styled.span`
 	font-weight: ${StylePatterns.FontWeight('bold')};
-	color: ${StylePatterns.Color('yellow')};
+	color: ${StylePatterns.Color('yellow-1')};
 `;
 
-// ----- PAGE
+const BodyContainer = styled.div`
+	margin: 0;
+	padding: 3rem 1rem 1rem;
+`;
+
+const LocationContainer = styled.p`
+	padding-bottom: .5rem;
+	font-size: ${StylePatterns.FontSize('xs')};
+`;
+
+const ProfileBriefContainer = styled.p`
+	padding-bottom: .5rem;
+	font-weight: ${StylePatterns.FontWeight('regular')};
+`;
+
+const TaglineContainer = styled.p`
+	font-size: ${StylePatterns.FontSize('xl')};
+`;
 
 export default () => (
 	<div>
@@ -28,10 +43,19 @@ export default () => (
 			titleBackgroundImage={ImageBridge}
 			description="Profile of James T. Baker"
 		/>
-		<div style={SidePaddingNoMargin}>
-			<p>Greater Boston, USA</p>
-			<p><a href="/Profile Brief - James T. Baker.pdf">Profile Brief</a></p>
-			<p>I speak suit, geek, and creative.</p>
+		<BodyContainer>
+			<LocationContainer>Greater Boston, USA</LocationContainer>
+			<ProfileBriefContainer>
+				<a href="/Profile Brief - James T. Baker.pdf">
+					Profile Brief
+					<Icon
+						iconPosition="after"
+						iconContent="cloud-download"
+						iconSize="1.8"
+					/>
+				</a>
+			</ProfileBriefContainer>
+			<TaglineContainer>I speak suit, geek, and creative.</TaglineContainer>
 			<p>
 				My <StrongText>19 years'</StrongText> experience in <StrongText>design</StrongText>,&nbsp;
 				<StrongText>technical product development</StrongText>, and <StrongText>management</StrongText> 
@@ -48,6 +72,7 @@ export default () => (
 				<Collapsible
 					expandText="Discover more business skills"
 					collapseText="Show fewer business skills"
+					buttonPosition="after"
 				>
 					<li>Active listening</li>
 					<li>Financial management</li>
@@ -59,7 +84,7 @@ export default () => (
 				<li>Art direction</li>
 				<li>A/B testing</li>
 			</ul>
-		</div>
+		</BodyContainer>
 		<Footer />
 	</div>
 );

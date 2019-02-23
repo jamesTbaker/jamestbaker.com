@@ -15,9 +15,9 @@ import StylePatterns from '../services/StylePatterns';
 const HeaderSmall = styled.header`
 	display: grid;
 	grid-template-rows: 5rem;
-	grid-template-columns: 5rem auto 6rem;
+	grid-template-columns: 5rem auto 5rem;
 	padding: 3rem 0 3rem;
-	background-color: ${StylePatterns.Color('blue1')};
+	background-color: ${StylePatterns.Color('blue-1')};
 `;
 
 const HeaderMedium = styled.header`
@@ -28,10 +28,17 @@ const HeaderMedium = styled.header`
 const HamburgerContainer = styled.div`
 	grid-area: 1 / 1 / 2 / 2;
 `;
+/* 
+	padding: 1rem 1rem 0 0;
+	text-align: right;
+	font-size: ${StylePatterns.FontSize('l')};
+	color: ${StylePatterns.Color('interactive-default')};
+	font-weight: ${StylePatterns.FontWeight('regular')};
 
+*/
 const BrandContainer = styled.div`
 	grid-area: 1 / 3 / 2 / 4;
-	padding-right: 1rem
+	padding-right: 1rem;
 `;
 
 const Hamburger = styled.button.attrs({
@@ -65,7 +72,7 @@ const HamburgerInner = styled.span`
     position: absolute;
     width: 26px;
     height: 1px;
-    background-color: ${StylePatterns.Color('red9')};
+    background-color: ${StylePatterns.Color('interactive-default')};
     transition-property: transform;
 	transition-duration: .15s;
 	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -84,7 +91,7 @@ const HamburgerInner = styled.span`
 		width: 26px;
 		height: 1px;
 		top: 8px;
-		background-color: ${StylePatterns.Color('red9')};
+		background-color: ${StylePatterns.Color('interactive-default')};
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
@@ -103,7 +110,7 @@ const HamburgerInner = styled.span`
 		width: 26px;
 		height: 1px;
 		top: 16px;
-		background-color: ${StylePatterns.Color('red9')};
+		background-color: ${StylePatterns.Color('interactive-default')};
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
@@ -125,7 +132,7 @@ const NavSmall = styled.nav`
 	height: 0;
 	overflow: hidden;
 	transition: height .75s;
-	background-color: ${StylePatterns.Color('blue1')};
+	background-color: ${StylePatterns.Color('blue-1')};
 	z-index: ${StylePatterns.ZIndex('smallNav')};
 
 	${({ showSmallNav }) => showSmallNav && `
@@ -192,7 +199,7 @@ const NavSmallLink = styled(Link)`
 	padding: 1rem 5rem;
 	text-align: left;
 	background-color: transparent;
-	color: ${StylePatterns.Color('interactive-light')};
+	color: ${StylePatterns.Color('interactive-default')};
 	transition-property: background-color, color;
 	transition-duration: .25s;
 
@@ -203,7 +210,7 @@ const NavSmallLink = styled(Link)`
 	}
 
 	&:visited {
-		color: ${StylePatterns.Color('interactive-light')};
+		color: ${StylePatterns.Color('interactive-default')};
 
 		&:hover {
 			border: 0;
@@ -248,7 +255,8 @@ export default class Header extends React.Component {
 								</Hamburger>
 							</HamburgerContainer>
 							<BrandContainer>
-								<Brand />
+							<Brand />
+								{/* JTB */}
 							</BrandContainer>
 							<NavSmall
 								showSmallNav={this.state.showSmallNav}

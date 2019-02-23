@@ -17,4 +17,10 @@ export default styled.span`
 	&:${props => props.iconPosition} {
 		content: '${props => IconData.ReturnIconData(props.iconContent)}';
 	}
+	&:after {
+		margin-left: ${props => (props.iconSize * .33)}rem;
+	}
+	&:before {
+		margin-right: ${props => (props.iconSize * .33)}rem;
+	}
 `;
