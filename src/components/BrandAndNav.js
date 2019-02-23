@@ -210,8 +210,8 @@ const NavMediumListItem = styled.li`
 	display: inline-block;	
 	list-style: none;
 	margin: 0 2rem 0 0;
-	font-size: ${StylePatterns.FontSize('l')};
-	font-weight: ${StylePatterns.FontWeight('regular')};
+	font-size: ${StylePatterns.FontSize('m')};
+	font-weight: ${StylePatterns.FontWeight('light')};
 `;
 const NavSmallLink = styled(Link)`
 	display: block;
@@ -223,14 +223,13 @@ const NavSmallLink = styled(Link)`
 	padding: 1rem 5rem;
 	text-align: left;
 	background-color: transparent;
-	color: ${StylePatterns.Color('interactive-default')};
 	transition-property: background-color, color;
 	transition-duration: .25s;
 
 	&:hover {
 		border: 0;
-		color:  ${StylePatterns.Color('white')};
-		background-color: ${StylePatterns.Color('interactive-active')};
+		color:  ${StylePatterns.Color('yellow-3')};
+		background-color: ${StylePatterns.Color('red-3')};
 	}
 
 	&:visited {
@@ -238,8 +237,27 @@ const NavSmallLink = styled(Link)`
 
 		&:hover {
 			border: 0;
-			color:  ${StylePatterns.Color('white')};
-			background-color: ${StylePatterns.Color('interactive-active')};
+			color:  ${StylePatterns.Color('yellow-3')};
+			background-color: ${StylePatterns.Color('red-3')};
+		}
+	}
+	&[aria-current="page"] {
+		color: ${StylePatterns.Color('yellow-3')};
+
+		&:hover {
+			border: 0;
+			color:  ${StylePatterns.Color('red-3')};
+			background-color: ${StylePatterns.Color('yellow-1')};
+		}
+
+		&:visited {
+			color: ${StylePatterns.Color('yellow-3')};
+
+			&:hover {
+				border: 0;
+				color:  ${StylePatterns.Color('red-3')};
+				background-color: ${StylePatterns.Color('yellow-3')};
+			}
 		}
 	}
 `;
