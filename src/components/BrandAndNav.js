@@ -228,8 +228,8 @@ const NavSmallLink = styled(Link)`
 
 	&:hover {
 		border: 0;
-		color:  ${StylePatterns.Color('yellow-3')};
-		background-color: ${StylePatterns.Color('red-3')};
+		color:  ${StylePatterns.Color('white')};
+		background-color: ${StylePatterns.Color('red-5')};
 	}
 
 	&:visited {
@@ -237,8 +237,8 @@ const NavSmallLink = styled(Link)`
 
 		&:hover {
 			border: 0;
-			color:  ${StylePatterns.Color('yellow-3')};
-			background-color: ${StylePatterns.Color('red-3')};
+			color:  ${StylePatterns.Color('white')};
+			background-color: ${StylePatterns.Color('red-5')};
 		}
 	}
 	&[aria-current="page"] {
@@ -246,8 +246,8 @@ const NavSmallLink = styled(Link)`
 
 		&:hover {
 			border: 0;
-			color:  ${StylePatterns.Color('red-3')};
-			background-color: ${StylePatterns.Color('yellow-1')};
+			color:  ${StylePatterns.Color('white')};
+			background-color: ${StylePatterns.Color('red-5')};
 		}
 
 		&:visited {
@@ -255,8 +255,8 @@ const NavSmallLink = styled(Link)`
 
 			&:hover {
 				border: 0;
-				color:  ${StylePatterns.Color('red-3')};
-				background-color: ${StylePatterns.Color('yellow-3')};
+				color:  ${StylePatterns.Color('white')};
+				background-color: ${StylePatterns.Color('red-5')};
 			}
 		}
 	}
