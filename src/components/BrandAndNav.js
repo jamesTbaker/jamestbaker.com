@@ -241,6 +241,31 @@ const NavSmallLink = styled(Link)`
 			background-color: ${StylePatterns.Color('interactive-dark')};
 		}
 	}
+`;
+const NavMediumLink = styled(Link)`
+	border: 0;
+	color: ${StylePatterns.Color('interactive-dark')};
+
+	&:hover {
+		border: 0;
+		color: ${StylePatterns.Color('interactive-dark-active')};
+	}
+
+	&:visited {
+		color: ${StylePatterns.Color('interactive-dark')};
+
+		&:hover {
+			border: 0;
+			color: ${StylePatterns.Color('interactive-dark-active')};
+		}
+	}
+	&[aria-current="page"] {
+		border-bottom: 1px solid ${StylePatterns.Color('blue-6')};
+	}
+`;
+
+/* 
+
 	&[aria-current="page"] {
 		color: ${StylePatterns.Color('yellow-3')};
 
@@ -260,30 +285,9 @@ const NavSmallLink = styled(Link)`
 			}
 		}
 	}
-`;
-const NavMediumLink = styled(Link)`
-	border: 0;
-	color:  ${StylePatterns.Color('interactive-dark')};
 
-	&:hover {
-		border: 0;
-		color:  ${StylePatterns.Color('interactive-dark-active')};
-	}
 
-	&:visited {
-		color: ${StylePatterns.Color('interactive-dark')};
 
-		&:hover {
-			border: 0;
-			color:  ${StylePatterns.Color('interactive-dark-active')};
-		}
-	}
-	&[aria-current="page"] {
-		border-bottom: 1px solid;
-	}
-`;
-
-/* 
 		&:hover {
 			border: 0;
 			color:  ${StylePatterns.Color('interactive-alternate-active')};
@@ -384,9 +388,9 @@ export default class Header extends React.Component {
 							<NavMedium>
 								<VerticalAlignMiddleContainer>
 									<NavMediumList>
-										<NavMediumListItem><Link to="/">Profile</Link></NavMediumListItem>
-										<NavMediumListItem><Link to="/work">Work</Link></NavMediumListItem>
-										<NavMediumListItem><Link to="/contact">Contact</Link></NavMediumListItem>
+										<NavMediumListItem><NavMediumLink to="/">Profile</NavMediumLink></NavMediumListItem>
+										<NavMediumListItem><NavMediumLink to="/work">Work</NavMediumLink></NavMediumListItem>
+										<NavMediumListItem><NavMediumLink to="/contact">Contact</NavMediumLink></NavMediumListItem>
 									</NavMediumList>
 								</VerticalAlignMiddleContainer>
 							</NavMedium>

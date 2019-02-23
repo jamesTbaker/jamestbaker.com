@@ -138,9 +138,6 @@ const GlobalStyle = createGlobalStyle`
 			color: ${StylePatterns.Color('interactive-default-active')};
 		}
 	}
-	a[aria-current="page"] {
-		border-bottom: 1px solid;
-	}
 `;
 
 

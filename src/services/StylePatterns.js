@@ -58,9 +58,7 @@ module.exports = {
 			case 'yellow-2':
 				return '#fdb027';
 			case 'yellow-3':
-			case 'interactive-alternate':
 				return '#fbbd4e';
-			case 'interactive-alternate-active':
 			case 'yellow-4':
 				return '#fcc86a';
 			case 'yellow-5':
@@ -117,18 +115,17 @@ module.exports = {
 			case 'interactive-dark':
 			case 'green-6':
 				return '#00a36d';
+			case 'interactive-default':
 			case 'interactive-dark-active':
 			case 'green-7':
-				return '#00bf99';
-			
-			case 'interactive-default':
-			case 'green-8':
-				return '#00dbaf';
+				return '#00bf8f';
 			case 'interactive-default-active':
+			case 'green-8':
+				return '#00dba1';
 			case 'green-9':
-				return '#38ffc3';
+				return '#38ffb9';
 			case 'green-10':
-				return '#96ffd4';
+				return '#96ffcc';
 
 
 
