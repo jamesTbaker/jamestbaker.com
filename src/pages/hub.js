@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
-import ImageAcorn from '../img/titleImages/acorn.jpg';
+import ImageStreaks from '../img/titleImages/streaks.jpg';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
@@ -36,7 +36,7 @@ const SummaryContainer = styled.p`
 `;
 const returnPageContent = props => (
 	<div>
-		Contact
+		The Hub
 	</div>
 );
 
@@ -44,9 +44,9 @@ export default () => {
 	return (
 		<div>
 			<Header
-				title="Contact"
-				titleBackgroundImage={ImageAcorn}
-				description="Contact James T. Baker"
+				title="The Hub"
+				titleBackgroundImage={ImageStreaks}
+				description="Work: The Hub"
 			/>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
 				<PageBody

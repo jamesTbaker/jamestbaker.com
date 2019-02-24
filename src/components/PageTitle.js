@@ -16,7 +16,7 @@ const TitleContainer = styled.h1`
 	color: ${StylePatterns.Color('yellow-1')};
 	background-size: 100% auto, cover;
 	background-position: left top, 50% center;
-	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1-60-percent')}, ${StylePatterns.Color('blue-1-20-percent')}), url('${props => props.backgroundImage}');
+	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1')}, ${StylePatterns.Color('blue-1-20-percent')}), url('${props => props.backgroundImage}');
 	`;
 
 export default (props) => (

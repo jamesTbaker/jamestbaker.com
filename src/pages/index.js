@@ -12,14 +12,11 @@ import ImageBridge from '../img/titleImages/bridge.jpg';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
+import StrongText from '../components/StrongText';
 
 
 // ----- PAGE
 
-const StrongText = styled.span`
-	font-weight: ${StylePatterns.FontWeight('bold')};
-	color: ${StylePatterns.Color('yellow-1')};
-`;
 const LocationContainer = styled.p`
 	padding-bottom: .5rem;
 	font-size: ${StylePatterns.FontSize('xs')};
