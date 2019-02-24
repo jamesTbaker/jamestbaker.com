@@ -209,6 +209,11 @@ module.exports = {
 		text-indent: 100%;
 		white-space: nowrap;
 		overflow: hidden;`,
+
+
+	// ALIGNMENT
+
+
 	VerticalAlignMiddle: () =>
 		`position: relative;
 		top: 50%;
