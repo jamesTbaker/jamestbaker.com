@@ -13,6 +13,7 @@ module.exports = {
 			options: {
 				fonts: [
 					'Roboto:100,100i,300,300i,400,400i,500,500i',
+					'Roboto+Condensed:100,100i,300,300i,400,400i,500,500i',
 					// 'Rubik:300,300i,400,400i,500,500i',
 					// 'source sans pro:300,300i,400,400i,500,500i',
 					// 'source sans pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i',

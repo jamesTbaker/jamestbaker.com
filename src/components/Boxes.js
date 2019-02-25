@@ -16,27 +16,29 @@ import StylePatterns from '../services/StylePatterns';
  */
 // e.g., will contain an h2
 const SectionContainer = styled.section`
-	margin-top: 5rem;
+	margin-top: ${props => props.screenType === 'small' ?
+		'3rem' : '5rem' };
 `;
 // e.g., will contain an h3 and an image
 const SubsectionContainer = styled.section`
-	margin-top: 3rem;
+	margin-top: '3rem' };
 `;
 // will handle most of needs
 const BoxContainer = styled.div`
 	text-align: ${props => props.containsText ?
-		'centered' : 'left' };
+		'left' : 'center' };
 `;
 // ${props => props.additionalStyles ?
 // 	props.additionalStyles : '' };
 // will prevent text content from being too long
-const BoxTextRestainer = styled.div`
+const BoxTextRestrainer = styled.div`
 	max-width: 50rem;
 `;
 
 const CenteredChild = styled.div`
 	margin-left: auto;
 	margin-right: auto;
+	display: inline-block
 `;
 
 export const Section = (props) => (
@@ -60,12 +62,12 @@ export const Box = (props) => (
 		{
 			props.containsText &&
 
-			<BoxTextRestainer
+			<BoxTextRestrainer
 				containsText
 				additionalStyles
 			>
 				{props.children}
-			</BoxTextRestainer>
+			</BoxTextRestrainer>
 		}
 		{
 			!props.containsText &&
