@@ -129,8 +129,6 @@ const HeaderMedium = styled.header`
 const BrandContainerSmall = styled.div`
 	grid-area: 1 / 3 / 2 / 4;
 	padding-right: 1rem;
-
-	svg
 `;
 const BrandContainerMedium = styled.div`
 	grid-area: 1 / 2 / 2 / 3;
