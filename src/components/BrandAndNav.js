@@ -129,6 +129,8 @@ const HeaderMedium = styled.header`
 const BrandContainerSmall = styled.div`
 	grid-area: 1 / 3 / 2 / 4;
 	padding-right: 1rem;
+
+	svg
 `;
 const BrandContainerMedium = styled.div`
 	grid-area: 1 / 2 / 2 / 3;
@@ -222,23 +224,17 @@ const NavSmallLink = styled(Link)`
 	margin-left: 0;
 	padding: 1rem 5rem;
 	text-align: left;
-	background-color: transparent;
-	transition-property: background-color, color;
-	transition-duration: .25s;
+	color: ${StylePatterns.Color('interactive-on-dark-default')};
 
 	&:hover {
-		border: 0;
-		color:  ${StylePatterns.Color('white')};
-		background-color: ${StylePatterns.Color('interactive-on-dark-active')};
+		color: ${StylePatterns.Color('interactive-on-dark-active')};
 	}
 
 	&:visited {
 		color: ${StylePatterns.Color('interactive-on-dark-default')};
 
 		&:hover {
-			border: 0;
-			color:  ${StylePatterns.Color('white')};
-			background-color: ${StylePatterns.Color('interactive-on-dark-active')};
+			color: ${StylePatterns.Color('interactive-on-dark-active')};
 		}
 	}
 `;
@@ -261,6 +257,11 @@ const NavMediumLink = styled(Link)`
 	}
 	&[aria-current="page"] {
 		border-bottom: 1px solid ${StylePatterns.Color('blue-6')};
+		transition: border-color .25s;
+
+		&:hover {
+			border-color: ${StylePatterns.Color('interactive-on-dark-active')};
+		}
 	}
 `;
 
@@ -338,7 +339,9 @@ export default class Header extends React.Component {
 								</Hamburger>
 							</HamburgerContainer>
 							<BrandContainerSmall>
-								<Brand />
+								<VerticalAlignMiddleContainer>
+									<Brand />
+								</VerticalAlignMiddleContainer>
 							</BrandContainerSmall>
 							<NavSmall
 								showSmallNav={this.state.showSmallNav}

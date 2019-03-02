@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
-import ImageAcorn from '../img/titleImages/acorn.jpg';
+import ImageURL from '../img/titleImages/artem-sapegin-1142792-unsplash.jpg';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
@@ -45,7 +45,7 @@ export default () => {
 		<div>
 			<Header
 				title="Contact"
-				titleBackgroundImage={ImageAcorn}
+				titleBackgroundImage={ImageURL}
 				description="Contact James T. Baker"
 			/>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>

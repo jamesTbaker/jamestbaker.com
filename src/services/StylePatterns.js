@@ -133,29 +133,31 @@ module.exports = {
 
 
 			case 'red-1':
-				return '#1f0002';
+				return '#380609';
 			case 'red-2':
-				return '#38060d';
+				return '#4d0509';
 			case 'red-3':
 				return '#510c18';
-			case 'interactive-on-light-active':
 			case 'red-4':
-				return '#6a1324';
-			case 'interactive-on-light-default':
+				return '#760209';
 			case 'red-5':
-				return '#83192f';
+				return '#8a0009';
 			case 'red-6':
-				return '#9b1f3a';
+				return '#a10b15';
+			case 'interactive-on-light-active':
 			case 'red-7':
-				return '#b42545';
+				return '#b91a1e';
+			case 'interactive-on-light-default':
 			case 'red-8':
-				return '#cd2c51';
-			case 'interactive-on-dark-active':
+				return '#d02a27';
 			case 'red-9':
-				return '#e6325c';
+				return '#e8392f';
 			case 'interactive-on-dark-default':
 			case 'red-10':
-				return '#ff3867';
+				return '#ff4938';
+			case 'interactive-on-dark-active':
+			case 'red-11':
+				return '#ff6c5f';
 
 
 			case 'white':

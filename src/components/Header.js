@@ -138,6 +138,9 @@ const GlobalStyle = createGlobalStyle`
 			color: ${StylePatterns.Color('interactive-on-light-active')};
 		}
 	}
+	g.brand {
+		fill: ${StylePatterns.Color('blue-9')};
+	}
 `;
 
 

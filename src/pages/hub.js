@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
-import ImageStreaks from '../img/titleImages/streaks.jpg';
+import ImageURL from '../img/titleImages/osman-rana-190413-unsplash.jpg';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
@@ -167,7 +167,7 @@ export default () => {
 		<div>
 			<Header
 				title="The Hub"
-				titleBackgroundImage={ImageStreaks}
+				titleBackgroundImage={ImageURL}
 				description="Work: The Hub"
 			/>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
