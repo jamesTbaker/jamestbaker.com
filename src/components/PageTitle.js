@@ -13,7 +13,7 @@ const TitleContainer = styled.h1`
 		'7rem 1rem' : '10rem 5rem' };
 	margin: 0;
 	font-weight: ${props => props.screenType === 'small' ? StylePatterns.FontWeight('light') : StylePatterns.FontWeight('light')};
-	color: ${StylePatterns.Color('yellow-1')};
+	color: ${StylePatterns.Color('blue-9')};
 	background-size: 100% auto, cover;
 	background-position: left top, 50% center;
 	background-image: linear-gradient(to right, ${StylePatterns.Color('blue-1')}, ${StylePatterns.Color('blue-1-20-percent')}), url('${props => props.backgroundImage}');

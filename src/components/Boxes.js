@@ -20,8 +20,8 @@ const SectionContainer = styled.section`
 		'3rem' : '5rem' };
 `;
 // e.g., will contain an h3 and an image
-const SubsectionContainer = styled.section`
-	margin-top: '3rem' };
+const SubsectionContainer = styled.div`
+	margin-top: 3rem };
 `;
 // will handle most of needs
 const BoxContainer = styled.div`
@@ -44,6 +44,7 @@ const CenteredChild = styled.div`
 export const Section = (props) => (
 	<SectionContainer
 		id={props.id}
+		screenType={props.screenType}
 	>
 		{props.children}
 	</SectionContainer>

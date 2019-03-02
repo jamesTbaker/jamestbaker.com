@@ -20,7 +20,7 @@ const HamburgerContainer = styled.div`
 	padding: 1rem 1rem 0 0;
 	text-align: right;
 	font-size: ${StylePatterns.FontSize('l')};
-	color: ${StylePatterns.Color('interactive-default')};
+	color: ${StylePatterns.Color('interactive-on-light-default')};
 	font-weight: ${StylePatterns.FontWeight('regular')};
 
 */
@@ -56,7 +56,7 @@ const HamburgerInner = styled.span`
     position: absolute;
     width: 26px;
     height: 1px;
-    background-color: ${StylePatterns.Color('interactive-default')};
+    background-color: ${StylePatterns.Color('interactive-on-dark-default')};
     transition-property: transform;
 	transition-duration: .15s;
 	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -75,7 +75,7 @@ const HamburgerInner = styled.span`
 		width: 26px;
 		height: 1px;
 		top: 8px;
-		background-color: ${StylePatterns.Color('interactive-default')};
+		background-color: ${StylePatterns.Color('interactive-on-dark-default')};
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
@@ -94,7 +94,7 @@ const HamburgerInner = styled.span`
 		width: 26px;
 		height: 1px;
 		top: 16px;
-		background-color: ${StylePatterns.Color('interactive-default')};
+		background-color: ${StylePatterns.Color('interactive-on-dark-default')};
 		transition-property: transform;
 		transition-duration: 0.15s;
 		transition-timing-function: ease;
@@ -229,34 +229,34 @@ const NavSmallLink = styled(Link)`
 	&:hover {
 		border: 0;
 		color:  ${StylePatterns.Color('white')};
-		background-color: ${StylePatterns.Color('interactive-dark')};
+		background-color: ${StylePatterns.Color('interactive-on-dark-active')};
 	}
 
 	&:visited {
-		color: ${StylePatterns.Color('interactive-default')};
+		color: ${StylePatterns.Color('interactive-on-dark-default')};
 
 		&:hover {
 			border: 0;
 			color:  ${StylePatterns.Color('white')};
-			background-color: ${StylePatterns.Color('interactive-dark')};
+			background-color: ${StylePatterns.Color('interactive-on-dark-active')};
 		}
 	}
 `;
 const NavMediumLink = styled(Link)`
 	border: 0;
-	color: ${StylePatterns.Color('interactive-dark')};
+	color: ${StylePatterns.Color('interactive-on-dark-default')};
 
 	&:hover {
 		border: 0;
-		color: ${StylePatterns.Color('interactive-dark-active')};
+		color: ${StylePatterns.Color('interactive-on-dark-active')};
 	}
 
 	&:visited {
-		color: ${StylePatterns.Color('interactive-dark')};
+		color: ${StylePatterns.Color('interactive-on-dark-default')};
 
 		&:hover {
 			border: 0;
-			color: ${StylePatterns.Color('interactive-dark-active')};
+			color: ${StylePatterns.Color('interactive-on-dark-active')};
 		}
 	}
 	&[aria-current="page"] {
@@ -348,7 +348,6 @@ export default class Header extends React.Component {
 										showSmallNav={this.state.showSmallNav}
 									>
 										<NavSmallLink 
-											showSmallNav={this.state.showSmallNav}
 											to="/"
 										>
 											Profile
@@ -358,7 +357,6 @@ export default class Header extends React.Component {
 										showSmallNav={this.state.showSmallNav}
 									>
 										<NavSmallLink
-											showSmallNav={this.state.showSmallNav}
 											to="/work"
 										>
 											Work
@@ -368,7 +366,6 @@ export default class Header extends React.Component {
 										showSmallNav={this.state.showSmallNav}
 									>
 										<NavSmallLink
-											showSmallNav={this.state.showSmallNav}
 											to="/contact"
 										>
 											Contact

@@ -104,6 +104,24 @@ module.exports = {
 				return '#5ba8cb';
 			case 'blue-10':
 				return '#67bee5';
+			case 'blue-10-10-percent':
+				return 'rgba(103,190,229,.1)';
+			case 'blue-10-20-percent':
+				return 'rgba(103,190,229,.2)';
+			case 'blue-10-30-percent':
+				return 'rgba(103,190,229,.3)';
+			case 'blue-10-40-percent':
+				return 'rgba(103,190,229,.4)';
+			case 'blue-10-50-percent':
+				return 'rgba(103,190,229,.5)';
+			case 'blue-10-60-percent':
+				return 'rgba(103,190,229,.6)';
+			case 'blue-10-70-percent':
+				return 'rgba(103,190,229,.7)';
+			case 'blue-10-80-percent':
+				return 'rgba(103,190,229,.8)';
+			case 'blue-10-90-percent':
+				return 'rgba(103,190,229,.9)';
 			case 'blue-11':
 				return '#73d4ff';
 
@@ -112,21 +130,32 @@ module.exports = {
 
 
 
-			case 'interactive-dark':
-			case 'green-6':
-				return '#00a36d';
-			case 'interactive-default':
-			case 'interactive-dark-active':
-			case 'green-7':
-				return '#00bf8f';
-			case 'interactive-default-active':
-			case 'green-8':
-				return '#00dba1';
-			case 'green-9':
-				return '#38ffb9';
-			case 'green-10':
-				return '#96ffcc';
 
+
+			case 'red-1':
+				return '#1f0002';
+			case 'red-2':
+				return '#38060d';
+			case 'red-3':
+				return '#510c18';
+			case 'interactive-on-light-active':
+			case 'red-4':
+				return '#6a1324';
+			case 'interactive-on-light-default':
+			case 'red-5':
+				return '#83192f';
+			case 'red-6':
+				return '#9b1f3a';
+			case 'red-7':
+				return '#b42545';
+			case 'red-8':
+				return '#cd2c51';
+			case 'interactive-on-dark-active':
+			case 'red-9':
+				return '#e6325c';
+			case 'interactive-on-dark-default':
+			case 'red-10':
+				return '#ff3867';
 
 
 			case 'white':

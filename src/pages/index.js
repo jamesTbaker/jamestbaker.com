@@ -8,21 +8,21 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
-import ImageBridge from '../img/titleImages/bridge.jpg';
+import ImageStreaks from '../img/titleImages/streaks.jpg';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 import StrongText from '../components/StrongText';
-
+import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 
 // ----- PAGE
 
 const LocationContainer = styled.p`
-	padding-bottom: .5rem;
+	margin-bottom: .5rem;
 	font-size: ${StylePatterns.FontSize('xs')};
 `;
 const ProfileBriefContainer = styled.p`
-	padding-bottom: .5rem;
+	margin-bottom: .5rem;
 	font-weight: ${StylePatterns.FontWeight('regular')};
 `;
 const TaglineContainer = styled.p`
@@ -35,7 +35,7 @@ const returnPageContent = props => (
 	<div>
 		<LocationContainer>Greater Boston, USA</LocationContainer>
 		<ProfileBriefContainer>
-			<a href="/Profile Brief - James T. Baker.pdf">
+			<a href={ProfileBrief}>
 				Profile Brief
 							<Icon
 					iconPosition="after"
@@ -83,7 +83,7 @@ export default () => {
 		<div>
 			<Header
 				title="Profile"
-				titleBackgroundImage={ImageBridge}
+				titleBackgroundImage={ImageStreaks}
 				description="Profile of James T. Baker"
 			/>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>

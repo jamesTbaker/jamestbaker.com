@@ -10,7 +10,7 @@ import StylePatterns from '../services/StylePatterns';
 
 const StrongText = styled.span`
 	font-weight: ${StylePatterns.FontWeight('bold')};
-	color: ${StylePatterns.Color('yellow-3')};
+	color: ${StylePatterns.Color('blue-5')};
 `;
 
 export default (props) => (

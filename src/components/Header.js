@@ -43,11 +43,11 @@ const GlobalStyle = createGlobalStyle`
 	html { font-size: 10px; }
 	body { 
 		font-size: ${StylePatterns.FontSize('m')};
-		font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,'Roboto', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 0;
-		background-color: ${StylePatterns.Color('blue-2')};
-		color: ${StylePatterns.Color('grey-5')};
+		background-color: ${StylePatterns.Color('white')};
+		color: ${StylePatterns.Color('grey-13')};
 	}
 	@font-face {
 		font-family: 'LineAwesome';
@@ -105,8 +105,8 @@ const GlobalStyle = createGlobalStyle`
 		margin: .5rem 0 .25rem;
 	}
 	p, ul, ol {
-		margin: 0;
-		padding: 0 0 2rem 0;
+		margin: 0 0 2rem 0;
+		padding: 0;
 	}
 	ul ul,
 	ol ol {
@@ -130,12 +130,12 @@ const GlobalStyle = createGlobalStyle`
 	a,
 	a:visited {
 		text-decoration: none;
-		color: ${StylePatterns.Color('interactive-default')};
+		color: ${StylePatterns.Color('interactive-on-light-default')};
 		transition: color .25s;
 
 		&:hover,
 		&:active {
-			color: ${StylePatterns.Color('interactive-default-active')};
+			color: ${StylePatterns.Color('interactive-on-light-active')};
 		}
 	}
 `;

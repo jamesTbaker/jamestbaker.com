@@ -36,9 +36,9 @@ export default class Collapsible extends React.Component {
 						contentHeight="1.8"
 						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
 						defaultBackgroundColor="transparent"
-						defaultContentColor={StylePatterns.Color('interactive-default')}
+						defaultContentColor={StylePatterns.Color('interactive-on-light-default')}
 						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('interactive-default-active')}
+						activeContentColor={StylePatterns.Color('interactive-on-light-active')}
 						clickHandler={this.handleCollapsibleClick}
 					/>
 				}
@@ -57,9 +57,9 @@ export default class Collapsible extends React.Component {
 						contentHeight="1.8"
 						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
 						defaultBackgroundColor="transparent"
-						defaultContentColor={StylePatterns.Color('interactive-default')}
+						defaultContentColor={StylePatterns.Color('interactive-on-light-default')}
 						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('interactive-default-active')}
+						activeContentColor={StylePatterns.Color('interactive-on-light-active')}
 						clickHandler={this.handleCollapsibleClick}
 					/>
 				}
