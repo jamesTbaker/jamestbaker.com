@@ -25,7 +25,7 @@ const ButtonBase = styled.button.attrs(props => ({
 }))`
 	display: inline-block;
 	width: ${props => ReturnButtonWidth(props.fullWidth)};
-	padding: ${props => ReturnButtonVerticalPadding(props.buttonHeight, props.contentHeight, 'top')}rem 1rem ${props => ReturnButtonVerticalPadding(props.buttonHeight, props.contentHeight, 'bottom')}rem 1rem;
+	padding: ${props => ReturnButtonVerticalPadding(props.buttonHeight, props.contentHeight, 'top')}rem 0 ${props => ReturnButtonVerticalPadding(props.buttonHeight, props.contentHeight, 'bottom')}rem 0;
 	border: 0;
 	background-color: ${props => props.defaultBackgroundColor};
 	color: ${props => props.defaultContentColor};
@@ -40,7 +40,7 @@ const ButtonBase = styled.button.attrs(props => ({
 
 const VisibleTextWrapper = styled.span`
 	font-size: ${props => props.textSize}rem;
-	font-weight: normal;
+	font-weight: ${StylePatterns.FontWeight('light')};
 	text-align: ${props => props.textAlignment || 'left'};
 	${props => ReturnVisibleTextWrapperHorizontalPadding(props.iconPosition)}
 `;

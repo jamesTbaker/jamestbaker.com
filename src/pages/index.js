@@ -23,7 +23,7 @@ const LocationContainer = styled.p`
 `;
 const ProfileBriefContainer = styled.p`
 	margin-bottom: .5rem;
-	font-weight: ${StylePatterns.FontWeight('regular')};
+	font-weight: ${StylePatterns.FontWeight('light')};
 `;
 const TaglineContainer = styled.p`
 	font-size: ${StylePatterns.FontSize('xxl')};
@@ -37,10 +37,10 @@ const returnPageContent = props => (
 		<ProfileBriefContainer>
 			<a href={ProfileBrief}>
 				Profile Brief
-							<Icon
+				<Icon
 					iconPosition="after"
 					iconContent="cloud-download"
-					iconSize="1.8"
+					iconSize="1.5"
 				/>
 			</a>
 		</ProfileBriefContainer>

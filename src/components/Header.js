@@ -3,11 +3,12 @@
 
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import BrandAndNav from './BrandAndNav';
+import SiteBanner from './SiteBanner';
 import PageTitle from './PageTitle';
 
 import Favicon from '../img/favicons/favicon.ico';
@@ -143,18 +144,6 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-
-/* 
-		color: ${StylePatterns.Color('interactive-alternate')};
-		transition: color .25s;
-
-		&:hover,
-		&:active {
-			color: ${StylePatterns.Color('interactive-alternate-active')};
-		}
-
- */
-
 // --- COMPONENT
 
 export default (props) => (
@@ -191,6 +180,7 @@ export default (props) => (
 		<GlobalStyle />
 		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
 			<BrandAndNav screenType="small" />
+			<SiteBanner screenType="small" />
 			<PageTitle
 				backgroundImage={props.titleBackgroundImage}
 				text={props.title}
@@ -202,6 +192,7 @@ export default (props) => (
 			maxWidth={ScreenSizes.ReturnMediumMax()}
 		>
 			<BrandAndNav screenType="medium" />
+			<SiteBanner screenType="medium" />
 			<PageTitle
 				backgroundImage={props.titleBackgroundImage}
 				text={props.title}
@@ -210,6 +201,7 @@ export default (props) => (
 		</MediaQuery>
 		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
 			<BrandAndNav screenType="large" />
+			<SiteBanner screenType="large" />
 			<PageTitle
 				backgroundImage={props.titleBackgroundImage}
 				text={props.title}

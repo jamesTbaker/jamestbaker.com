@@ -142,12 +142,12 @@ module.exports = {
 				return '#760209';
 			case 'red-5':
 				return '#8a0009';
+			case 'interactive-on-light-active':
 			case 'red-6':
 				return '#a10b15';
-			case 'interactive-on-light-active':
+			case 'interactive-on-light-default':
 			case 'red-7':
 				return '#b91a1e';
-			case 'interactive-on-light-default':
 			case 'red-8':
 				return '#d02a27';
 			case 'red-9':
