@@ -185,6 +185,29 @@ module.exports = {
 
 			case 'white':
 				return '#fff';
+			case 'white-10-percent':
+				return 'rgba(255,255,255,.1)';
+			case 'white-20-percent':
+				return 'rgba(255,255,255,.2)';
+			case 'white-30-percent':
+				return 'rgba(255,255,255,.3)';
+			case 'white-40-percent':
+				return 'rgba(255,255,255,.4)';
+			case 'white-50-percent':
+				return 'rgba(255,255,255,.5)';
+			case 'white-60-percent':
+				return 'rgba(255,255,255,.6)';
+			case 'white-70-percent':
+				return 'rgba(255,255,255,.7)';
+			case 'white-80-percent':
+				return 'rgba(255,255,255,.8)';
+			case 'white-90-percent':
+				return 'rgba(255,255,255,.9)';
+
+
+
+
+
 
 			case 'grey-1':
 				return '#eee';
