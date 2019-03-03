@@ -6,14 +6,13 @@ import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
-import ImageURL from '../img/titleImages/osman-rana-190413-unsplash.jpg';
-import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
+// import ImageURL from '../img/titleImages/_original/osman-rana-190413-unsplash.jpg';
+import TitleImageMedium from '../img/titleImages/processed/back-bay-aerial.jpg';
+import TitleImageSmall from '../img/titleImages/processed/back-bay-aerial@0,5x.jpg';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 import { Section, Subsection, Box } from '../components/Boxes';
-import { checkPropTypes } from 'prop-types';
 import ImageProto from '../img/proto/proto.png';
 
 // ----- PAGE
@@ -190,7 +189,8 @@ export default () => {
 		<div>
 			<Header
 				title="The Hub"
-				titleBackgroundImage={ImageURL}
+				titleBackgroundImageSmall={TitleImageSmall}
+				titleBackgroundImageMedium={TitleImageMedium}
 				description="Work: The Hub"
 			/>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>

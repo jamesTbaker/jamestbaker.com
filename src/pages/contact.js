@@ -6,10 +6,9 @@ import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
-import ImageURL from '../img/titleImages/artem-sapegin-1142792-unsplash.jpg';
-import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
+import TitleImageMedium from '../img/titleImages/processed/bus.jpg';
+import TitleImageSmall from '../img/titleImages/processed/bus@0,5x.jpg';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 
@@ -34,6 +33,9 @@ const TaglineContainer = styled.p`
 const SummaryContainer = styled.p`
 	max-width: 50rem;
 `;
+const PageTitle = 'Contact';
+const PageDescription = 'Contact James T. Baker';
+
 const returnPageContent = props => (
 	<div>
 		Contact
@@ -43,12 +45,12 @@ const returnPageContent = props => (
 export default () => {
 	return (
 		<div>
-			<Header
-				title="Contact"
-				titleBackgroundImage={ImageURL}
-				description="Contact James T. Baker"
-			/>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
+				<Header
+					title={PageTitle}
+					backgroundImage={TitleImageSmall}
+					description={PageDescription}
+				/>
 				<PageBody
 					screenType="small"
 				>
@@ -59,6 +61,11 @@ export default () => {
 				minWidth={ScreenSizes.ReturnMediumMin()}
 				maxWidth={ScreenSizes.ReturnMediumMax()}
 			>
+				<Header
+					title={PageTitle}
+					backgroundImage={TitleImageMedium}
+					description={PageDescription}
+				/>
 				<PageBody
 					screenType="medium"
 				>
@@ -66,6 +73,11 @@ export default () => {
 				</PageBody>
 			</MediaQuery>
 			<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
+				<Header
+					title={PageTitle}
+					backgroundImage={TitleImageMedium}
+					description={PageDescription}
+				/>
 				<PageBody
 					screenType="large"
 				>

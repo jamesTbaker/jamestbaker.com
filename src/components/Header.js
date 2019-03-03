@@ -182,7 +182,7 @@ export default (props) => (
 			<BrandAndNav screenType="small" />
 			<SiteBanner screenType="small" />
 			<PageTitle
-				backgroundImage={props.titleBackgroundImage}
+				backgroundImage={props.backgroundImage}
 				text={props.title}
 				screenType="small"
 			/>
@@ -194,7 +194,7 @@ export default (props) => (
 			<BrandAndNav screenType="medium" />
 			<SiteBanner screenType="medium" />
 			<PageTitle
-				backgroundImage={props.titleBackgroundImage}
+				backgroundImage={props.backgroundImage}
 				text={props.title}
 				screenType="medium"
 			/>
@@ -203,7 +203,7 @@ export default (props) => (
 			<BrandAndNav screenType="large" />
 			<SiteBanner screenType="large" />
 			<PageTitle
-				backgroundImage={props.titleBackgroundImage}
+				backgroundImage={props.backgroundImage}
 				text={props.title}
 				screenType="large"
 			/>

@@ -6,16 +6,13 @@ import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Collapsible from '../components/Collapsible';
 import StylePatterns from '../services/StylePatterns';
-import ImageURL from '../img/titleImages/osman-rana-190413-unsplash.jpg';
+import TitleImageMedium from '../img/titleImages/processed/south-station.jpg';
+import TitleImageSmall from '../img/titleImages/processed/south-station@0,5x.jpg';
 import HubBrand from '../img/hub/Brand';
 import PalletPreviewURL from '../img/hub/Pallet-preview.png';
-import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
-import { checkPropTypes } from 'prop-types';
-import ImageProto from '../img/proto/proto.png';
 
 // ----- PAGE
 const DateContainer = styled.p`
@@ -73,6 +70,8 @@ const BrandingSubsection = styled.div`
 		grid-area: ${props.gridArea};
 	`}
 `;
+const PageTitle = 'The Hub';
+const PageDescription = 'Work: The Hub';
 
 const returnPageContent = screenType => (
 	<div>
@@ -248,12 +247,12 @@ const returnPageContent = screenType => (
 export default () => {
 	return (
 		<div>
-			<Header
-				title="The Hub"
-				titleBackgroundImage={ImageURL}
-				description="Work: The Hub"
-			/>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
+				<Header
+					title={PageTitle}
+					backgroundImage={TitleImageSmall}
+					description={PageDescription}
+				/>
 				<PageBody
 					screenType="small"
 				>
@@ -264,6 +263,11 @@ export default () => {
 				minWidth={ScreenSizes.ReturnMediumMin()}
 				maxWidth={ScreenSizes.ReturnMediumMax()}
 			>
+				<Header
+					title={PageTitle}
+					backgroundImage={TitleImageMedium}
+					description={PageDescription}
+				/>
 				<PageBody
 					screenType="medium"
 				>
@@ -271,6 +275,11 @@ export default () => {
 				</PageBody>
 			</MediaQuery>
 			<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
+				<Header
+					title={PageTitle}
+					backgroundImage={TitleImageMedium}
+					description={PageDescription}
+				/>
 				<PageBody
 					screenType="large"
 				>
