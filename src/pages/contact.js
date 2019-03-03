@@ -19,8 +19,13 @@ import PageBody from '../components/PageBody';
 
 const BodyContainer = styled.div`
 	padding: ${props => props.screenType === 'small' ?
-	'5rem 1rem' : '7rem 5rem 7rem 0'};
+	'5rem 1rem' : '10rem 0 10rem 0'};
 	${({ screenType }) => screenType !== 'small' && `
+		display: grid;
+		grid-template-areas: "preamble contact";
+		grid-template-rows: auto;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 5rem 5rem;
 		background-size: cover;
 		background-position: 50% center;
 		background-image: url('${BodyImageMedium}');
@@ -28,8 +33,9 @@ const BodyContainer = styled.div`
 `;
 const PreambleContainer = styled.div`
 	${({ screenType }) => screenType !== 'small' && `
-		padding: 2rem;
-		background-color: ${StylePatterns.Color('red-9')};
+		grid-area: 'preamble';
+		padding: 2rem 2rem 2rem 5rem;
+		background-color: ${StylePatterns.Color('white')};
 	`}
 `;
 const ContactContainer = styled.div`
@@ -43,8 +49,9 @@ const ContactContainer = styled.div`
 		font-size: ${StylePatterns.FontSize('xxl', 'large')};
 	`}
 	${({ screenType }) => screenType !== 'small' && `
-		padding: 2rem;
-		background-color: ${StylePatterns.Color('red-9')};
+		grid-area: 'contact';
+		padding: 2rem 2rem 2rem 5rem;
+		background-color: ${StylePatterns.Color('white')};
 	`}
 `;
 const TaglineContainer = styled.p`
@@ -60,13 +67,13 @@ const TaglineContainer = styled.p`
 `;
 const SummaryContainer = styled.p`
 	${({ screenType }) => screenType === 'small' && `
-		font-size: ${StylePatterns.FontSize('xl', 'small')};
+		font-size: ${StylePatterns.FontSize('l', 'small')};
 	`}
 	${({ screenType }) => screenType === 'medium' && `
-		font-size: ${StylePatterns.FontSize('xl', 'medium')};
+		font-size: ${StylePatterns.FontSize('l', 'medium')};
 	`}
 	${({ screenType }) => screenType === 'large' && `
-		font-size: ${StylePatterns.FontSize('xl', 'large')};
+		font-size: ${StylePatterns.FontSize('l', 'large')};
 	`}
 `;
 const PageTitle = 'Contact';
@@ -97,7 +104,7 @@ const returnPageContent = screenType => (
 			screenType={screenType}
 		>
 			<p>T: (617) 388-1222</p>
-			<p>E: jtbkr@pm.me</p>
+			<p>E: <a href="mailto:jtbkr@pm.me">jtbkr@pm.me</a></p>
 		</ContactContainer>
 	</BodyContainer>
 );
