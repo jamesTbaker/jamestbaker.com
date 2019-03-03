@@ -10,7 +10,12 @@ import StylePatterns from '../services/StylePatterns';
 import TitleImageMedium from '../img/titleImages/processed/south-station.jpg';
 import TitleImageSmall from '../img/titleImages/processed/south-station@0,5x.jpg';
 import HubBrand from '../img/hub/Brand';
-import PalletPreviewURL from '../img/hub/Pallet-preview.png';
+import DesktopViewMedium from '../img/hub/Desktop-view.jpg';
+import DesktopViewSmall from '../img/hub/Desktop-view@0,5x.jpg';
+import MobileViewMedium from '../img/hub/Mobile-view.jpg';
+import MobileViewSmall from '../img/hub/Mobile-view@0,5x.jpg';
+import PalletPreviewMedium from '../img/hub/Pallet-preview.jpg';
+import PalletPreviewSmall from '../img/hub/Pallet-preview@0,5x.jpg';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 
@@ -26,7 +31,8 @@ const ClientContainer = styled.p`
 const SectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas:	"concept contentFeatures"
+		grid-template-areas:	"concept concept"
+								"contentFeatures contentFeatures"
 								"team changeManagement"
 								"tech tech"
 								"branding branding";
@@ -36,6 +42,34 @@ const SectionsContainer = styled.div`
 	`}
 `;
 const Section = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: ${props.gridArea};
+	`}
+`;
+const ConceptSubsectionsContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		display: grid;
+		grid-template-areas: "text image";
+		grid-template-rows: auto;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 5rem 5rem;
+	`}
+`;
+const ConceptSubsection = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: ${props.gridArea};
+	`}
+`;
+const ContentFeaturesSubsectionsContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		display: grid;
+		grid-template-areas: "image text";
+		grid-template-rows: auto;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 5rem 5rem;
+	`}
+`;
+const ContentFeaturesSubsection = styled.div`
 	${props => props.screenType !== 'small' && `
 		grid-area: ${props.gridArea};
 	`}
@@ -70,6 +104,15 @@ const BrandingSubsection = styled.div`
 		grid-area: ${props.gridArea};
 	`}
 `;
+const BrandRestrainer = styled.div`
+	${props => props.screenType === 'large' && `
+		max-width: 40rem;
+	`}
+	${props => props.screenType === 'small' && `
+		max-width: 20rem;
+	`}
+`;
+
 const PageTitle = 'The Hub';
 const PageDescription = 'Work: The Hub';
 
@@ -85,27 +128,75 @@ const returnPageContent = screenType => (
 				gridArea="concept"
 			>
 				<h2>Concept</h2>
-				<ul>
-					<li>Collaboration and publishing / messaging and files / workspaces - thus, the name</li>
-					<li>Old apps were mostly ColdFusion, which no one uses anymore, and databases which the software team couldn't access</li>
-					<li>Accessibility</li>
-					<li>Access control</li>
-					<li>Retire old servers, on-premise to cloud</li>
-					<li>Workflows</li>
-					<li>Avoided replicating the old stuff; asked people how they worked and strategized how software could make that better; would have been quicker if we just replaced the old stuff</li>
-				</ul>
+				<ConceptSubsectionsContainer
+					screenType={screenType}
+				>
+					<ConceptSubsection
+						screenType={screenType}
+						gridArea="text"
+					>
+						<ul>
+							<li>Collaboration and publishing / messaging and files / workspaces - thus, the name</li>
+							<li>Old apps were mostly ColdFusion, which no one uses anymore, and databases which the software team couldn't access</li>
+							<li>Accessibility</li>
+							<li>Access control</li>
+							<li>Retire old servers, on-premise to cloud</li>
+							<li>Workflows</li>
+							<li>Avoided replicating the old stuff; asked people how they worked and strategized how software could make that better; would have been quicker if we just replaced the old stuff</li>
+						</ul>
+					</ConceptSubsection>
+					<ConceptSubsection
+						screenType={screenType}
+						gridArea="image"
+					>
+						{
+							screenType === 'small' &&
+
+							<img src={DesktopViewSmall} width="100%" />
+						}
+						{
+							screenType !== 'small' &&
+
+							<img src={DesktopViewMedium} width="100%" />
+						}
+					</ConceptSubsection>
+				</ConceptSubsectionsContainer>
 			</Section>
 			<Section
 				screenType={screenType}
 				gridArea="contentFeatures"
 			>
 				<h2>Content & Features</h2>
-				<ul>
-					<li>Workflows</li>
-					<li>Documents and web content re: benefits, policies, accounting practices, workplace safety</li>
-					<li>Org browser - populated from HRIS and AD</li>
-					<li>In yellow: Demos coming</li>
-				</ul>
+				<ContentFeaturesSubsectionsContainer
+					screenType={screenType}
+				>
+					<ContentFeaturesSubsection
+						screenType={screenType}
+						gridArea="text"
+					>
+						<ul>
+							<li>Workflows</li>
+							<li>Documents and web content re: benefits, policies, accounting practices, workplace safety</li>
+							<li>Org browser - populated from HRIS and AD</li>
+							<li>In yellow: Demos coming</li>
+						</ul>
+					</ContentFeaturesSubsection>
+					<ContentFeaturesSubsection
+						screenType={screenType}
+						gridArea="image"
+					>
+						{
+							screenType === 'small' &&
+
+							<img src={MobileViewSmall} width="100%" />
+						}
+						{
+							screenType !== 'small' &&
+
+							<img src={MobileViewMedium} width="100%" />
+						}
+					</ContentFeaturesSubsection>
+				</ContentFeaturesSubsectionsContainer>
 			</Section>
 			<Section
 				screenType={screenType}
@@ -142,6 +233,7 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="prose"
 					>
+						<h3>Prose</h3>
 						<ul>
 							<li>Decision to use SP predates me. I prefer Linux, but the org prefers Windows</li>
 							<li>Workflow engine - provision app site from template and alter settings to create an app</li>
@@ -155,6 +247,7 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="list"
 					>
+						<h3>List, Key Stats</h3>
 						<ul>
 							<li>Decision to use SP predates me. I prefer Linux, but the org prefers Windows</li>
 							<li>Workflow engine - provision app site from template and alter settings to create an app</li>
@@ -184,6 +277,7 @@ const returnPageContent = screenType => (
 							<li>Logo appears in proximity to org's main brand</li>
 							<li>Logo make use of org's main brand pallet to evoke Hub concept</li>
 							<li>Logo is hand-edited SVG that can be targeted with CSS</li>
+							<li>Logo works on light and dark backgrounds, and in greyscale</li>
 							<li>Typography matches SP, but just for now</li>
 						</ul>
 					</BrandingSubsection>
@@ -191,7 +285,11 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="OneB"
 					>
-						<HubBrand />
+						<BrandRestrainer
+							screenType={screenType}
+						>
+							<HubBrand />
+						</BrandRestrainer>
 					</BrandingSubsection>
 					<BrandingSubsection
 						screenType={screenType}
@@ -199,7 +297,7 @@ const returnPageContent = screenType => (
 					>
 						<h3>Color Pallet</h3>
 						<a href="https://www.figma.com/file/e6ttbXfwvFZa5jhj0FHVAT3o/Color">
-							Check out the pallet in Figma
+							Check out the full pallet in Figma
 						</a>
 						<ul>
 							<li>Reflects the org's main brand</li>
@@ -211,7 +309,16 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="TwoA"
 					>
-						<img src={PalletPreviewURL} width="100%" />
+						{
+							screenType === 'small' &&
+
+							<img src={PalletPreviewSmall} width="100%" />
+						}
+						{
+							screenType !== 'small' &&
+
+							<img src={PalletPreviewMedium} width="100%" />
+						}
 					</BrandingSubsection>
 					<BrandingSubsection
 						screenType={screenType}

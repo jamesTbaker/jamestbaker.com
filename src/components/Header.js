@@ -87,7 +87,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 	h3 {
 		font-size: ${StylePatterns.FontSize('xl')};
-		font-weight: ${StylePatterns.FontWeight('regular')};
+		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h4 {
