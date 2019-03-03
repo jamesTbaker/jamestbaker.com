@@ -19,7 +19,7 @@ const FooterContainer = styled.footer`
 	padding: ${props => props.screenType === 'small' ?
 		'2rem 1rem 2rem' : '2rem 5rem 2rem' };
 	margin: 2rem 0 0;
-	font-size: ${StylePatterns.FontSize('xs')};
+	font-size: ${StylePatterns.FontSize('xs', 'small')};
 	background-color: ${StylePatterns.Color('blue-1')};
 	color: ${StylePatterns.Color('grey-9')};
 `;

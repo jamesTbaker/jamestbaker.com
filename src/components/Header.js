@@ -43,7 +43,6 @@ const GlobalStyle = createGlobalStyle`
 	* { box-sizing: border-box; }
 	html { font-size: 10px; }
 	body { 
-		font-size: ${StylePatterns.FontSize('m')};
 		font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,'Roboto', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 0;
@@ -76,32 +75,26 @@ const GlobalStyle = createGlobalStyle`
 		100%	{opacity: 1;}
 	}
 	h1 {
-		font-size: ${StylePatterns.FontSize('xxxl')};
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h2 {
-		font-size: ${StylePatterns.FontSize('xxl')};
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h3 {
-		font-size: ${StylePatterns.FontSize('xl')};
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h4 {
-		font-size: ${StylePatterns.FontSize('l')};
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 1rem 0 .25rem;
 	}
 	h5 {
-		font-size: ${StylePatterns.FontSize('xxxl')};
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: .5rem 0 .25rem;
 	}
 	h6 {
-		font-size: ${StylePatterns.FontSize('xxxl')};
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: .5rem 0 .25rem;
 	}
@@ -142,6 +135,77 @@ const GlobalStyle = createGlobalStyle`
 	g.brand {
 		fill: ${StylePatterns.Color('blue-9')};
 	}
+
+	${({ screenType }) => screenType === 'small' && `
+		body {
+			font-size: ${StylePatterns.FontSize('m', 'small')};
+		}
+		h1 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'small')};
+		}
+		h2 {
+			font-size: ${StylePatterns.FontSize('xxl', 'small')};
+		}
+		h3 {
+			font-size: ${StylePatterns.FontSize('xl', 'small')};
+		}
+		h4 {
+			font-size: ${StylePatterns.FontSize('l', 'small')};
+		}
+		h5 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'small')};
+		}
+		h6 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'small')};
+		}
+	`}
+	${({ screenType }) => screenType === 'medium' && `
+		body {
+			font-size: ${StylePatterns.FontSize('m', 'medium')};
+		}
+		h1 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'medium')};
+		}
+		h2 {
+			font-size: ${StylePatterns.FontSize('xxl', 'medium')};
+		}
+		h3 {
+			font-size: ${StylePatterns.FontSize('xl', 'medium')};
+		}
+		h4 {
+			font-size: ${StylePatterns.FontSize('l', 'medium')};
+		}
+		h5 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'medium')};
+		}
+		h6 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'medium')};
+		}
+	`}
+	${({ screenType }) => screenType === 'large' && `
+		body {
+			font-size: ${StylePatterns.FontSize('m', 'large')};
+		}
+		h1 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'large')};
+		}
+		h2 {
+			font-size: ${StylePatterns.FontSize('xxl', 'large')};
+		}
+		h3 {
+			font-size: ${StylePatterns.FontSize('xl', 'large')};
+		}
+		h4 {
+			font-size: ${StylePatterns.FontSize('l', 'large')};
+		}
+		h5 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'large')};
+		}
+		h6 {
+			font-size: ${StylePatterns.FontSize('xxxl', 'large')};
+		}
+	`}
+
 `;
 
 // --- COMPONENT
@@ -177,8 +241,8 @@ export default (props) => (
 				{ rel: 'icon', type: 'image/png', sizes: '128x128', href: `${Favicon128}` },
 			]}
 		/>
-		<GlobalStyle />
 		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
+			<GlobalStyle screenType="small" />
 			<BrandAndNav screenType="small" />
 			<SiteBanner screenType="small" />
 			<PageTitle
@@ -191,6 +255,7 @@ export default (props) => (
 			minWidth={ScreenSizes.ReturnMediumMin()}
 			maxWidth={ScreenSizes.ReturnMediumMax()}
 		>
+			<GlobalStyle screenType="medium" />
 			<BrandAndNav screenType="medium" />
 			<SiteBanner screenType="medium" />
 			<PageTitle
@@ -200,6 +265,7 @@ export default (props) => (
 			/>
 		</MediaQuery>
 		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
+			<GlobalStyle screenType="large" />
 			<BrandAndNav screenType="large" />
 			<SiteBanner screenType="large" />
 			<PageTitle

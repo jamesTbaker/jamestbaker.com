@@ -3,49 +3,50 @@ module.exports = {
 
 	
 	// FONT
-	// perfect fifth scale above 1
+	// for large screens
+	// augmented fourth scale above 1
 	// minor thirs scale below 1
-	FontSize: (token) => {
-		switch (token) {
-			case 'xxxl':
-				return `${1.8 * 5.063}rem`;
-			case 'xxl':
-				return `${1.8 * 3.375}rem`;
-			case 'xl':
-				return `${1.8 * 2.25}rem`;
-			case 'l':
-				return `${1.8 * 1.5}rem`;
-			case 'm':
-			default:
-				return `${1.8 * 1}rem`;
-			case 's':
-				return `${1.8 * 0.833}rem`;
-			case 'xs':
-				return `${1.8 * 0.694}rem`;
-			case 'xxs':
-				return `${1.8 * 0.579}rem`;
-
-
-
-
-			/* case 'xxxl':
-				return `${1.8 * 2.441}rem`;
-			case 'xxl':
-				return `${1.8 * 1.728}rem`;
-			case 'xl':
-				return `${1.8 * 1.44}rem`;
-			case 'l':
-				return `${1.8 * 1.2}rem`;
-			case 'm':
-			default:
-				return `${1.8 * 1}rem`;
-			case 's':
-				return `${1.8 * 0.833}rem`;
-			case 'xs':
-				return `${1.8 * 0.694}rem`;
-			case 'xxs':
-				return `${1.8 * 0.579}rem`; */
+	FontSize: (token, screenType) => {
+		if (screenType !== 'small') {
+			switch (token) {
+				case 'xxxl':
+					return `${1.8 * 3.998}rem`;
+				case 'xxl':
+					return `${1.8 * 2.827}rem`;
+				case 'xl':
+					return `${1.8 * 1.999}rem`;
+				case 'l':
+					return `${1.8 * 1.414}rem`;
+				case 'm':
+				default:
+					return `${1.8 * 1}rem`;
+				case 's':
+					return `${1.8 * 0.833}rem`;
+				case 'xs':
+					return `${1.8 * 0.694}rem`;
+				case 'xxs':
+					return `${1.8 * 0.579}rem`;
 			}
+		} else {
+			switch (token) {
+				case 'xxxl':
+					return `${1.8 * 2.441}rem`;
+				case 'xxl':
+					return `${1.8 * 1.728}rem`;
+				case 'xl':
+					return `${1.8 * 1.44}rem`;
+				case 'l':
+					return `${1.8 * 1.2}rem`;
+				case 'm':
+				default:
+					return `${1.8 * 1}rem`;
+				case 's':
+					return `${1.8 * 0.833}rem`;
+				case 'xs':
+					return `${1.8 * 0.694}rem`;
+				case 'xxs':
+					return `${1.8 * 0.579}rem`;			}
+		}
 	},
 
 	FontWeight: (token) => {

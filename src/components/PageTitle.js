@@ -10,7 +10,7 @@ import StylePatterns from '../services/StylePatterns';
 
 const TitleContainer = styled.h1`
 	padding: ${props => props.screenType === 'small' ? 
-		'7rem 1rem' : '10rem 5rem' };
+		'7rem 1rem' : '7rem 5rem' };
 	margin: 0;
 	font-weight: ${props => props.screenType === 'small' ? StylePatterns.FontWeight('light') : StylePatterns.FontWeight('light')};
 	color: ${StylePatterns.Color('blue-11')};

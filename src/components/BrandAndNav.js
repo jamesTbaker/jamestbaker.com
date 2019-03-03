@@ -16,14 +16,6 @@ import StylePatterns from '../services/StylePatterns';
 const HamburgerContainer = styled.div`
 	grid-area: 1 / 1 / 2 / 2;
 `;
-/*
-	padding: 1rem 1rem 0 0;
-	text-align: right;
-	font-size: ${StylePatterns.FontSize('l')};
-	color: ${StylePatterns.Color('interactive-on-light-default')};
-	font-weight: ${StylePatterns.FontWeight('regular')};
-
-*/
 
 const Hamburger = styled.button.attrs({
 	type: 'button',
@@ -210,13 +202,13 @@ const NavMediumListItem = styled.li`
 	display: inline-block;	
 	list-style: none;
 	margin: 0 2rem 0 0;
-	font-size: ${StylePatterns.FontSize('m')};
+	font-size: ${StylePatterns.FontSize('m', 'medium')};
 	font-weight: ${StylePatterns.FontWeight('light')};
 `;
 const NavSmallLink = styled(Link)`
 	display: block;
 	width: 100%;
-	font-size: ${StylePatterns.FontSize('xl')} !important;
+	font-size: ${StylePatterns.FontSize('xl', 'small')} !important;
 	font-weight: ${StylePatterns.FontWeight('light')};
 	border: 0;
 	margin-left: 0;
