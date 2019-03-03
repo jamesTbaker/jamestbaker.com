@@ -10,8 +10,6 @@ import StylePatterns from '../services/StylePatterns';
 
 const BodyContainer = styled.div`
 	margin: 0;
-	padding: ${props => props.screenType === 'small' ?
-		'3rem 1rem 1rem' : '5rem 5rem 3rem' };
 	transition: padding ${StylePatterns.StandardTransitionTime()};
 `;
 

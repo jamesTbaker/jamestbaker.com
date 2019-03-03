@@ -20,6 +20,11 @@ import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 
 // ----- PAGE
+
+const BodyContainer = styled.div`
+	padding: ${props => props.screenType === 'small' ?
+		'5rem 1rem' : '7rem 5rem'};
+`;
 const DateContainer = styled.p`
 	margin-bottom: .5rem;
 	font-size: ${StylePatterns.FontSize('xs')};
@@ -117,7 +122,9 @@ const PageTitle = 'The Hub';
 const PageDescription = 'Work: The Hub';
 
 const returnPageContent = screenType => (
-	<div>
+	<BodyContainer
+		screenType={screenType}
+	>
 		<DateContainer>2013 &ndash; 2019</DateContainer>
 		<ClientContainer>Museum of Science, Boston</ClientContainer>
 		<SectionsContainer
@@ -348,7 +355,7 @@ const returnPageContent = screenType => (
 				</BrandingSubsectionsContainer>
 			</Section>
 		</SectionsContainer>
-	</div>
+	</BodyContainer>
 );
 
 export default () => {

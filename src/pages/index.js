@@ -18,16 +18,36 @@ import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 
 // ----- PAGE
 
+const BodyContainer = styled.div`
+	padding: ${props => props.screenType === 'small' ?
+		'5rem 1rem' : '7rem 5rem'};
+`;
 const LocationContainer = styled.p`
 	margin-bottom: .5rem;
-	font-size: ${StylePatterns.FontSize('xs')};
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('xs', 'small')};
+	`}
+	${({ screenType }) => screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('xs', 'medium')};
+	`}
+	${({ screenType }) => screenType === 'large' && `
+		font-size: ${StylePatterns.FontSize('xs', 'large')};
+	`}
 `;
 const ProfileBriefContainer = styled.p`
 	margin-bottom: .5rem;
 	font-weight: ${StylePatterns.FontWeight('light')};
 `;
 const TaglineContainer = styled.p`
-	font-size: ${StylePatterns.FontSize('xxl')};
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('xxl', 'small')};
+	`}
+	${({ screenType }) => screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('xxl', 'medium')};
+	`}
+	${({ screenType }) => screenType === 'large' && `
+		font-size: ${StylePatterns.FontSize('xxl', 'large')};
+	`}
 `;
 const SummaryContainer = styled.p`
 	max-width: 50rem;
@@ -35,9 +55,15 @@ const SummaryContainer = styled.p`
 const PageTitle = 'Profile';
 const PageDescription = 'Profile of James T. Baker';
 
-const returnPageContent = props => (
-	<div>
-		<LocationContainer>Greater Boston, USA</LocationContainer>
+const returnPageContent = screenType => (
+	<BodyContainer
+		screenType={screenType}
+	>
+		<LocationContainer
+			screenType={screenType}
+		>
+			Greater Boston, USA
+		</LocationContainer>
 		<ProfileBriefContainer>
 			<a href={ProfileBrief}>
 				Profile Brief
@@ -48,7 +74,11 @@ const returnPageContent = props => (
 				/>
 			</a>
 		</ProfileBriefContainer>
-		<TaglineContainer>I speak suit, geek, and creative.</TaglineContainer>
+		<TaglineContainer
+			screenType={screenType}
+		>
+			I speak suit, geek, and creative.
+		</TaglineContainer>
 		<SummaryContainer>
 			My <StrongText>19 years'</StrongText> experience in&nbsp;
 			<StrongText>design</StrongText>,&nbsp;
@@ -79,7 +109,7 @@ const returnPageContent = props => (
 			<li>Art direction</li>
 			<li>A/B testing</li>
 		</ul>
-	</div>
+	</BodyContainer>
 );
 
 export default () => {
@@ -94,7 +124,7 @@ export default () => {
 				<PageBody
 					screenType="small"
 				>
-					{returnPageContent()}
+					{returnPageContent('small')}
 				</PageBody>
 			</MediaQuery>
 			<MediaQuery
@@ -109,7 +139,7 @@ export default () => {
 				<PageBody
 					screenType="medium"
 				>
-					{returnPageContent()}
+					{returnPageContent('medium')}
 				</PageBody>
 			</MediaQuery>
 			<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
@@ -121,7 +151,7 @@ export default () => {
 				<PageBody
 					screenType="large"
 				>
-					{returnPageContent()}
+					{returnPageContent('large')}
 				</PageBody>
 			</MediaQuery>
 			<Footer />

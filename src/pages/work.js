@@ -7,40 +7,26 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import StylePatterns from '../services/StylePatterns';
-// import ImageURL from '../img/titleImages/_original/artem-sapegin-1229253-unsplash.jpg';
 import TitleImageMedium from '../img/titleImages/processed/fenway-aerial.jpg';
 import TitleImageSmall from '../img/titleImages/processed/fenway-aerial@0,5x.jpg';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 
-
 // ----- PAGE
 
-const StrongText = styled.span`
-	font-weight: ${StylePatterns.FontWeight('bold')};
-	color: ${StylePatterns.Color('yellow-1')};
-`;
-const LocationContainer = styled.p`
-	padding-bottom: .5rem;
-	font-size: ${StylePatterns.FontSize('xs')};
-`;
-const ProfileBriefContainer = styled.p`
-	padding-bottom: .5rem;
-	font-weight: ${StylePatterns.FontWeight('regular')};
-`;
-const TaglineContainer = styled.p`
-	font-size: ${StylePatterns.FontSize('xxl')};
-`;
-const SummaryContainer = styled.p`
-	max-width: 50rem;
+const BodyContainer = styled.div`
+	padding: ${props => props.screenType === 'small' ?
+		'5rem 1rem' : '7rem 5rem'};
 `;
 const PageTitle = 'Work';
 const PageDescription = 'About the work of James T. Baker';
 
-const returnPageContent = props => (
-	<div>
+const returnPageContent = screenType => (
+	<BodyContainer
+		screenType={screenType}
+	>
 		Work
-	</div>
+	</BodyContainer>
 );
 
 export default () => {
@@ -55,7 +41,7 @@ export default () => {
 				<PageBody
 					screenType="small"
 				>
-					{returnPageContent()}
+					{returnPageContent('small')}
 				</PageBody>
 			</MediaQuery>
 			<MediaQuery
@@ -70,7 +56,7 @@ export default () => {
 				<PageBody
 					screenType="medium"
 				>
-					{returnPageContent()}
+					{returnPageContent('medium')}
 				</PageBody>
 			</MediaQuery>
 			<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
@@ -82,7 +68,7 @@ export default () => {
 				<PageBody
 					screenType="large"
 				>
-					{returnPageContent()}
+					{returnPageContent('large')}
 				</PageBody>
 			</MediaQuery>
 			<Footer />
