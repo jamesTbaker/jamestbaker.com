@@ -22,8 +22,10 @@ import PageBody from '../components/PageBody';
 // ----- PAGE
 
 const BodyContainer = styled.div`
-	padding: ${props => props.screenType === 'small' ?
-		'5rem 1rem' : '7rem 5rem'};
+	padding-top: ${props => props.screenType === 'small' ?
+		'5rem' : '7rem'};
+	padding-bottom: ${props => props.screenType === 'small' ?
+		'5rem' : '7rem'};
 `;
 const DateContainer = styled.p`
 	margin-bottom: .5rem;
@@ -36,8 +38,8 @@ const ClientContainer = styled.p`
 const SectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas:	"concept concept"
-								"contentFeatures contentFeatures"
+		grid-template-areas:	"problemSolution problemSolution"
+								"productView productView"
 								"team changeManagement"
 								"tech tech"
 								"branding branding";
@@ -50,31 +52,35 @@ const Section = styled.div`
 	${props => props.screenType !== 'small' && `
 		grid-area: ${props.gridArea};
 	`}
+	padding-left: ${props => props.screenType === 'small' ?
+		'1rem' : '5rem'};
+	padding-right: ${props => props.screenType === 'small' ?
+		'1rem' : '5rem'};
 `;
-const ConceptSubsectionsContainer = styled.div`
+const ProblemSolutionSubsectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas: "text image";
+		grid-template-areas: "problem solution";
 		grid-template-rows: auto;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 5rem 5rem;
 	`}
 `;
-const ConceptSubsection = styled.div`
+const ProblemSolutionSubsection = styled.div`
 	${props => props.screenType !== 'small' && `
 		grid-area: ${props.gridArea};
 	`}
 `;
-const ContentFeaturesSubsectionsContainer = styled.div`
+const ProductViewsSubsectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas: "image text";
+		grid-template-areas: "mobile desktop";
 		grid-template-rows: auto;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 5rem 5rem;
 	`}
 `;
-const ContentFeaturesSubsection = styled.div`
+const ProductViewsSubsection = styled.div`
 	${props => props.screenType !== 'small' && `
 		grid-area: ${props.gridArea};
 	`}
@@ -125,72 +131,69 @@ const returnPageContent = screenType => (
 	<BodyContainer
 		screenType={screenType}
 	>
-		<DateContainer>2013 &ndash; 2019</DateContainer>
-		<ClientContainer>Museum of Science, Boston</ClientContainer>
 		<SectionsContainer
 			screenType={screenType}
 		>
 			<Section
 				screenType={screenType}
-				gridArea="concept"
+				gridArea="problemSolution"
 			>
-				<h2>Concept</h2>
-				<ConceptSubsectionsContainer
+			<DateContainer>2013 &ndash; 2019</DateContainer>
+			<ClientContainer>Museum of Science, Boston</ClientContainer>
+				<ProblemSolutionSubsectionsContainer
 					screenType={screenType}
 				>
-					<ConceptSubsection
+					<ProblemSolutionSubsection
 						screenType={screenType}
-						gridArea="text"
+						gridArea="problem"
 					>
+						<h2>Problem</h2>
+						<p>
+							The Museum had an extensive but problematic group of web-based, enterprise software applications and contents.
+						</p>
 						<ul>
-							<li>Collaboration and publishing / messaging and files / workspaces - thus, the name</li>
-							<li>Old apps were mostly ColdFusion, which no one uses anymore, and databases which the software team couldn't access</li>
+							<li>These were built in the late 90s / early 2000s, mostly in ColdFusion, a language now used by relatively few people and no one in the Museum.</li>
+							<li>They stopped evolving over a decade earlier and no longer matched the organization’s business processes.</li>
+							<li>A partial reboot effort several years prior left staff navigating between two systems.</li>
+							<li>Staff members were clamoring for apps that worked the way they worked, wherever they worked, and more apps to solve more problems.</li>
+							<li>The on-premise server running the old apps violated PCI standards and the organization was faced with the prospect of investing in costly upgrades.</li>
+						</ul>
+						<p>
+							For all their deficiencies, these apps were indispensable. Hundreds of staff and board members used them daily, not only to accomplish discrete, structured tasks and familiarize themselves with policies, but to service more organic needs like collaborating on grant proposals, finding translators for onsite visitors, identifying subject matter experts for media requests, and recruiting ad hoc help for private events, marketing campaigns, product testing, fundraisers, and cleaning up the Charles River.
+						</p>
+						<p>
+							I decided to start over, building a new suite of bespoke, responsive, accessible apps and contents from scratch.
+						</p>
+					</ProblemSolutionSubsection>
+					<ProblemSolutionSubsection
+						screenType={screenType}
+						gridArea="solution"
+					>
+						<h2>Solution</h2>
+						<ul>
+							<li>Avoided replicating the old stuff; asked people how they worked and strategized how software could make that better; would have been quicker if we just replaced the old stuff</li>
+							<li>Workflows</li>
 							<li>Accessibility</li>
 							<li>Access control</li>
+							<li>Collaboration and publishing / messaging and files / workspaces - thus, the name</li>
+							<li>Documents and web content re: benefits, policies, accounting practices, workplace safety</li>
+							<li>Org browser - populated from HRIS and AD</li>
 							<li>Retire old servers, on-premise to cloud</li>
-							<li>Workflows</li>
-							<li>Avoided replicating the old stuff; asked people how they worked and strategized how software could make that better; would have been quicker if we just replaced the old stuff</li>
+							<li>In yellow: Demos coming</li>
 						</ul>
-					</ConceptSubsection>
-					<ConceptSubsection
-						screenType={screenType}
-						gridArea="image"
-					>
-						{
-							screenType === 'small' &&
-
-							<img src={DesktopViewSmall} width="100%" />
-						}
-						{
-							screenType !== 'small' &&
-
-							<img src={DesktopViewMedium} width="100%" />
-						}
-					</ConceptSubsection>
-				</ConceptSubsectionsContainer>
+					</ProblemSolutionSubsection>
+				</ProblemSolutionSubsectionsContainer>
 			</Section>
 			<Section
 				screenType={screenType}
-				gridArea="contentFeatures"
+				gridArea="productView"
 			>
-				<h2>Content & Features</h2>
-				<ContentFeaturesSubsectionsContainer
+				<ProductViewsSubsectionsContainer
 					screenType={screenType}
 				>
-					<ContentFeaturesSubsection
+					<ProductViewsSubsection
 						screenType={screenType}
-						gridArea="text"
-					>
-						<ul>
-							<li>Workflows</li>
-							<li>Documents and web content re: benefits, policies, accounting practices, workplace safety</li>
-							<li>Org browser - populated from HRIS and AD</li>
-							<li>In yellow: Demos coming</li>
-						</ul>
-					</ContentFeaturesSubsection>
-					<ContentFeaturesSubsection
-						screenType={screenType}
-						gridArea="image"
+						gridArea="mobile"
 					>
 						{
 							screenType === 'small' &&
@@ -202,18 +205,32 @@ const returnPageContent = screenType => (
 
 							<img src={MobileViewMedium} width="100%" />
 						}
-					</ContentFeaturesSubsection>
-				</ContentFeaturesSubsectionsContainer>
+					</ProductViewsSubsection>
+					<ProductViewsSubsection
+						screenType={screenType}
+						gridArea="desktop"
+					>
+						{
+							screenType === 'small' &&
+
+							<img src={DesktopViewSmall} width="100%" />
+						}
+						{
+							screenType !== 'small' &&
+
+							<img src={DesktopViewMedium} width="100%" />
+						}
+					</ProductViewsSubsection>
+				</ProductViewsSubsectionsContainer>
 			</Section>
 			<Section
 				screenType={screenType}
 				gridArea="team"
 			>
 				<h2>Team</h2>
-				<ul>
-					<li>I was sole product owner, PM, developer</li>
-					<li>100+ direct stakeholders, each with their own need</li>
-				</ul>
+				<p>I was fortunate to work directly with over 80 stakeholders, from security staff to scientists to accountants to VPs to event planners to the COO and the Board Chair. Each person brought a unique perspective on the organization, a distinct set of challenges they faced in their work, and fresh thinking about how software can solve problems.</p>
+				<p>Consistent with much of my career, I wore a number of hats while building The Hub. I have been the product owner / program manager, but I've also been the business analyst, software developer, database developer, systems architect, information architect, copywriter, UX designer, brand designer, and partial system administrator.
+				</p>
 			</Section>
 			<Section
 				screenType={screenType}
@@ -226,6 +243,8 @@ const returnPageContent = screenType => (
 					<li>Content and links in old and new places to guide people to what they need</li>
 					<li>Graduated releases</li>
 					<li>Feedback told us that some users want even more hand-holding, so we're going to make videos and text pages</li>
+					<li>NAF first, in department, frequently used, contained 50% of the features of the whole </li>
+					<li>Capitalizing on relationships to pilot things.</li>
 				</ul>
 			</Section>
 			<Section
@@ -334,6 +353,7 @@ const returnPageContent = screenType => (
 						<h3>Video and Photography</h3>
 						<ul>
 							<li>Photos comply with org's main brand</li>
+							<li>Staff member photos comingß</li>
 							<li>About the video bumper / change management videos and text pages</li>
 						</ul>
 					</BrandingSubsection>
