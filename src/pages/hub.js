@@ -56,6 +56,13 @@ const Section = styled.div`
 		'1rem' : '5rem'};
 	padding-right: ${props => props.screenType === 'small' ?
 		'1rem' : '5rem'};
+	${props => props.screenType !== 'small' && props.verticalMargin && `
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	`}
+	${props => props.screenType !== 'small' && props.backgroundColor && `
+		background-color: ${StylePatterns.Color(props.backgroundColor)};
+	`}
 `;
 const ProblemSolutionSubsectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
@@ -138,8 +145,8 @@ const returnPageContent = screenType => (
 				screenType={screenType}
 				gridArea="problemSolution"
 			>
-			<DateContainer>2013 &ndash; 2019</DateContainer>
-			<ClientContainer>Museum of Science, Boston</ClientContainer>
+				<DateContainer>2013 &ndash; 2019</DateContainer>
+				<ClientContainer>Museum of Science, Boston</ClientContainer>
 				<ProblemSolutionSubsectionsContainer
 					screenType={screenType}
 				>
@@ -161,15 +168,15 @@ const returnPageContent = screenType => (
 						<p>
 							For all their deficiencies, these apps were indispensable. Hundreds of staff and board members used them daily, not only to accomplish discrete, structured tasks and familiarize themselves with policies, but to service more organic needs like collaborating on grant proposals, finding translators for onsite visitors, identifying subject matter experts for media requests, and recruiting ad hoc help for private events, marketing campaigns, product testing, fundraisers, and cleaning up the Charles River.
 						</p>
-						<p>
-							I decided to start over, building a new suite of bespoke, responsive, accessible apps and contents from scratch.
-						</p>
 					</ProblemSolutionSubsection>
 					<ProblemSolutionSubsection
 						screenType={screenType}
 						gridArea="solution"
 					>
 						<h2>Solution</h2>
+						<p>
+							I decided to start over, building a new suite of bespoke, responsive, accessible apps and contents from scratch.
+						</p>
 						<ul>
 							<li>Avoided replicating the old stuff; asked people how they worked and strategized how software could make that better; would have been quicker if we just replaced the old stuff</li>
 							<li>Workflows</li>
@@ -187,6 +194,8 @@ const returnPageContent = screenType => (
 			<Section
 				screenType={screenType}
 				gridArea="productView"
+				verticalMargin
+				backgroundColor="red-16"
 			>
 				<ProductViewsSubsectionsContainer
 					screenType={screenType}
@@ -250,6 +259,8 @@ const returnPageContent = screenType => (
 			<Section
 				screenType={screenType}
 				gridArea="tech"
+				verticalMargin
+				backgroundColor="red-16"
 			>
 				<h2>Tech</h2>
 				<TechSubsectionsContainer

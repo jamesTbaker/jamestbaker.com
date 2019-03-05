@@ -88,6 +88,23 @@ module.exports = {
 				return '#fed285';
 			case 'yellow-6':
 				return '#ffdda1';
+			case 'yellow-7':
+				return '#ffe2b0';
+			case 'yellow-8':
+				return '#ffe8bf';
+			case 'yellow-9':
+				return '#ffedcd';
+			case 'yellow-10':
+				return '#fff3dc';
+			case 'yellow-11':
+				return '#fff8eb';
+
+
+
+
+
+
+
 
 			case 'blue-1':
 				return '#081015';
@@ -147,14 +164,25 @@ module.exports = {
 				return 'rgba(103,190,229,.9)';
 			case 'blue-11':
 				return '#73d4ff';
-
-
-
-
-
-
-
-
+			case 'blue-12':
+				return '#87daff';
+			case 'blue-13':
+				return '#9ce0ff';
+			case 'blue-14':
+				return '#b0e7ff';
+			case 'blue-15':
+				return '#c4edff';
+			case 'blue-16':
+				return '#d9f3ff';
+			case 'blue-17':
+				return '#edf9ff';
+				
+				
+				
+				
+				
+				
+				
 			case 'red-1':
 				return '#380609';
 			case 'red-2':
@@ -181,6 +209,22 @@ module.exports = {
 			case 'interactive-on-dark-active':
 			case 'red-11':
 				return '#ff6c5f';
+			case 'red-12':
+				return '#ff8277';
+			case 'red-13':
+				return '#ff988e';
+			case 'red-14':
+				return '#ffaea6';
+			case 'red-15':
+				return '#ffc3be';
+			case 'red-16':
+				return '#ffd9d5';
+			case 'red-17':
+				return '#ffefed';
+
+
+
+
 
 
 			case 'white':
