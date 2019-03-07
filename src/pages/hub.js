@@ -1,4 +1,15 @@
 
+/* 
+Team - stack over CM, flow into two columns
+
+Change Management - stack under Team, flow into two columns
+
+Tech - split story into two columns
+
+
+*/
+
+
 // ----- IMPORTS
 
 import React from 'react';
@@ -16,20 +27,22 @@ import MobileViewMedium from '../img/hub/Mobile-view.jpg';
 import MobileViewSmall from '../img/hub/Mobile-view@0,5x.jpg';
 import PalletPreviewMedium from '../img/hub/Pallet-preview.jpg';
 import PalletPreviewSmall from '../img/hub/Pallet-preview@0,5x.jpg';
-import ContactsMedium from '../img/hub/Contacts.jpg';
-import ContactsSmall from '../img/hub/Contacts@0,5x.jpg';
+import ContactsMedium from '../img/hub/Contacts.png';
+import ContactsSmall from '../img/hub/Contacts@0,75x.png';
 import PrivateMedium from '../img/hub/Private.png';
 import PrivateSmall from '../img/hub/Private@0,75x.png';
+import Stars from '../img/hub/Stars.jpg';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 
 // ----- PAGE
 
 const BodyContainer = styled.div`
+	background-color: ${StylePatterns.Color('white')};
 	padding-top: ${props => props.screenType === 'small' ?
-		'5rem' : '0'};
+		'5rem' : '2rem'};
 	padding-bottom: ${props => props.screenType === 'small' ?
-		'5rem' : '7rem'};
+		'5rem' : '2rem'};
 `;
 const DateContainer = styled.p`
 	margin-bottom: .5rem;
@@ -62,7 +75,7 @@ const Section = styled.div`
 		'1rem' : '5rem'};
 	${props => props.screenType !== 'small' && `
 		padding-top: 5rem;
-		padding-bottom: 5rem;
+		padding-bottom: 3rem;
 	`}
 	${props => props.screenType !== 'small' && props.backgroundColor && `
 		background-color: ${StylePatterns.Color(props.backgroundColor)};
@@ -146,13 +159,35 @@ const BrandingSubsection = styled.div`
 		grid-area: ${props.gridArea};
 	`}
 `;
-const BrandRestrainer = styled.div`
+const BrandContainer = styled.div`
 	${props => props.screenType === 'large' && `
-		max-width: 40rem;
-		${StylePatterns.VerticalAlignMiddle()};
+		padding: 2rem 2rem;
+		text-align: center;
+
+		svg {
+			max-width: 30rem;
+			margin: auto;
+		}
 	`}
 	${props => props.screenType === 'small' && `
 		max-width: 20rem;
+	`}
+	${props => props.onBackground && `
+		background: url(${props.onBackground});
+
+		g.letterforms path {
+			fill: white;
+		}
+	`}
+	${props => props.greyScale && `
+		background-color: ${StylePatterns.Color('grey-15')};
+
+		g.letterforms path {
+			fill: ${StylePatterns.Color('grey-5')};
+		}
+		g.logo path {
+			fill: ${StylePatterns.Color('grey-5')};
+		}
 	`}
 `;
 const PrivateRestrainer = styled.div`
@@ -163,6 +198,19 @@ const PrivateRestrainer = styled.div`
 			max-width: 40rem;
 			margin-right: 0;
 			margin-left: auto;
+			margin-bottom: 2rem;
+		}
+	`}
+	${props => props.screenType === 'small' && `
+		max-width: 20rem;
+	`}
+`;
+const ContactRestrainer = styled.div`
+	${props => props.screenType === 'large' && `
+		img {
+			max-width: 40rem;
+			margin-left: 0;
+			margin-right: auto;
 			margin-bottom: 2rem;
 		}
 	`}
@@ -240,10 +288,12 @@ const returnPageContent = screenType => (
 							The Museum had an extensive but problematic group of web-based, enterprise software applications and contents.
 						</p>
 						<ul>
-							<li>These were built in the late 90s / early 2000s, mostly in ColdFusion, a language now used by relatively few people and no one in the Museum.</li>
+							<li>These were built in the late 90s / early 2000s, mostly in ColdFusion, a language now used by relatively few people and no one on staff.</li>
 							<li>They stopped evolving over a decade earlier and no longer matched the organization’s business processes.</li>
-							<li>Over 400k files - some logs, decades of image uploads, an an unknown number filled with spaghetti code.</li>
 							<li>A partial reboot effort several years prior left staff navigating between two systems.</li>
+							<li>On the older server's web root were over 400k files, ranging from logs to image uploads to a prolific level of patched and repatched spaghetti code. no human could make sense of all of this.
+							</li>
+							<li>A staff member needing to update her own published document had to submit a work order.</li>
 							<li>Staff members were clamoring for apps that worked the way they worked, wherever they worked, and more apps to solve more problems.</li>
 							<li>The on-premise server running the old apps violated PCI standards and the organization was faced with the prospect of investing in costly upgrades.</li>
 						</ul>
@@ -256,20 +306,17 @@ const returnPageContent = screenType => (
 						gridArea="solution"
 					>
 						<h2>Solutions</h2>
-						<p>
-							I decided to start over, building a new suite of bespoke, responsive, accessible apps and contents from scratch. What we achieved:
+						<p>Since the old system was significantly outdated and was incomprehensible from the backend (again, ColdFusion and over 400k files), I avoided even looking at it very much. Instead, I collaborated with every stakeholder group &mdash; over 80 stakeholders in all &mdash; to determine what their software should do.
 						</p>
+						<p>The results:</p>
 						<ul>
-							<li>Avoided replicating the old stuff; asked people how they worked and strategized how software could make that better; would have been quicker if we just replaced the old stuff</li>
-							<li>Workflows</li>
-							<li>Accessibility</li>
-							<li>Access control</li>
-							<li>Collaboration and publishing / messaging and files / workspaces - thus, the name</li>
-							<li>Documents and web content re: benefits, policies, accounting practices, workplace safety</li>
-							<li>Org browser - populated from HRIS and AD</li>
-							<li>Retire old servers, on-premise to cloud</li>
-							<li>Reduced codebase</li>
-							<li>In yellow: Demos coming</li>
+							<li>56 JavaScript-based workflow apps.</li>
+							<li>Each app conforms to updated business rules.</li>
+							<li>A responsive and accessible UX, receiving near-universal praise.</li>
+							<li>One server shut down in 2016, and the other in 2019. No PCI-related risks were realized. Almost everything is now in Microsoft's cloud. An on-premise API server was created but will likely move to AWS.</li>
+							<li>100k lines of code, down from from 400k+ files.</li>
+							<li>Simple, point-and-click access control.</li>
+							<li>Distributed content management &mdash; with my oversight and support, staff members manage their own documents and web content.</li>
 						</ul>
 					</ProblemSolutionSubsection>
 				</ProblemSolutionSubsectionsContainer>
@@ -316,7 +363,7 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="disclaimer"
 					>
-						<p style={{ padding: '2rem', margin: '2rem 0 0', textAlign: 'center', backgroundColor: StylePatterns.Color('blue-6'), color: StylePatterns.Color('white') }}>More photos and demo videos are on the way.</p>
+						<p style={{ padding: '2rem', margin: '2rem 0 0', textAlign: 'center', backgroundColor: StylePatterns.Color('blue-5'), color: StylePatterns.Color('white') }}>More photos and demo videos are on the way.</p>
 					</ProductViewsSubsection>
 				</ProductViewsSubsectionsContainer>
 			</Section>
@@ -418,11 +465,23 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="OneB"
 					>
-						<BrandRestrainer
+						<BrandContainer
 							screenType={screenType}
 						>
 							<HubBrand />
-						</BrandRestrainer>
+						</BrandContainer>
+						<BrandContainer
+							screenType={screenType}
+							onBackground={Stars}
+						>
+							<HubBrand />
+						</BrandContainer>
+						<BrandContainer
+							screenType={screenType}
+							greyScale
+						>
+							<HubBrand />
+						</BrandContainer>
 					</BrandingSubsection>
 					<BrandingSubsection
 						screenType={screenType}
@@ -469,27 +528,46 @@ const returnPageContent = screenType => (
 						gridArea="ThreeA"
 					>
 						<h3>Video and Photography</h3>
-						<ul>
-							<li>Photos comply with org's main brand</li>
-							<li>Staff member photos comingß</li>
-							<li>About the video bumper / change management videos and text pages</li>
+						<p>Human beings are especially attracted to faces &mdash; most especially their own. Thus, another part of my plan for making The Hub feel more human and more engaging is to use staff members' self-supplied face pics. (Admittedly, <a href="https://developer.microsoft.com/en-us/fabric#/components/facepile#Variants" target="_blank">this concept is baked into parts of Microsoft Office</a>.) A few photos are being pilot tested, but, for most staff members, initials hold the place where their photos will appear.
+						</p>
+						<p>In a select few other places where photos are used, tney comply with the Museum's main brand guidelines.
+						</p>
+						<p>As mentioned in <b>Change Management</b>, some staff members feel they would benefit from additional assistance in learning and understanding usage, and demo videos are part of my intended solution. I'm also working with our Help Desk to create a library of self-help materials and documentation. Any video pertaining to The Hub will begin with the adjacent, 4-second bumper with the animated identity.
+						</p>
+						{/* <ul>
 							<li><a href="https://videos.pexels.com/videos/wheat-at-close-view-on-a-windy-day-1620048">Video resource</a></li>
 							<li><a href="https://www.audioblocks.com/stock-audio/piano-sting-3-147124.html">Audio resource</a></li>
-						</ul>
+						</ul> */}
 					</BrandingSubsection>
 					<BrandingSubsection
 						screenType={screenType}
 						gridArea="ThreeB"
 					>
-						<div style={{ position: 'relative', paddingTop: '56.25%' }}>
-							<iframe
-								style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-								src="https://www.youtube.com/embed/0iyG-OUl2GQ"
-								frameBorder="0"
-								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen
-							>
-							</iframe>
+						<div>
+							{
+								screenType === 'small' &&
+
+								<img src={ContactsSmall} width="100%" />
+							}
+							{
+								screenType !== 'small' &&
+
+								<ContactRestrainer
+									screenType={screenType}
+								>
+									<img src={ContactsMedium} width="100%" />
+								</ContactRestrainer>
+							}
+							<div style={{ position: 'relative', paddingTop: '56.25%' }}>
+								<iframe
+									style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+									src="https://www.youtube.com/embed/0iyG-OUl2GQ"
+									frameBorder="0"
+									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen
+								>
+								</iframe>
+							</div>
 						</div>
 					</BrandingSubsection>
 				</BrandingSubsectionsContainer>

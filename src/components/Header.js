@@ -41,14 +41,30 @@ import LineAwesomeSVG from '../fonts/line-awesome.svg';
 
 const GlobalStyle = createGlobalStyle`
 	* { box-sizing: border-box; }
-	html { font-size: 10px; }
+	html {
+		font-size: 10px;
+		text-align: center;
+	}
 	body { 
 		font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,'Roboto', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 		font-weight: ${StylePatterns.FontWeight('light')};
 		margin: 0;
-		background-color: ${StylePatterns.Color('white')};
 		color: ${StylePatterns.Color('grey-13')};
+		text-align: left;
 	}
+	${props => props.screenType === 'small' && `
+		body {
+			background-color: ${StylePatterns.Color('white')};
+		}
+	`}
+	${props => props.screenType !== 'small' && `
+		body {
+			max-width: 160rem;
+			margin: 0 auto;
+			background-color: ${StylePatterns.Color('blue-1')};
+		}
+	`}
+
 	@font-face {
 		font-family: 'LineAwesome';
 		src: url(${LineAwesomeEOT});
