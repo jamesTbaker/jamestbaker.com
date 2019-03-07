@@ -142,10 +142,12 @@ const GlobalStyle = createGlobalStyle`
 		text-decoration: none;
 		color: ${StylePatterns.Color('interactive-on-light-default')};
 		transition: color .25s;
+		border-bottom: .1rem dotted ${StylePatterns.Color('interactive-on-light-default')};
 
 		&:hover,
 		&:active {
 			color: ${StylePatterns.Color('interactive-on-light-active')};
+			border-bottom: .1rem dotted ${StylePatterns.Color('interactive-on-light-active')};
 		}
 	}
 

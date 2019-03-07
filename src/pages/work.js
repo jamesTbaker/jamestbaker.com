@@ -19,6 +19,7 @@ import PageBody from '../components/PageBody';
 
 
 const BodyContainer = styled.div`
+	background-color: ${StylePatterns.Color('white')};
 	padding: ${props => props.screenType === 'small' ?
 		'5rem 1rem' : '10rem 0 10rem 0'};
 	${({ screenType }) => screenType !== 'small' && `
@@ -29,8 +30,16 @@ const BodyContainer = styled.div`
 		grid-gap: 5rem 5rem;
 		background-size: 100% auto, cover;
 		background-position: left top, 50% center;
-		background-image: linear-gradient(to right, ${StylePatterns.Color('white-40-percent')}, ${StylePatterns.Color('white-40-percent')}), url('${BodyImageMedium}');
+		background-image: linear-gradient(to right, ${StylePatterns.Color('white-30-percent')}, ${StylePatterns.Color('white-30-percent')}), url('${BodyImageMedium}');
 	`}
+`;
+const DateContainer = styled.p`
+	margin-bottom: .5rem;
+	font-size: ${StylePatterns.FontSize('xs')};
+`;
+const ClientContainer = styled.p`
+	margin-bottom: .5rem;
+	font-weight: ${StylePatterns.FontWeight('regular')};
 `;
 const PreambleContainer = styled.div`
 	${({ screenType }) => screenType !== 'small' && `
@@ -87,19 +96,19 @@ const returnPageContent = screenType => (
 		<PreambleContainer
 			screenType={screenType}
 		>
-			<TaglineContainer
-				screenType={screenType}
-			>
-				The Hub
-			</TaglineContainer>
+			<h2><Link to="/hub">The Hub</Link></h2>
 			<SummaryContainer
 				screenType={screenType}
 			>
+				<DateContainer>2013 &ndash; 2019</DateContainer>
+				<ClientContainer>Museum of Science, Boston</ClientContainer>
+				<ul>
+					<li>Managed program with team of 80+ direct stakeholders.</li>
+					<li>My simultaneous roles: product owner / program manager, business analyst, software developer, database developer, systems architect, information architect, copywriter, UX designer, brand designer,and  system administrator.</li>
+					<li>Built suite of 56 enterprise apps, workflow engine, REST API offering 72 services, and a React frontend.</li>
+					<li>Key tech: JavaScript, React, Node.js, Express, MongoDB, SharePoint Online.</li>
+				</ul>
 				<p><Link to="/hub">Learn more about The Hub</Link></p>
-				<p>Suite of 56 enterprise apps, org browser,
-				and distributed publishing.</p>
-				<p>2013 &ndash; 2019</p>
-				<p>Museum of Science</p>
 			</SummaryContainer>
 		</PreambleContainer>
 		<ContactContainer

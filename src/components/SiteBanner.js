@@ -19,6 +19,6 @@ export default (props) => (
 	<SiteBannerContainer
 		screenType={props.screenType}
 	>
-		jamestbaker.com has been around since 1999, but is currently undergoing reincarnation. More content is on the way.
+		I've been building the web since 1999, but this site is currently undergoing reincarnation. More content is on the way.
 	</SiteBannerContainer>
 );

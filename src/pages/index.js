@@ -19,6 +19,7 @@ import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 // ----- PAGE
 
 const BodyContainer = styled.div`
+	background-color: ${StylePatterns.Color('white')};
 	padding: ${props => props.screenType === 'small' ?
 		'5rem 1rem' : '7rem 5rem'};
 `;

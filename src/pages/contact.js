@@ -18,6 +18,7 @@ import PageBody from '../components/PageBody';
 // ----- PAGE
 
 const BodyContainer = styled.div`
+	background-color: ${StylePatterns.Color('white')};
 	padding: ${props => props.screenType === 'small' ?
 	'5rem 1rem' : '10rem 0 10rem 0'};
 	${({ screenType }) => screenType !== 'small' && `
