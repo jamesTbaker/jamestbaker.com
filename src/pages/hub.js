@@ -16,6 +16,10 @@ import MobileViewMedium from '../img/hub/Mobile-view.jpg';
 import MobileViewSmall from '../img/hub/Mobile-view@0,5x.jpg';
 import PalletPreviewMedium from '../img/hub/Pallet-preview.jpg';
 import PalletPreviewSmall from '../img/hub/Pallet-preview@0,5x.jpg';
+import ContactsMedium from '../img/hub/Contacts.jpg';
+import ContactsSmall from '../img/hub/Contacts@0,5x.jpg';
+import PrivateMedium from '../img/hub/Private.png';
+import PrivateSmall from '../img/hub/Private@0,75x.png';
 import ScreenSizes from '../services/ScreenSizes';
 import PageBody from '../components/PageBody';
 
@@ -23,7 +27,7 @@ import PageBody from '../components/PageBody';
 
 const BodyContainer = styled.div`
 	padding-top: ${props => props.screenType === 'small' ?
-		'5rem' : '7rem'};
+		'5rem' : '0'};
 	padding-bottom: ${props => props.screenType === 'small' ?
 		'5rem' : '7rem'};
 `;
@@ -38,14 +42,14 @@ const ClientContainer = styled.p`
 const SectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas:	"problemSolution problemSolution"
+		grid-template-areas:	"summary summary"
+								"problemSolution problemSolution"
 								"productView productView"
 								"team changeManagement"
 								"tech tech"
 								"branding branding";
-		grid-template-rows: auto auto auto auto;
+		grid-template-rows: auto auto auto auto auto auto;
 		grid-template-columns: 1fr 1fr;
-		grid-gap: 5rem 5rem;
 	`}
 `;
 const Section = styled.div`
@@ -56,14 +60,33 @@ const Section = styled.div`
 		'1rem' : '5rem'};
 	padding-right: ${props => props.screenType === 'small' ?
 		'1rem' : '5rem'};
-	${props => props.screenType !== 'small' && props.verticalMargin && `
+	${props => props.screenType !== 'small' && `
 		padding-top: 5rem;
 		padding-bottom: 5rem;
 	`}
 	${props => props.screenType !== 'small' && props.backgroundColor && `
 		background-color: ${StylePatterns.Color(props.backgroundColor)};
+		color: ${StylePatterns.Color('grey-15')};
 	`}
 `;
+const SummmarySubsectionsContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		display: grid;
+		grid-template-areas:	"OneA OneA"
+								"TwoA TwoB";
+		grid-template-rows: auto auto;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 5rem;
+	`}
+`;
+const SummmarySubsection = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: ${props.gridArea};
+	`}
+`;
+
+
+
 const ProblemSolutionSubsectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
@@ -81,10 +104,11 @@ const ProblemSolutionSubsection = styled.div`
 const ProductViewsSubsectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas: "mobile desktop";
-		grid-template-rows: auto;
+		grid-template-areas:	"mobile desktop"
+								"disclaimer disclaimer";
+		grid-template-rows: auto auto;
 		grid-template-columns: 1fr 1fr;
-		grid-gap: 5rem 5rem;
+		grid-column-gap: 5rem;
 	`}
 `;
 const ProductViewsSubsection = styled.div`
@@ -95,9 +119,9 @@ const ProductViewsSubsection = styled.div`
 const TechSubsectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas: "prose list";
+		grid-template-areas: "list prose";
 		grid-template-rows: auto;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 3fr;
 		grid-gap: 5rem 5rem;
 	`}
 `;
@@ -125,6 +149,22 @@ const BrandingSubsection = styled.div`
 const BrandRestrainer = styled.div`
 	${props => props.screenType === 'large' && `
 		max-width: 40rem;
+		${StylePatterns.VerticalAlignMiddle()};
+	`}
+	${props => props.screenType === 'small' && `
+		max-width: 20rem;
+	`}
+`;
+const PrivateRestrainer = styled.div`
+	${props => props.screenType === 'large' && `
+		text-align: right;
+
+		img {
+			max-width: 40rem;
+			margin-right: 0;
+			margin-left: auto;
+			margin-bottom: 2rem;
+		}
 	`}
 	${props => props.screenType === 'small' && `
 		max-width: 20rem;
@@ -143,10 +183,51 @@ const returnPageContent = screenType => (
 		>
 			<Section
 				screenType={screenType}
-				gridArea="problemSolution"
+				gridArea="summary"
 			>
-				<DateContainer>2013 &ndash; 2019</DateContainer>
-				<ClientContainer>Museum of Science, Boston</ClientContainer>
+				<SummmarySubsectionsContainer
+					screenType={screenType}
+				>
+					<SummmarySubsection
+						screenType={screenType}
+						gridArea="OneA"
+					>
+						<DateContainer>2013 &ndash; 2019</DateContainer>
+						<ClientContainer>Museum of Science, Boston</ClientContainer>
+					</SummmarySubsection>
+					<SummmarySubsection
+						screenType={screenType}
+						gridArea="TwoA"
+					>
+						<h2>Brief</h2>
+						<ul>
+							<li>Managed program with team of 80+ direct stakeholders.</li>
+							<li>My simultaneous roles: product owner / program manager, business analyst, software developer, database developer, systems architect, information architect, copywriter, UX designer, brand designer, partial system administrator.</li>
+							<li>Built suite of 56 enterprise apps, workflow engine, REST API offering 72 services, and a React frontend.</li>
+							<li>Transitioned from problematic on-premise servers to cloud service and updated on-premise API server.</li>
+							<li>Key tech: JavaScript, React, Node.js, Express, MongoDB, SharePoint Online.</li>
+						</ul>
+					</SummmarySubsection>
+					<SummmarySubsection
+						screenType={screenType}
+						gridArea="TwoB"
+					>
+						<h2>Deeper Dive</h2>
+						<ul>
+							<li>Problems this organization faced and their solutions</li>
+							<li>The Team</li>
+							<li>Change Management</li>
+							<li>Technologies used</li>
+							<li>Branding</li>
+						</ul>
+					</SummmarySubsection>
+				</SummmarySubsectionsContainer>
+			</Section>
+			<Section
+				screenType={screenType}
+				gridArea="problemSolution"
+				backgroundColor="yellow-9"
+			>
 				<ProblemSolutionSubsectionsContainer
 					screenType={screenType}
 				>
@@ -154,13 +235,14 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="problem"
 					>
-						<h2>Problem</h2>
+						<h2>Problems</h2>
 						<p>
 							The Museum had an extensive but problematic group of web-based, enterprise software applications and contents.
 						</p>
 						<ul>
 							<li>These were built in the late 90s / early 2000s, mostly in ColdFusion, a language now used by relatively few people and no one in the Museum.</li>
 							<li>They stopped evolving over a decade earlier and no longer matched the organization’s business processes.</li>
+							<li>Over 400k files - some logs, decades of image uploads, an an unknown number filled with spaghetti code.</li>
 							<li>A partial reboot effort several years prior left staff navigating between two systems.</li>
 							<li>Staff members were clamoring for apps that worked the way they worked, wherever they worked, and more apps to solve more problems.</li>
 							<li>The on-premise server running the old apps violated PCI standards and the organization was faced with the prospect of investing in costly upgrades.</li>
@@ -173,9 +255,9 @@ const returnPageContent = screenType => (
 						screenType={screenType}
 						gridArea="solution"
 					>
-						<h2>Solution</h2>
+						<h2>Solutions</h2>
 						<p>
-							I decided to start over, building a new suite of bespoke, responsive, accessible apps and contents from scratch.
+							I decided to start over, building a new suite of bespoke, responsive, accessible apps and contents from scratch. What we achieved:
 						</p>
 						<ul>
 							<li>Avoided replicating the old stuff; asked people how they worked and strategized how software could make that better; would have been quicker if we just replaced the old stuff</li>
@@ -186,6 +268,7 @@ const returnPageContent = screenType => (
 							<li>Documents and web content re: benefits, policies, accounting practices, workplace safety</li>
 							<li>Org browser - populated from HRIS and AD</li>
 							<li>Retire old servers, on-premise to cloud</li>
+							<li>Reduced codebase</li>
 							<li>In yellow: Demos coming</li>
 						</ul>
 					</ProblemSolutionSubsection>
@@ -194,8 +277,7 @@ const returnPageContent = screenType => (
 			<Section
 				screenType={screenType}
 				gridArea="productView"
-				verticalMargin
-				backgroundColor="red-16"
+				backgroundColor="blue-16"
 			>
 				<ProductViewsSubsectionsContainer
 					screenType={screenType}
@@ -230,6 +312,12 @@ const returnPageContent = screenType => (
 							<img src={DesktopViewMedium} width="100%" />
 						}
 					</ProductViewsSubsection>
+					<ProductViewsSubsection
+						screenType={screenType}
+						gridArea="disclaimer"
+					>
+						<p style={{ padding: '2rem', margin: '2rem 0 0', textAlign: 'center', backgroundColor: StylePatterns.Color('blue-6'), color: StylePatterns.Color('white') }}>More photos and demo videos are on the way.</p>
+					</ProductViewsSubsection>
 				</ProductViewsSubsectionsContainer>
 			</Section>
 			<Section
@@ -260,8 +348,7 @@ const returnPageContent = screenType => (
 			<Section
 				screenType={screenType}
 				gridArea="tech"
-				verticalMargin
-				backgroundColor="red-16"
+				backgroundColor="yellow-9"
 			>
 				<h2>Tech</h2>
 				<TechSubsectionsContainer
@@ -269,31 +356,38 @@ const returnPageContent = screenType => (
 				>
 					<TechSubsection
 						screenType={screenType}
-						gridArea="prose"
+						gridArea="list"
 					>
-						<h3>Prose</h3>
-						<ul>
-							<li>Decision to use SP predates me. I prefer Linux, but the org prefers Windows</li>
-							<li>Workflow engine - provision app site from template and alter settings to create an app</li>
-							<li>Neso API services</li>
-							<li>Node.js, mongoDB, Express, Windows Server, React, SP, jQuery, Sass</li>
-							<li>Organize above tech into "things" (workflows vs. Neso, etc.)</li>
-							<li>Adobe suite, Inkscape, Figma</li>
-						</ul>
+						<h3>Brief</h3>
+						<p><b>REST API microservices</b> &mdash; Node.js, MongoDB, Express, ImageMagick, Windows Server</p>
+						<p><b>Frontend</b> &mdash; React, Sass, Webpack, SharePoint Framework (SPFx)</p>
+						<p><b>Client-side workflow engine</b> &mdash; JavaScript, jQuery, Sass</p>
+						<p><b>Access control, file management, client-side hosting</b> &mdash; Microsoft SharePoint / Office 365</p> 
+						<p><b>Helpers</b> &mdash; Adobe Creative Cloud, Inkscape, and Figma</p>
 					</TechSubsection>
 					<TechSubsection
 						screenType={screenType}
-						gridArea="list"
+						gridArea="prose"
 					>
-						<h3>List, Key Stats</h3>
-						<ul>
-							<li>Decision to use SP predates me. I prefer Linux, but the org prefers Windows</li>
-							<li>Workflow engine - provision app site from template and alter settings to create an app</li>
-							<li>Neso API services</li>
-							<li>Node.js, mongoDB, Express, Windows Server, React, SP, jQuery, Sass</li>
-							<li>Organize above tech into "things" (workflows vs. Neso, etc.)</li>
-							<li>Adobe suite, Inkscape, Figma</li>
-						</ul>
+						<h3>The Story</h3>
+						<p>
+							I'm a fan of Linux and other open source / libre technologies, but the Museum loves Microsoft, which has been a generous donor. Prior to my tenure, it was determined that whatever replaced the legacy systems would be built on Microsoft SharePoint Online with Microsoft InfoPath being an out-of-the-box, point-and-click solution for building workflow apps to replace existing apps.
+						</p>
+						<p>
+							After some time, I convinced the Associate VP that InfoPath was going to be an impossibility. Suited for some power users but not developers, it simply couldn't accomodate the Museum's more complex business needs, even when supplemented with C#. I'd mostly worked in PHP in the past, but here I'd inherited SharePoint Online, a cloud service with virtually no backend access. Morevoer, my knowledge of JavaScript was scant, frontend frameworks like React were not yet common, and SharePoint Framework (SPFx) did not yet exist.
+						</p>
+						<p>
+							I learned enough JavaScript and jQuery to repurpose the base concept of <a href="https://youtu.be/28e-_VNqxGg">Forms7</a> (storing form data as JSON in a SharePoint list), added in a number of libraries, and built from scratch a client-side API that manages screens, permissions, workflow moderation, data validation, data storage and retrieval, and email notifications. 
+						</p>
+						<p>
+							SharePoint's email API was problematic for us because it wouldn't allow an app to send email to someone who'd never used the app before. (Microsoft calls this a security feature.) So, spinning up a server was the only option. A sys admin installed Windows and connected the machine to the network, but none of us wanted to be responsible for PHP, Apache, and MySQL. So, I installed Node.js, Express, and MongoDB and built from scratch a REST API that receives email data and forwards it to the in-house email server &mdash; and now affords 71 other services, too.
+						</p>
+						<p>
+							These days, a simple, custom, multi-stage workflow app with email notificaitons can be built in about an hour.
+						</p>
+						<p>
+							In 2018, I began to bring these disparate apps together into a cohesive platform, opting for a frontend built with React, again learning a whole new paradigm from scratch. Challenging, but very rewarding.
+						</p>
 					</TechSubsection>
 				</TechSubsectionsContainer>
 			</Section>
@@ -302,7 +396,8 @@ const returnPageContent = screenType => (
 				gridArea="branding"
 			>
 				<h2>Branding</h2>
-				<p>Aside from typical branding concerns, branding was used to create sense that the project was in professional hands and that there was ROI even for those without technical concerns.</p>
+				<p>Aside from typical branding concerns, I was especially interested in using branding to communicate that this important part of the organization, which had been neglected for so long, was now in profressional hands. I truly believe that a great brand can inspire confidence and trust, and a brand doesn't have to be terrible to make people feel like they're dealing with an amateur they can't trust.
+				</p>
 				<BrandingSubsectionsContainer
 					screenType={screenType}
 				>
@@ -311,13 +406,13 @@ const returnPageContent = screenType => (
 						gridArea="OneA"
 					>
 						<h3>Logo & Typography</h3>
-						<ul>
-							<li>Logo appears in proximity to org's main brand</li>
-							<li>Logo make use of org's main brand pallet to evoke Hub concept</li>
-							<li>Logo is hand-edited SVG that can be targeted with CSS</li>
-							<li>Logo works on light and dark backgrounds, and in greyscale</li>
-							<li>Typography matches SP, but just for now</li>
-						</ul>
+						<p>The Hub is an endorsed sub-brand of the Museum's parent brand. The Hub's logo uses samples from the organization's parent brand color pallet in a shape that evokes the concept of a hub (elements around a central fixture). The logo doesn't include direct references to the parent brand, but typically appears in proximity to the parent brand.
+						</p>
+						<p>While the creative work is my own, it was reviewed by the Museum's Brand Design Manager.</p>
+						<p>
+							The logo can be used on dark and light colored backgrounds, and can be reproduced in greyscale. The file itself is a hand-edited SVG that can be targeted with CSS.
+						</p>
+						<p>Typography has been an odd duck. The parent brand's typeface is Akzidenz Grotesque, the forerunner to Helvetica. However, some parts of The Hub, such as document library interfaces, are generated by Microsoft and we currently have limited "theming" capabilities. In these spaces, people will be met with Microsoft's font, Segoe. Until we can transition all of The Hub to the organization's parent brand typeface, all parts of The Hub use the Segoe typeface in order to create a cohesive and consistent experience across the platform.</p>
 					</BrandingSubsection>
 					<BrandingSubsection
 						screenType={screenType}
@@ -334,14 +429,15 @@ const returnPageContent = screenType => (
 						gridArea="TwoB"
 					>
 						<h3>Color Pallet</h3>
-						<a href="https://www.figma.com/file/e6ttbXfwvFZa5jhj0FHVAT3o/Color">
-							Check out the full pallet in Figma
-						</a>
-						<ul>
-							<li>Reflects the org's main brand</li>
-							<li>Accessibility</li>
-							<li>Sass vars</li>
-						</ul>
+						<p>The bulk of The Hub is enterprise apps &mdash; think forms, data tables, policy PDFs, and the occasional calendar. How does one people to something that is, by its nature, impersonal? Obviously, <i>gratuitous</i> photo, video, and audio would get in the way of people's work, so color becomes the primary attractor. Thus, I've thrown in color just about everywhere it won't be an inhibitor or distraction.
+						</p>
+						<p>I wanted to use the organization’s parent brand pallet, but I knew that to maximize color usage I would need to put colored type on a colored background &mdash; and maintain accessiblity standards for foreground-background contrast. Therefore, I had to create a light-to-dark scale for each hue, and then create Sass variables and transparency mixins for each one.
+						</p>
+						<p>
+							<a href="https://www.figma.com/file/e6ttbXfwvFZa5jhj0FHVAT3o/Color">
+								Check out the full pallet in Figma
+							</a>.
+						</p>
 					</BrandingSubsection>
 					<BrandingSubsection
 						screenType={screenType}
@@ -350,12 +446,22 @@ const returnPageContent = screenType => (
 						{
 							screenType === 'small' &&
 
-							<img src={PalletPreviewSmall} width="100%" />
+							<div>
+								<img src={PrivateSmall} width="100%" />
+								<img src={PalletPreviewSmall} width="100%" />
+							</div>
 						}
 						{
 							screenType !== 'small' &&
 
-							<img src={PalletPreviewMedium} width="100%" />
+							<div>
+								<PrivateRestrainer
+									screenType={screenType}
+								>
+									<img src={PrivateMedium} width="100%" />
+								</PrivateRestrainer>
+								<img src={PalletPreviewMedium} width="100%" />
+							</div>
 						}
 					</BrandingSubsection>
 					<BrandingSubsection
@@ -367,6 +473,8 @@ const returnPageContent = screenType => (
 							<li>Photos comply with org's main brand</li>
 							<li>Staff member photos comingß</li>
 							<li>About the video bumper / change management videos and text pages</li>
+							<li><a href="https://videos.pexels.com/videos/wheat-at-close-view-on-a-windy-day-1620048">Video resource</a></li>
+							<li><a href="https://www.audioblocks.com/stock-audio/piano-sting-3-147124.html">Audio resource</a></li>
 						</ul>
 					</BrandingSubsection>
 					<BrandingSubsection

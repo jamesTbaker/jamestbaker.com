@@ -1,8 +1,55 @@
- <link href="https://fonts.googleapis.com/css?family=Cormorant:300,300i,400,400i" rel="stylesheet"> 
+@font-face {
+	font-family: 'zFont-Light';
+	src: url('../fonts/zFont-Light.eot');
+	src: url('../fonts/zFont-Light.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/zFont-Light.woff2') format('woff2'),
+		url('../fonts/zFont-Light.woff') format('woff'),
+		url('../fonts/zFont-Light.ttf') format('truetype'),
+		url('../fonts/zFont-Light.svg#zFont-Light') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
- font-family: 'Cormorant', serif;
+@font-face {
+	font-family: 'zFont-Medium';
+	src: url('../fonts/zFont-Medium.eot');
+	src: url('../fonts/zFont-Medium.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/zFont-Medium.woff2') format('woff2'),
+		url('../fonts/zFont-Medium.woff') format('woff'),
+		url('../fonts/zFont-Medium.ttf') format('truetype'),
+		url('../fonts/zFont-Medium.svg#zFont-Medium') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'zFont-Bold';
+	src: url('../fonts/zFont-Bold.eot');
+	src: url('../fonts/zFont-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/zFont-Bold.woff2') format('woff2'),
+		url('../fonts/zFont-Bold.woff') format('woff'),
+		url('../fonts/zFont-Bold.ttf') format('truetype'),
+		url('../fonts/zFont-Bold.svg#zFont-Bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+	@font-face {
+		font-family:'zFont';
+		src:url(https://s3-eu-west-1.amazonaws.com/zorraquino/assets/fonts/zfont/zFont-Light.woff2) format("woff2"),
+			url(https://s3-eu-west-1.amazonaws.com/zorraquino/assets/fonts/zfont/zFont-Light.woff) format("woff");
+		font-weight: 300;
+		font-style: normal;
+	}
+	@font-face {font-family:'zFont';        src:url(https://s3-eu-west-1.amazonaws.com/zorraquino/assets/fonts/zfont/zFont-Medium.woff2) format("woff2"),url(https://s3-eu-west-1.amazonaws.com/zorraquino/assets/fonts/zfont/zFont-Medium.woff) format("woff");        font-weight:normal;        font-style:normal;}
+	@font-face {font-family:'zFont';        src:url(https://s3-eu-west-1.amazonaws.com/zorraquino/assets/fonts/zfont/zFont-Bold.woff2) format("woff2"),url(https://s3-eu-west-1.amazonaws.com/zorraquino/assets/fonts/zfont/zFont-Bold.woff) format("woff");        font-weight:bold;        font-style:normal;}
 
 
- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
 
- font-family: 'Source Sans Pro', sans-serif;
+
+
+
+
+
+
+
