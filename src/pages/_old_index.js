@@ -12,7 +12,6 @@ import TitleImageMedium from '../img/titleImages/processed/storrow-drive.jpg';
 import TitleImageSmall from '../img/titleImages/processed/storrow-drive@0,5x.jpg';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ScreenSizes from '../services/ScreenSizes';
-import PageTitle from '../components/PageTitle';
 import PageBody from '../components/PageBody';
 import StrongText from '../components/StrongText';
 import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
@@ -20,7 +19,7 @@ import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 // ----- PAGE
 
 const BodyContainer = styled.div`
-	margin-left: 20rem;
+	background-color: ${StylePatterns.Color('white')};
 	padding: ${props => props.screenType === 'small' ?
 		'5rem 1rem' : '7rem 5rem'};
 `;
@@ -54,19 +53,13 @@ const TaglineContainer = styled.p`
 const SummaryContainer = styled.p`
 	max-width: 50rem;
 `;
-const PageTitleText = 'Profile';
+const PageTitle = 'Profile';
 const PageDescription = 'Profile of James T. Baker';
 
 const returnPageContent = screenType => (
 	<BodyContainer
 		screenType={screenType}
 	>
-		<h1>Header One</h1>
-		<h2>Header Two</h2>
-		<h3>Header Three</h3>
-		<h4>Header Four</h4>
-		<h5>Header Five</h5>
-		<h6>Header Six</h6>
 		<LocationContainer
 			screenType={screenType}
 		>
@@ -120,37 +113,12 @@ const returnPageContent = screenType => (
 	</BodyContainer>
 );
 
-{/* <SiteBanner screenType="small" /> */ }
-{/* <PageTitle
-	backgroundImage={props.backgroundImage}
-	text={props.title}
-	screenType="small"
-/> */}
-
-{/* <SiteBanner screenType="medium" /> */ }
-{/* <PageTitle
-	backgroundImage={props.backgroundImage}
-	text={props.title}
-	screenType="medium"
-/> */}
-
-{/* <SiteBanner screenType="large" /> */ }
-{/* <PageTitle
-	backgroundImage={props.backgroundImage}
-	text={props.title}
-	screenType="large"
-/> */}
-
-
-
-
-
 export default () => {
 	return (
 		<div>
 			<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
 				<Header
-					title={PageTitleText}
+					title={PageTitle}
 					backgroundImage={TitleImageSmall}
 					description={PageDescription}
 				/>
@@ -165,7 +133,7 @@ export default () => {
 				maxWidth={ScreenSizes.ReturnMediumMax()}
 			>
 				<Header
-					title={PageTitleText}
+					title={PageTitle}
 					backgroundImage={TitleImageMedium}
 					description={PageDescription}
 				/>
@@ -177,7 +145,7 @@ export default () => {
 			</MediaQuery>
 			<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
 				<Header
-					title={PageTitleText}
+					title={PageTitle}
 					backgroundImage={TitleImageMedium}
 					description={PageDescription}
 				/>
@@ -187,7 +155,7 @@ export default () => {
 					{returnPageContent('large')}
 				</PageBody>
 			</MediaQuery>
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	);
 }

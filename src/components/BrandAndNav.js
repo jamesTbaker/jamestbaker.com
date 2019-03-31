@@ -9,6 +9,8 @@ import styled from 'styled-components';
 // import Hamburger from './Hamburger';
 import Brand from './Brand';
 import StylePatterns from '../services/StylePatterns';
+import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
+import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 
 // ----- COMPONENT
 
@@ -111,27 +113,10 @@ const HeaderSmall = styled.header`
 	padding: 3rem 0;
 	background-color: ${StylePatterns.Color('blue-1')};
 `;
-const HeaderMedium = styled.header`
-	display: grid;
-	grid-template-rows: 7rem;
-	grid-template-columns: auto 10rem;
-	padding: 3rem 0;
-	background-color: ${StylePatterns.Color('blue-1')};
-`;
 const BrandContainerSmall = styled.div`
 	grid-area: 1 / 3 / 2 / 4;
 	padding-right: 1rem;
 `;
-const BrandContainerMedium = styled.div`
-	grid-area: 1 / 2 / 2 / 3;
-	padding-right: 5rem;
-`;
-
-const NavMedium = styled.nav`
-	width: 100%;
-	padding-left: 5rem;
-`;
-
 const NavSmall = styled.nav`
 	position: fixed;
 	top: 11rem;
@@ -146,17 +131,10 @@ const NavSmall = styled.nav`
 		height: 100%;
 	`}
 `;
-
-
 // top padding = viewport height - ul height, divided by 2 to get half, 
 // 		minus height of hamburger and brand container 
 const NavSmallList = styled.ul`
 	padding: calc(((100vh - 25rem) / 2) - 5rem) 0 0 0;
-	margin: 0;
-	list-style: none;
-`;
-const NavMediumList = styled.ul`
-	padding: 0;
 	margin: 0;
 	list-style: none;
 `;
@@ -198,13 +176,6 @@ const NavSmallListItem = styled.li`
 		opacity: 1;
 	`}
 `;
-const NavMediumListItem = styled.li`
-	display: inline-block;	
-	list-style: none;
-	margin: 0 2rem 0 0;
-	font-size: ${StylePatterns.FontSize('m', 'medium')};
-	font-weight: ${StylePatterns.FontWeight('light')};
-`;
 const NavSmallLink = styled(Link)`
 	display: block;
 	width: 100%;
@@ -228,6 +199,70 @@ const NavSmallLink = styled(Link)`
 		}
 	}
 `;
+
+
+
+
+
+
+
+
+const HeaderMedium = styled.header`
+	position: fixed;
+	left: 0;
+	width: 20rem;
+	height: 100%;
+	z-index: 999;
+	overflow-y: auto;
+	background-color: ${StylePatterns.Color('blue-1')};
+`;
+const BrandContainerMedium = styled.div`
+	padding: 2rem 2rem 1rem;
+	font-size: ${StylePatterns.FontSize('l', 'medium')};
+
+`;
+const HeaderMediumTagline = styled.div`
+	padding: 0 2rem 1rem;
+	margin-bottom: 5rem;
+
+	p {
+		margin: 0;
+		font-size: ${StylePatterns.FontSize('xs', 'medium')};
+	}
+	a {
+		border: 0;
+	}
+`;
+
+
+const NavMedium = styled.nav`
+	padding: 2rem;
+`;
+
+const NavMediumList = styled.ul`
+	padding: 0;
+	margin: 0;
+	list-style: none;
+`;
+const NavMediumListItem = styled.li`
+	display: block;	
+	list-style: none;
+	position: relative;
+	padding-top: 1rem;
+	margin: 0 0 10rem 0;
+	font-size: ${StylePatterns.FontSize('m', 'medium')};
+	font-weight: ${StylePatterns.FontWeight('light')};
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		width: 10%;
+		left: 0;
+		border-top: 5px solid ${StylePatterns.Color('yellow-1')};
+}
+`;
 const NavMediumLink = styled(Link)`
 	border: 0;
 	color: ${StylePatterns.Color('interactive-on-dark-default')};
@@ -246,12 +281,7 @@ const NavMediumLink = styled(Link)`
 		}
 	}
 	&[aria-current="page"] {
-		border-bottom: 1px solid ${StylePatterns.Color('blue-6')};
-		transition: border-color .25s;
-
-		&:hover {
-			border-color: ${StylePatterns.Color('interactive-on-dark-active')};
-		}
+		color: ${StylePatterns.Color('grey-7')}
 	}
 `;
 
@@ -375,20 +405,30 @@ export default class Header extends React.Component {
 
 					(
 						<HeaderMedium>
-							<NavMedium>
-								<VerticalAlignMiddleContainer>
-									<NavMediumList>
-										<NavMediumListItem><NavMediumLink to="/">Profile</NavMediumLink></NavMediumListItem>
-										<NavMediumListItem><NavMediumLink to="/work">Work</NavMediumLink></NavMediumListItem>
-										<NavMediumListItem><NavMediumLink to="/contact">Contact</NavMediumLink></NavMediumListItem>
-									</NavMediumList>
-								</VerticalAlignMiddleContainer>
-							</NavMedium>
 							<BrandContainerMedium>
-								<VerticalAlignMiddleContainer>
-									<Brand />
-								</VerticalAlignMiddleContainer>
+								<Brand />
 							</BrandContainerMedium>
+							<HeaderMediumTagline>
+								<p>Greater Boston</p>
+								<p>
+									<a href={ProfileBrief}>
+										Profile Brief
+										<Icon
+											iconPosition="after"
+											iconContent="cloud-download"
+											iconSize="1.5"
+										/>
+									</a>
+
+								</p>
+							</HeaderMediumTagline>
+							<NavMedium>
+								<NavMediumList>
+									<NavMediumListItem><NavMediumLink to="/">Profile</NavMediumLink></NavMediumListItem>
+									<NavMediumListItem><NavMediumLink to="/work">Work</NavMediumLink></NavMediumListItem>
+									<NavMediumListItem><NavMediumLink to="/contact">Contact</NavMediumLink></NavMediumListItem>
+								</NavMediumList>
+							</NavMedium>
 						</HeaderMedium>
 					)
 				}

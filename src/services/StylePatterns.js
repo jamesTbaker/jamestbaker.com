@@ -56,8 +56,10 @@ module.exports = {
 				return '300';
 			case 'regular':
 				return '400';
-			case 'bold':
+			case 'semi-bold':
 				return '500';
+			case 'extra-bold':
+				return '800';
 		}
 	},
 
@@ -94,10 +96,6 @@ module.exports = {
 				return '#ffe8bf';
 			case 'yellow-9':
 				return '#ffedcd';
-			case 'yellow-10':
-				return '#fff3dc';
-			case 'yellow-11':
-				return '#fff8eb';
 
 
 
@@ -145,23 +143,23 @@ module.exports = {
 			case 'blue-10':
 				return '#67bee5';
 			case 'blue-10-10-percent':
-				return 'rgba(103,190,229,.1)';
+				return 'rgba($blue-10,.1)';
 			case 'blue-10-20-percent':
-				return 'rgba(103,190,229,.2)';
+				return 'rgba($blue-10,.2)';
 			case 'blue-10-30-percent':
-				return 'rgba(103,190,229,.3)';
+				return 'rgba($blue-10,.3)';
 			case 'blue-10-40-percent':
-				return 'rgba(103,190,229,.4)';
+				return 'rgba($blue-10,.4)';
 			case 'blue-10-50-percent':
-				return 'rgba(103,190,229,.5)';
+				return 'rgba($blue-10,.5)';
 			case 'blue-10-60-percent':
-				return 'rgba(103,190,229,.6)';
+				return 'rgba($blue-10,.6)';
 			case 'blue-10-70-percent':
-				return 'rgba(103,190,229,.7)';
+				return 'rgba($blue-10,.7)';
 			case 'blue-10-80-percent':
-				return 'rgba(103,190,229,.8)';
+				return 'rgba($blue-10,.8)';
 			case 'blue-10-90-percent':
-				return 'rgba(103,190,229,.9)';
+				return 'rgba($blue-10,.9)';
 			case 'blue-11':
 				return '#73d4ff';
 			case 'blue-12':
@@ -174,8 +172,6 @@ module.exports = {
 				return '#c4edff';
 			case 'blue-16':
 				return '#d9f3ff';
-			case 'blue-17':
-				return '#edf9ff';
 				
 				
 				
@@ -188,7 +184,7 @@ module.exports = {
 			case 'red-2':
 				return '#4d0509';
 			case 'red-3':
-				return '#510c18';
+				return '#610309';
 			case 'red-4':
 				return '#760209';
 			case 'red-5':
@@ -219,8 +215,6 @@ module.exports = {
 				return '#ffc3be';
 			case 'red-16':
 				return '#ffd9d5';
-			case 'red-17':
-				return '#ffefed';
 
 
 
@@ -230,23 +224,23 @@ module.exports = {
 			case 'white':
 				return '#fff';
 			case 'white-10-percent':
-				return 'rgba(255,255,255,.1)';
+				return 'rgba($white.1)';
 			case 'white-20-percent':
-				return 'rgba(255,255,255,.2)';
+				return 'rgba($white.2)';
 			case 'white-30-percent':
-				return 'rgba(255,255,255,.3)';
+				return 'rgba($white.3)';
 			case 'white-40-percent':
-				return 'rgba(255,255,255,.4)';
+				return 'rgba($white.4)';
 			case 'white-50-percent':
-				return 'rgba(255,255,255,.5)';
+				return 'rgba($white.5)';
 			case 'white-60-percent':
-				return 'rgba(255,255,255,.6)';
+				return 'rgba($white.6)';
 			case 'white-70-percent':
-				return 'rgba(255,255,255,.7)';
+				return 'rgba($white.7)';
 			case 'white-80-percent':
-				return 'rgba(255,255,255,.8)';
+				return 'rgba($white.8)';
 			case 'white-90-percent':
-				return 'rgba(255,255,255,.9)';
+				return 'rgba($white.9)';
 
 
 

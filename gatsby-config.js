@@ -8,7 +8,7 @@ module.exports = {
 		'gatsby-plugin-styled-components',
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-sass',
-		{
+		/* {
 			resolve: 'gatsby-plugin-google-fonts',
 			options: {
 				fonts: [
@@ -20,7 +20,7 @@ module.exports = {
 					// 'cormorant:300,300i,400,400i,500,500i,600,600i,700,700i',
 				],
 			},
-		},
+		}, */
 		{
 			// keep as first gatsby-source-filesystem plugin for gatsby image support
 		// 	resolve: 'gatsby-source-filesystem',
