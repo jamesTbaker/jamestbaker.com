@@ -106,12 +106,12 @@ const HamburgerInner = styled.span`
 const VerticalAlignMiddleContainer = styled.div`
 	${StylePatterns.VerticalAlignMiddle()};
 `;
-const HeaderSmall = styled.header`
+const HeaderSmall = styled.div`
 	display: grid;
 	grid-template-rows: 5rem;
 	grid-template-columns: 5rem auto 5rem;
 	padding: 3rem 0;
-	background-color: ${StylePatterns.Color('blue-1')};
+	background-color: #414;
 `;
 const BrandContainerSmall = styled.div`
 	grid-area: 1 / 3 / 2 / 4;
@@ -207,21 +207,21 @@ const NavSmallLink = styled(Link)`
 
 
 
-const HeaderMedium = styled.header`
+const HeaderLarge = styled.div`
 	position: fixed;
 	left: 0;
 	width: 20rem;
 	height: 100%;
 	z-index: 999;
 	overflow-y: auto;
-	background-color: ${StylePatterns.Color('blue-1')};
+	background-color: #313;
 `;
-const BrandContainerMedium = styled.div`
+const BrandContainerLarge = styled.div`
 	padding: 2rem 2rem 1rem;
 	font-size: ${StylePatterns.FontSize('l', 'medium')};
 
 `;
-const HeaderMediumTagline = styled.div`
+const HeaderLargeTagline = styled.div`
 	padding: 0 2rem 1rem;
 	margin-bottom: 5rem;
 
@@ -340,11 +340,12 @@ export default class Header extends React.Component {
 	}
 	render() {
 		return (
-			<Sticky enableTransforms={false} >
+			<header className="sb-root--brand-and-nav">
 				{
-					this.props.screenType === 'small' && 
+					(this.props.screenType === 'small' || 
+					this.props.screenType === 'medium') && 
 
-					(
+					<Sticky enableTransforms={false} >
 						<HeaderSmall>
 							<HamburgerContainer>
 								<Hamburger
@@ -397,42 +398,39 @@ export default class Header extends React.Component {
 								</NavSmallList>
 							</NavSmall>
 						</HeaderSmall>
-					)
+					</Sticky>
 				}
 				{
-					(this.props.screenType === 'medium' || 
-					this.props.screenType === 'large') && 
+					this.props.screenType === 'large' && 
 
-					(
-						<HeaderMedium>
-							<BrandContainerMedium>
-								<Brand />
-							</BrandContainerMedium>
-							<HeaderMediumTagline>
-								<p>Greater Boston</p>
-								<p>
-									<a href={ProfileBrief}>
-										Profile Brief
-										<Icon
-											iconPosition="after"
-											iconContent="cloud-download"
-											iconSize="1.5"
-										/>
-									</a>
+					<HeaderLarge>
+						<BrandContainerLarge>
+							<Brand />
+						</BrandContainerLarge>
+						<HeaderLargeTagline>
+							<p>Greater Boston</p>
+							<p>
+								<a href={ProfileBrief}>
+									Profile Brief
+									<Icon
+										iconPosition="after"
+										iconContent="cloud-download"
+										iconSize="1.5"
+									/>
+								</a>
 
-								</p>
-							</HeaderMediumTagline>
-							<NavMedium>
-								<NavMediumList>
-									<NavMediumListItem><NavMediumLink to="/">Profile</NavMediumLink></NavMediumListItem>
-									<NavMediumListItem><NavMediumLink to="/work">Work</NavMediumLink></NavMediumListItem>
-									<NavMediumListItem><NavMediumLink to="/contact">Contact</NavMediumLink></NavMediumListItem>
-								</NavMediumList>
-							</NavMedium>
-						</HeaderMedium>
-					)
+							</p>
+						</HeaderLargeTagline>
+						<NavMedium>
+							<NavMediumList>
+								<NavMediumListItem><NavMediumLink to="/">Profile</NavMediumLink></NavMediumListItem>
+								<NavMediumListItem><NavMediumLink to="/work">Work</NavMediumLink></NavMediumListItem>
+								<NavMediumListItem><NavMediumLink to="/contact">Contact</NavMediumLink></NavMediumListItem>
+							</NavMediumList>
+						</NavMedium>
+					</HeaderLarge>
 				}
-			</Sticky>
+			</header>
 		);
 	}
 }

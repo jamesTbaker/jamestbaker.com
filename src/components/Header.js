@@ -2,13 +2,10 @@
 // ----- IMPORTS
 
 import React from 'react';
-import MediaQuery from 'react-responsive';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { Helmet } from 'react-helmet';
-import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import BrandAndNav from './BrandAndNav';
-import SiteBanner from './SiteBanner';
 
 
 import Favicon from '../img/favicons/favicon.ico';
@@ -38,19 +35,6 @@ import LineAwesomeWOFF2 from '../fonts/line-awesome.woff2';
 import LineAwesomeSVG from '../fonts/line-awesome.svg';
 
 // ----- INJECT GLOBAL STYLE
-
-	/* ${props => props.screenType === 'small' && `
-		body {
-			background-color: ${StylePatterns.Color('white')};
-		}
-	`}
-	${props => props.screenType !== 'small' && `
-		body {
-			max-width: 160rem;
-			margin: 0 auto;
-			background-color: ${StylePatterns.Color('blue-1')};
-		}
-	`} */
 
 const GlobalStyle = createGlobalStyle`
 	@import url('https://rsms.me/inter/inter.css');
@@ -233,7 +217,7 @@ const GlobalStyle = createGlobalStyle`
 // --- COMPONENT
 
 export default (props) => (
-	<div>
+	<div className="sb-root--page-header">
 		<Helmet
 			meta={[
 				{ name: 'description', content: `${props.description}` },
@@ -263,21 +247,7 @@ export default (props) => (
 				{ rel: 'icon', type: 'image/png', sizes: '128x128', href: `${Favicon128}` },
 			]}
 		/>
-		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
-			<GlobalStyle screenType="small" />
-			<BrandAndNav screenType="small" />
-			
-		</MediaQuery>
-		<MediaQuery
-			minWidth={ScreenSizes.ReturnMediumMin()}
-			maxWidth={ScreenSizes.ReturnMediumMax()}
-		>
-			<GlobalStyle screenType="medium" />
-			<BrandAndNav screenType="medium" />
-		</MediaQuery>
-		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
-			<GlobalStyle screenType="large" />
-			<BrandAndNav screenType="large" />
-		</MediaQuery>
+		<GlobalStyle screenType={props.screenType} />
+		<BrandAndNav screenType={props.screenType} />
 	</div>
 );

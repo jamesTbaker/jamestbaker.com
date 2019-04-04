@@ -16,10 +16,12 @@ const FooterContainer = styled.footer`
 	display: grid;
 	grid-template-columns: 3rem auto;
 	grid-column-gap: 1.5rem;
-	padding: ${props => props.screenType === 'small' ?
+	padding: ${props => props.screenType !== 'large' ?
 		'2rem 1rem 2rem' : '2rem 5rem 2rem' };
+	margin-left: ${props => props.screenType === 'large' ?
+		'20rem' : '0' };
 	font-size: ${StylePatterns.FontSize('xs', 'small')};
-	background-color: ${StylePatterns.Color('blue-1')};
+	background-color: #313;
 	color: ${StylePatterns.Color('grey-9')};
 `;
 
@@ -36,57 +38,19 @@ const VerticalAlignMiddleContainer = styled.div`
 `;
 
 export default (props) => (
-	<div>
-		<MediaQuery maxWidth={ScreenSizes.ReturnSmallMax()}>
-			<FooterContainer
-				screenType="small"
-			>
-				<BrandContainer>
-					<VerticalAlignMiddleContainer>
-						<Brand />
+	<FooterContainer
+		screenType={props.screenType}
+	>
+		<BrandContainer>
+			<VerticalAlignMiddleContainer>
+				<Brand />
+			</VerticalAlignMiddleContainer>
+		</BrandContainer>
+		<CopyrightContainer>
+			<VerticalAlignMiddleContainer>
+				&copy; 1999&ndash;2019, James T. Baker. All Rights Reserved.
 					</VerticalAlignMiddleContainer>
-				</BrandContainer>
-				<CopyrightContainer>
-					<VerticalAlignMiddleContainer>
-						&copy; 1999&ndash;2019, James T. Baker. All Rights Reserved.
-					</VerticalAlignMiddleContainer>
-				</CopyrightContainer>
-			</FooterContainer>
-		</MediaQuery>
-		<MediaQuery
-			minWidth={ScreenSizes.ReturnMediumMin()}
-			maxWidth={ScreenSizes.ReturnMediumMax()}
-		>
-			<FooterContainer
-				screenType="medium"
-			>
-				<BrandContainer>
-					<VerticalAlignMiddleContainer>
-						<Brand />
-					</VerticalAlignMiddleContainer>
-				</BrandContainer>
-				<CopyrightContainer>
-					<VerticalAlignMiddleContainer>
-						&copy; 1999&ndash;2019, James T. Baker. All Rights Reserved.
-					</VerticalAlignMiddleContainer>
-				</CopyrightContainer>
-			</FooterContainer>
-		</MediaQuery>
-		<MediaQuery minWidth={ScreenSizes.ReturnLargeMin()}>
-			<FooterContainer
-				screenType="large"
-			>
-				<BrandContainer>
-					<VerticalAlignMiddleContainer>
-						<Brand />
-					</VerticalAlignMiddleContainer>
-				</BrandContainer>
-				<CopyrightContainer>
-					<VerticalAlignMiddleContainer>
-						&copy; 1999&ndash;2019, James T. Baker. All Rights Reserved.
-					</VerticalAlignMiddleContainer>
-				</CopyrightContainer>
-			</FooterContainer>
-		</MediaQuery>
-	</div>
+		</CopyrightContainer>
+	</FooterContainer>
+
 );
