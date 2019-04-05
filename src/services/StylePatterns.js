@@ -52,14 +52,24 @@ module.exports = {
 	FontWeight: (token) => {
 		switch (token) {
 			default:
+			case 'this':
+				return '100';
+			case 'extra-light':
+				return '200';
 			case 'light':
 				return '300';
 			case 'regular':
 				return '400';
-			case 'semi-bold':
+			case 'medium':
 				return '500';
+			case 'semi-bold':
+				return '600';
+			case 'bold':
+				return '700';
 			case 'extra-bold':
 				return '800';
+			case 'black':
+				return '900';
 		}
 	},
 
@@ -247,42 +257,42 @@ module.exports = {
 
 
 
-			case 'grey-1':
+			case 'grey-18':
 				return '#eee';
-			case 'grey-2':
+			case 'grey-17':
 				return '#e6e6e6';
-			case 'grey-3':
+			case 'grey-16':
 				return '#ddd';
-			case 'grey-4':
+			case 'grey-15':
 				return '#d4d4d4';
 			case 'body-copy':
-			case 'grey-5':
-				return '#ccc';
-			case 'grey-6':
-				return '#c3c3c3';
-			case 'grey-7':
-				return '#bbb';
-			case 'grey-8':
-				return '#b2b2b2';
-			case 'grey-9':
-				return '#aaa';
-			case 'grey-10':
-				return '#999';
-			case 'grey-11':
-				return '#888';
-			case 'grey-12':
-				return '#777';
-			case 'grey-13':
-				return '#666';
 			case 'grey-14':
+				return '#ccc';
+			case 'grey-13':
+				return '#c3c3c3';
+			case 'grey-12':
+				return '#bbb';
+			case 'grey-11':
+				return '#b2b2b2';
+			case 'grey-10':
+				return '#aaa';
+			case 'grey-9':
+				return '#999';
+			case 'grey-8':
+				return '#888';
+			case 'grey-7':
+				return '#777';
+			case 'grey-6':
+				return '#666';
+			case 'grey-5':
 				return '#555';
-			case 'grey-15':
+			case 'grey-4':
 				return '#444';
-			case 'grey-16':
+			case 'grey-3':
 				return '#333';
-			case 'grey-17':
+			case 'grey-2':
 				return '#222';
-			case 'grey-18':
+			case 'grey-1':
 				return '#111';
 		}
 	},

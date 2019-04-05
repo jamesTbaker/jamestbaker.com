@@ -21,7 +21,6 @@ const FooterContainer = styled.footer`
 	margin-left: ${props => props.screenType === 'large' ?
 		'20rem' : '0' };
 	font-size: ${StylePatterns.FontSize('xs', 'small')};
-	background-color: #313;
 	color: ${StylePatterns.Color('grey-9')};
 `;
 

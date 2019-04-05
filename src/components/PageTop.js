@@ -9,13 +9,94 @@ import StylePatterns from '../services/StylePatterns';
 // --- COMPONENT
 
 const TopContainer = styled.div`
-`;
+	${props => props.screenType !== 'small' && `
+		display: grid;
+		grid-template-rows: 40% 25% 35%;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:	"topLeft topRight"
+								"midLeft midRight"
+								"bottomLeft bottomRight";
+		min-height: calc(80vh - 11rem);
+		background-color: ${StylePatterns.Color('blue-3')};
+		background-size: 100% auto, 100% auto, cover;
+		background-position: left top, left top, 50% center;
+		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 35%, transparent 40%, ${StylePatterns.Color('blue-1-80-percent')} 60%, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
+	`}
+	${props => props.screenType === 'small' && `
+		padding: 0 2rem;
 
-const PreambleContainer = styled.div`
+		margin-bottom: 10rem;
+
+		background-color: ${StylePatterns.Color('blue-3')};
+		background-size: 100% auto, cover;
+		background-position: left top, 50% center;
+		background-image: linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, ${StylePatterns.Color('blue-1-80-percent')} 35%, ${StylePatterns.Color('blue-1-80-percent')} 40%, ${StylePatterns.Color('blue-1-80-percent')} 60%, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
+	`}
 `;
-const HeaderContainer = styled.div`
+const TopContentOneContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: topRight;
+		padding: 0 2rem 0 1rem;
+
+		div.sb-root--top-content {
+			${StylePatterns.VerticalAlignMiddle()};
+		}
+		color: ${StylePatterns.Color('grey-15')};
+	`}
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('s', 'small')};
+	`}
+	${({ screenType }) => screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('s', 'medium')};
+	`}
+	${({ screenType }) => screenType === 'large' && `
+		font-size: ${StylePatterns.FontSize('s', 'large')};
+	`}
+
+	p {
+		margin-bottom: .5rem;
+	}
+	a {
+		border: 0;
+	}
 `;
-const EpilogueContainer = styled.div`
+const TopContentTwoContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: midRight;
+		padding: 0 2rem 0 1rem;
+
+		div.sb-root--top-content {
+			${StylePatterns.VerticalAlignMiddle()};
+		}
+	`}
+`;
+const TopContentThreeContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: bottomRight;
+		border-top: .2rem solid  ${StylePatterns.Color('yellow-1')};
+		padding: 2rem 0 2rem 1rem;
+		margin-right: 5rem;
+		color: ${StylePatterns.Color('grey-13')}
+	`}
+
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('xxl', 'small')};
+	`}
+	${({ screenType }) => screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('xxl', 'medium')};
+	`}
+	${({ screenType }) => screenType === 'large' && `
+		font-size: ${StylePatterns.FontSize('xxl', 'large')};
+	`}
+`;
+const TopContentFourContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: bottomLeft;
+		border-top: .2rem solid  ${StylePatterns.Color('yellow-1')};
+		padding: 2rem 2rem 2rem 0;
+		margin-left: 5rem;
+		color: ${StylePatterns.Color('grey-16')}
+	`}
 `;
 
 export default (props) => (
@@ -23,18 +104,25 @@ export default (props) => (
 		screenType={props.screenType}
 		backgroundImage={props.backgroundImage}
 	>
-		<PreambleContainer
-			screenType={props.screenType}
-			dangerouslySetInnerHTML={{__html: props.preamble}}
-		/>
-		<HeaderContainer
+		<TopContentOneContainer
 			screenType={props.screenType}
 		>
-			<h1>{props.header}</h1>
-		</HeaderContainer>
-		<EpilogueContainer
+			{props.topContentOne}
+		</TopContentOneContainer>
+		<TopContentTwoContainer
 			screenType={props.screenType}
-			dangerouslySetInnerHTML={{ __html: props.epilogue }}
-		/>
+		>
+			{props.topContentTwo}
+		</TopContentTwoContainer>
+		<TopContentThreeContainer
+			screenType={props.screenType}
+		>
+			{props.topContentThree}
+		</TopContentThreeContainer>
+		<TopContentFourContainer
+			screenType={props.screenType}
+		>
+			{props.topContentFour}
+		</TopContentFourContainer>
 	</TopContainer>
 );

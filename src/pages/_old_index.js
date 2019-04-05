@@ -23,33 +23,33 @@ const BodyContainer = styled.div`
 	padding: ${props => props.screenType === 'small' ?
 		'5rem 1rem' : '7rem 5rem'};
 `;
-const LocationContainer = styled.p`
-	margin-bottom: .5rem;
-	${({ screenType }) => screenType === 'small' && `
-		font-size: ${StylePatterns.FontSize('xs', 'small')};
-	`}
-	${({ screenType }) => screenType === 'medium' && `
-		font-size: ${StylePatterns.FontSize('xs', 'medium')};
-	`}
-	${({ screenType }) => screenType === 'large' && `
-		font-size: ${StylePatterns.FontSize('xs', 'large')};
-	`}
-`;
-const ProfileBriefContainer = styled.p`
-	margin-bottom: .5rem;
-	font-weight: ${StylePatterns.FontWeight('light')};
-`;
-const TaglineContainer = styled.p`
-	${({ screenType }) => screenType === 'small' && `
-		font-size: ${StylePatterns.FontSize('xxl', 'small')};
-	`}
-	${({ screenType }) => screenType === 'medium' && `
-		font-size: ${StylePatterns.FontSize('xxl', 'medium')};
-	`}
-	${({ screenType }) => screenType === 'large' && `
-		font-size: ${StylePatterns.FontSize('xxl', 'large')};
-	`}
-`;
+// const LocationContainer = styled.p`
+// 	margin-bottom: .5rem;
+// 	${({ screenType }) => screenType === 'small' && `
+// 		font-size: ${StylePatterns.FontSize('xs', 'small')};
+// 	`}
+// 	${({ screenType }) => screenType === 'medium' && `
+// 		font-size: ${StylePatterns.FontSize('xs', 'medium')};
+// 	`}
+// 	${({ screenType }) => screenType === 'large' && `
+// 		font-size: ${StylePatterns.FontSize('xs', 'large')};
+// 	`}
+// `;
+// const ProfileBriefContainer = styled.p`
+// 	margin-bottom: .5rem;
+// 	font-weight: ${StylePatterns.FontWeight('light')};
+// `;
+// const TaglineContainer = styled.p`
+// 	${({ screenType }) => screenType === 'small' && `
+// 		font-size: ${StylePatterns.FontSize('xxl', 'small')};
+// 	`}
+// 	${({ screenType }) => screenType === 'medium' && `
+// 		font-size: ${StylePatterns.FontSize('xxl', 'medium')};
+// 	`}
+// 	${({ screenType }) => screenType === 'large' && `
+// 		font-size: ${StylePatterns.FontSize('xxl', 'large')};
+// 	`}
+// `;
 const SummaryContainer = styled.p`
 	max-width: 50rem;
 `;
@@ -60,7 +60,7 @@ const returnPageContent = screenType => (
 	<BodyContainer
 		screenType={screenType}
 	>
-		<LocationContainer
+		{/* <LocationContainer
 			screenType={screenType}
 		>
 			Greater Boston, USA
@@ -79,7 +79,7 @@ const returnPageContent = screenType => (
 			screenType={screenType}
 		>
 			I speak suit, geek, and creative.
-		</TaglineContainer>
+		</TaglineContainer> */}
 		<SummaryContainer>
 			My <StrongText>19 years'</StrongText> experience in&nbsp;
 			<StrongText>design</StrongText>,&nbsp;

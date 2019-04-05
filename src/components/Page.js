@@ -19,7 +19,12 @@ export default (props) => (
 		/>
 		<MainContent
 			screenType={props.screenType}
-			content={props.pageContent}
+			backgroundImage={props.backgroundImage}
+			topContentOne={props.topContentOne}
+			topContentTwo={props.topContentTwo}
+			topContentThree={props.topContentThree}
+			topContentFour={props.topContentFour}
+			lowerPageContent={props.lowerPageContent}
 		/>
 		<Footer
 			screenType={props.screenType}

@@ -82,23 +82,23 @@ const GlobalStyle = createGlobalStyle`
 		100%	{opacity: 1;}
 	}
 	h1 {
-		font-weight: ${StylePatterns.FontWeight('extra-bold')};
+		font-weight: ${StylePatterns.FontWeight('semi-bold')};
 		margin: 1rem 0 .25rem;
 	}
 	h2 {
-		font-weight: ${StylePatterns.FontWeight('extra-bold')};
+		font-weight: ${StylePatterns.FontWeight('semi-bold')};
 		margin: 1rem 0 .25rem;
 	}
 	h3 {
-		font-weight: ${StylePatterns.FontWeight('extra-bold')};
+		font-weight: ${StylePatterns.FontWeight('semi-bold')};
 		margin: 1rem 0 .25rem;
 	}
 	h4 {
-		font-weight: ${StylePatterns.FontWeight('semi-bold')};
+		font-weight: ${StylePatterns.FontWeight('medium')};
 		margin: 1rem 0 .25rem;
 	}
 	h5 {
-		font-weight: ${StylePatterns.FontWeight('semi-bold')};
+		font-weight: ${StylePatterns.FontWeight('medium')};
 		margin: .5rem 0 .25rem;
 	}
 	h6 {
@@ -132,15 +132,19 @@ const GlobalStyle = createGlobalStyle`
 	a,
 	a:visited {
 		text-decoration: none;
-		color: ${StylePatterns.Color('interactive-on-light-default')};
+		color: ${StylePatterns.Color('interactive-on-dark-default')};
 		transition: color .25s;
-		border-bottom: .1rem dotted ${StylePatterns.Color('interactive-on-light-default')};
+		border-bottom: .1rem dotted ${StylePatterns.Color('interactive-on-dark-default')};
 
 		&:hover,
 		&:active {
-			color: ${StylePatterns.Color('interactive-on-light-active')};
-			border-bottom: .1rem dotted ${StylePatterns.Color('interactive-on-light-active')};
+			color: ${StylePatterns.Color('interactive-on-dark-active')};
+			border-bottom: .1rem dotted ${StylePatterns.Color('interactive-on-dark-active')};
 		}
+	}
+	em {
+		color: ${StylePatterns.Color('blue-12')};
+		font-style: normal;
 	}
 	${({ screenType }) => screenType === 'small' && `
 		body {

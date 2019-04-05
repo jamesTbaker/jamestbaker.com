@@ -17,6 +17,8 @@ import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 
 const HamburgerContainer = styled.div`
 	grid-area: 1 / 1 / 2 / 2;
+	padding-left: ${props => props.screenType === 'medium' ?
+		'4rem' : '1rem' };
 `;
 
 const Hamburger = styled.button.attrs({
@@ -103,19 +105,32 @@ const HamburgerInner = styled.span`
 `;
 
 
-const VerticalAlignMiddleContainer = styled.div`
-	${StylePatterns.VerticalAlignMiddle()};
-`;
 const HeaderSmall = styled.div`
 	display: grid;
 	grid-template-rows: 5rem;
-	grid-template-columns: 5rem auto 5rem;
+	grid-template-columns: 15rem auto 15rem;
 	padding: 3rem 0;
-	background-color: #414;
+	background-color: ${StylePatterns.Color('blue-1')};
 `;
 const BrandContainerSmall = styled.div`
 	grid-area: 1 / 3 / 2 / 4;
-	padding-right: 1rem;
+	${({ screenType }) => screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('l', 'medium')};
+		padding-right: 5rem;
+	`}
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('l', 'small')};
+		padding-right: 2rem;
+		padding-left: 5rem;
+	`}
+
+	div.sb-root--brand {
+		height: 5rem;
+		text-align: right;
+	}
+	div.sb-root--brand svg.brand {
+		${StylePatterns.VerticalAlignMiddle()};
+	}
 `;
 const NavSmall = styled.nav`
 	position: fixed;
@@ -214,16 +229,14 @@ const HeaderLarge = styled.div`
 	height: 100%;
 	z-index: 999;
 	overflow-y: auto;
-	background-color: #313;
 `;
 const BrandContainerLarge = styled.div`
-	padding: 2rem 2rem 1rem;
-	font-size: ${StylePatterns.FontSize('l', 'medium')};
-
+	padding: 4rem 5rem 1rem 2rem;
 `;
 const HeaderLargeTagline = styled.div`
 	padding: 0 2rem 1rem;
 	margin-bottom: 5rem;
+	color: ${StylePatterns.Color('grey-15')};
 
 	p {
 		margin: 0;
@@ -252,6 +265,11 @@ const NavMediumListItem = styled.li`
 	margin: 0 0 10rem 0;
 	font-size: ${StylePatterns.FontSize('m', 'medium')};
 	font-weight: ${StylePatterns.FontWeight('light')};
+`;
+const NavMediumLink = styled(Link)`
+	display: block;
+	border-bottom: 0;
+	color: ${StylePatterns.Color('interactive-on-dark-default')};
 
 	&::before {
 		content: '';
@@ -260,16 +278,18 @@ const NavMediumListItem = styled.li`
 		top: 0;
 		width: 10%;
 		left: 0;
-		border-top: 5px solid ${StylePatterns.Color('yellow-1')};
-}
-`;
-const NavMediumLink = styled(Link)`
-	border: 0;
-	color: ${StylePatterns.Color('interactive-on-dark-default')};
+		border-top: 5px solid ${StylePatterns.Color('grey-9')};
+		transition: width .25s, border-color .25s;
+	}
 
 	&:hover {
-		border: 0;
+		border-bottom: 0;
 		color: ${StylePatterns.Color('interactive-on-dark-active')};
+
+		&::before {
+			width: 100%;
+			border-color: ${StylePatterns.Color('yellow-1')};
+		}
 	}
 
 	&:visited {
@@ -280,51 +300,18 @@ const NavMediumLink = styled(Link)`
 			color: ${StylePatterns.Color('interactive-on-dark-active')};
 		}
 	}
-	&[aria-current="page"] {
-		color: ${StylePatterns.Color('grey-7')}
+	&[aria-current="page"]::before {
+		border-color: ${StylePatterns.Color('yellow-1')};
+		width: 20%;
+	}
+	&[aria-current="page"]:hover::before {
+		border-color: ${StylePatterns.Color('interactive-on-dark-default')};
+		width: 0;
 	}
 `;
 
-/* 
-
-	&[aria-current="page"] {
-		color: ${StylePatterns.Color('yellow-3')};
-
-		&:hover {
-			border: 0;
-			color:  ${StylePatterns.Color('white')};
-			background-color: ${StylePatterns.Color('interactive-dark')};
-		}
-
-		&:visited {
-			color: ${StylePatterns.Color('yellow-3')};
-
-			&:hover {
-				border: 0;
-				color:  ${StylePatterns.Color('white')};
-				background-color: ${StylePatterns.Color('interactive-dark')};
-			}
-		}
-	}
 
 
-
-		&:hover {
-			border: 0;
-			color:  ${StylePatterns.Color('interactive-alternate-active')};
-		}
-
-		&:visited {
-			color: ${StylePatterns.Color('interactive-alternate')};
-
-			&:hover {
-				border: 0;
-				color:  ${StylePatterns.Color('interactive-alternate-active')};
-			}
-		}
-
-
- */
 export default class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -346,8 +333,12 @@ export default class Header extends React.Component {
 					this.props.screenType === 'medium') && 
 
 					<Sticky enableTransforms={false} >
-						<HeaderSmall>
-							<HamburgerContainer>
+						<HeaderSmall
+							screenType={this.props.screenType}
+						>
+							<HamburgerContainer
+								screenType={this.props.screenType}
+							>
 								<Hamburger
 									showSmallNav={this.state.showSmallNav}
 									onClick={this.handleHamburgerClick}
@@ -359,10 +350,10 @@ export default class Header extends React.Component {
 									</HamburgerBox>
 								</Hamburger>
 							</HamburgerContainer>
-							<BrandContainerSmall>
-								<VerticalAlignMiddleContainer>
-									<Brand />
-								</VerticalAlignMiddleContainer>
+							<BrandContainerSmall
+								screenType={this.props.screenType}
+							>
+								<Brand />
 							</BrandContainerSmall>
 							<NavSmall
 								showSmallNav={this.state.showSmallNav}

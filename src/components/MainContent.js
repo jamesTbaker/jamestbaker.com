@@ -5,6 +5,7 @@ import React from 'react';
 import styled from 'styled-components';
 import StylePatterns from '../services/StylePatterns';
 import Header from '../components/Header';
+import PageTop from '../components/PageTop';
 import Footer from '../components/Footer';
 
 // --- COMPONENT
@@ -13,7 +14,6 @@ import Footer from '../components/Footer';
 const MainContainer = styled.main`
 	margin-left: ${props => props.screenType === 'large' ?
 		'20rem' : '0' };
-	background-color: #123;
 `;
 
 
@@ -22,6 +22,14 @@ export default (props) => (
 		className="sb-root--page-main-content"
 		screenType={props.screenType}
 	>
-		{props.content}
+		<PageTop
+			screenType={props.screenType}
+			backgroundImage={props.backgroundImage}
+			topContentOne={props.topContentOne}
+			topContentTwo={props.topContentTwo}
+			topContentThree={props.topContentThree}
+			topContentFour={props.topContentFour}
+		/>
+		{props.lowerPageContent}
 	</MainContainer>
 );
