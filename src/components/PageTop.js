@@ -23,14 +23,18 @@ const TopContainer = styled.div`
 		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 35%, transparent 40%, ${StylePatterns.Color('blue-1-80-percent')} 60%, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
 	`}
 	${props => props.screenType === 'small' && `
-		padding: 0 2rem;
-
-		margin-bottom: 10rem;
-
+		display: grid;
+		grid-template-rows: 15% 15% 15% auto;
+		grid-template-columns: 1fr;
+		grid-template-areas:	"top"
+								"midTop"
+								"midBottom"
+								"bottom";
+		min-height: 80vh;
 		background-color: ${StylePatterns.Color('blue-3')};
 		background-size: 100% auto, cover;
 		background-position: left top, 50% center;
-		background-image: linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, ${StylePatterns.Color('blue-1-80-percent')} 35%, ${StylePatterns.Color('blue-1-80-percent')} 40%, ${StylePatterns.Color('blue-1-80-percent')} 60%, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
+		background-image: linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, ${StylePatterns.Color('blue-1-60-percent')} 35%, ${StylePatterns.Color('blue-1-60-percent')} 40%, ${StylePatterns.Color('blue-1-80-percent')} 60%, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
 	`}
 `;
 const TopContentOneContainer = styled.div`
@@ -44,7 +48,13 @@ const TopContentOneContainer = styled.div`
 		color: ${StylePatterns.Color('grey-15')};
 	`}
 	${({ screenType }) => screenType === 'small' && `
+		grid-area: top;
+		padding: 0 2rem;
 		font-size: ${StylePatterns.FontSize('s', 'small')};
+
+		div.sb-root--top-content {
+			${StylePatterns.VerticalAlignMiddle()};
+		}
 	`}
 	${({ screenType }) => screenType === 'medium' && `
 		font-size: ${StylePatterns.FontSize('s', 'medium')};
@@ -69,6 +79,10 @@ const TopContentTwoContainer = styled.div`
 			${StylePatterns.VerticalAlignMiddle()};
 		}
 	`}
+	${({ screenType }) => screenType === 'small' && `
+		grid-area: midTop;
+		padding: 0 2rem;
+	`}
 `;
 const TopContentThreeContainer = styled.div`
 	${props => props.screenType !== 'small' && `
@@ -80,6 +94,8 @@ const TopContentThreeContainer = styled.div`
 	`}
 
 	${({ screenType }) => screenType === 'small' && `
+		grid-area: midBottom;
+		padding: 0 2rem;
 		font-size: ${StylePatterns.FontSize('xxl', 'small')};
 	`}
 	${({ screenType }) => screenType === 'medium' && `
@@ -96,6 +112,10 @@ const TopContentFourContainer = styled.div`
 		padding: 2rem 2rem 2rem 0;
 		margin-left: 5rem;
 		color: ${StylePatterns.Color('grey-16')}
+	`}
+	${({ screenType }) => screenType === 'small' && `
+		grid-area: bottom;
+		padding: 0 2rem;
 	`}
 `;
 
