@@ -9,17 +9,34 @@ import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
 import TitleImageMedium from '../img/titleImages/processed/fenway-aerial.jpg';
 import TitleImageSmall from '../img/titleImages/processed/fenway-aerial@0,5x.jpg';
-import Collapsible from '../components/Collapsible';
-import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
-
-
-
 
 // ----- PAGE
 
 // STYLED COMPONENTS
-const LinkContainer = styled.a`
+const WorkLinkContainer = styled.a`
+	display: inline-block;
+	padding-left: 2rem;
 	border-bottom: 0;
+`;
+const ExperienceLinkContainer = styled.a`
+	border-bottom: 0;
+`;
+const MoreWorkBanner = styled.p`
+	padding: 5rem;
+	margin: 0 5rem;
+	text-align: center;
+	background-color: ${StylePatterns.Color('blue-3')};
+`;
+const ClientContainer = styled.p`
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('xl', 'small')};
+	`}
+	${({ screenType }) => screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('xl', 'medium')};
+	`}
+	${({ screenType }) => screenType === 'large' && `
+		font-size: ${StylePatterns.FontSize('xl', 'large')};
+	`}
 `;
 
 // CONTENTS
@@ -32,11 +49,11 @@ const returnTopContentOne = screenType => (
 			Building the Internet since 1999.
 		</p>
 		<p>
-			<LinkContainer
+			<ExperienceLinkContainer
 				href="/index"
 			>
 				Find more of my skills and experience.
-			</LinkContainer>
+			</ExperienceLinkContainer>
 		</p>
 	</div>
 );
@@ -50,9 +67,11 @@ const returnTopContentThree = screenType => (
 		<p>
 			2013 &ndash; 2019
 		</p>
-		<p>
+		<ClientContainer
+			screenType={screenType}
+		>
 			Museum of Science, Boston
-		</p>
+		</ClientContainer>
 	</div>
 );
 const returnTopContentFour = screenType => (
@@ -64,15 +83,19 @@ const returnTopContentFour = screenType => (
 			<li>Key tech: JavaScript, React, Node.js, Express, MongoDB, SharePoint Online.</li>
 		</ul>
 		<p>
-			<LinkContainer
+			<WorkLinkContainer
 				href="/hub"
 			>
 				Learn more about The Hub
-			</LinkContainer>
+			</WorkLinkContainer>
 		</p>
 	</div>
 );
-const returnLowerPageContent = screenType => ('');
+const returnLowerPageContent = screenType => (
+	<div className="sb-root--bottom-content">
+		<MoreWorkBanner>More work will be placed here soon.</MoreWorkBanner>
+	</div>
+);
 
 // 	SEND TO PAGE COMPONENT
 

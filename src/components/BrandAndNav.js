@@ -198,11 +198,18 @@ const NavSmallLink = styled(Link)`
 	font-weight: ${StylePatterns.FontWeight('light')};
 	border: 0;
 	margin-left: 0;
-	padding: 1rem 5rem;
 	text-align: left;
 	color: ${StylePatterns.Color('interactive-on-dark-default')};
 
+	${props => props.screenType === 'small' && `
+		padding: 1rem 2rem;
+	`}
+	${props => props.screenType === 'medium' && `
+		padding: 1rem 5rem;
+	`}	
+
 	&:hover {
+		border: 0;
 		color: ${StylePatterns.Color('interactive-on-dark-active')};
 	}
 
@@ -248,26 +255,26 @@ const HeaderLargeTagline = styled.div`
 `;
 
 
-const NavMedium = styled.nav`
+const NavLarge = styled.nav`
 	padding: 2rem;
 `;
 
-const NavMediumList = styled.ul`
+const NavLargeList = styled.ul`
 	padding: 0;
 	margin: 0;
 	list-style: none;
 `;
-const NavMediumListItem = styled.li`
+const NavLargeListItem = styled.li`
 	display: block;	
 	list-style: none;
 	position: relative;
-	padding-top: 1rem;
-	margin: 0 0 10rem 0;
+	margin: 0 0 7rem 0;
 	font-size: ${StylePatterns.FontSize('m', 'medium')};
 	font-weight: ${StylePatterns.FontWeight('light')};
 `;
-const NavMediumLink = styled(Link)`
+const NavLargeLink = styled(Link)`
 	display: block;
+	padding: 2rem 0 2rem;
 	border-bottom: 0;
 	color: ${StylePatterns.Color('interactive-on-dark-default')};
 
@@ -275,10 +282,10 @@ const NavMediumLink = styled(Link)`
 		content: '';
 		display: block;
 		position: absolute;
-		top: 0;
+		top: 4.2rem;
 		width: 10%;
 		left: 0;
-		border-top: 5px solid ${StylePatterns.Color('grey-9')};
+		border-top: .2rem solid ${StylePatterns.Color('red-5')};
 		transition: width .25s, border-color .25s;
 	}
 
@@ -287,8 +294,8 @@ const NavMediumLink = styled(Link)`
 		color: ${StylePatterns.Color('interactive-on-dark-active')};
 
 		&::before {
-			width: 100%;
-			border-color: ${StylePatterns.Color('yellow-1')};
+			width: 8.6rem;
+			border-color: ${StylePatterns.Color('interactive-on-dark-active')};
 		}
 	}
 
@@ -301,8 +308,7 @@ const NavMediumLink = styled(Link)`
 		}
 	}
 	&[aria-current="page"]::before {
-		border-color: ${StylePatterns.Color('yellow-1')};
-		width: 20%;
+		border-color: ${StylePatterns.Color('grey-4')};
 	}
 	&[aria-current="page"]:hover::before {
 		border-color: ${StylePatterns.Color('interactive-on-dark-default')};
@@ -412,13 +418,13 @@ export default class Header extends React.Component {
 
 							</p>
 						</HeaderLargeTagline>
-						<NavMedium>
-							<NavMediumList>
-								<NavMediumListItem><NavMediumLink to="/">Profile</NavMediumLink></NavMediumListItem>
-								<NavMediumListItem><NavMediumLink to="/work">Work</NavMediumLink></NavMediumListItem>
-								<NavMediumListItem><NavMediumLink to="/contact">Contact</NavMediumLink></NavMediumListItem>
-							</NavMediumList>
-						</NavMedium>
+						<NavLarge>
+							<NavLargeList>
+								<NavLargeListItem><NavLargeLink to="/">Profile</NavLargeLink></NavLargeListItem>
+								<NavLargeListItem><NavLargeLink to="/work">Work</NavLargeLink></NavLargeListItem>
+								<NavLargeListItem><NavLargeLink to="/contact">Contact</NavLargeLink></NavLargeListItem>
+							</NavLargeList>
+						</NavLarge>
 					</HeaderLarge>
 				}
 			</header>
