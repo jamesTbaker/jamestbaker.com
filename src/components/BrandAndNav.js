@@ -150,14 +150,23 @@ const NavSmall = styled.nav`
 // 		minus height of hamburger and brand container 
 const NavSmallList = styled.ul`
 	padding: calc(((100vh - 25rem) / 2) - 5rem) 0 0 0;
-	margin: 0;
 	list-style: none;
+
+	${props => props.screenType === 'small' && `
+		margin-left: 2rem;
+		margin-right: 2rem;
+	`}
+	${props => props.screenType === 'medium' && `
+		margin-left: 5rem;
+		margin-right: 5rem;
+	`}	
 `;
 const NavSmallListItem = styled.li`
 	list-style: none;
 	margin-top: -2rem;
 	margin-left: -2rem;
 	opacity: 0;
+	border-top: .2rem solid ${StylePatterns.Color('red-1')};
 	transition-property: opacity, margin-left, margin-top;
 	transition-duration: .5s;
 
@@ -185,6 +194,10 @@ const NavSmallListItem = styled.li`
 		transition-delay: .45s;
 	}
 
+	&:last-child {
+		border-bottom: .2rem solid ${StylePatterns.Color('red-1')};
+	}
+
 	${({ showSmallNav }) => showSmallNav && `
 		margin-top: 0;
 		margin-left: 0;
@@ -194,19 +207,14 @@ const NavSmallListItem = styled.li`
 const NavSmallLink = styled(Link)`
 	display: block;
 	width: 100%;
+	padding-top: 1.4rem;
+	padding-bottom: 1.4rem;
 	font-size: ${StylePatterns.FontSize('xl', 'small')} !important;
 	font-weight: ${StylePatterns.FontWeight('light')};
 	border: 0;
 	margin-left: 0;
 	text-align: left;
 	color: ${StylePatterns.Color('interactive-on-dark-default')};
-
-	${props => props.screenType === 'small' && `
-		padding: 1rem 2rem;
-	`}
-	${props => props.screenType === 'medium' && `
-		padding: 1rem 5rem;
-	`}	
 
 	&:hover {
 		border: 0;
@@ -241,8 +249,8 @@ const BrandContainerLarge = styled.div`
 	padding: 4rem 5rem 1rem 2rem;
 `;
 const HeaderLargeTagline = styled.div`
-	padding: 0 2rem 1rem;
-	margin-bottom: 5rem;
+	padding: 0 2rem .9rem;
+	margin-bottom: 4rem;
 	color: ${StylePatterns.Color('grey-15')};
 
 	p {
@@ -268,14 +276,29 @@ const NavLargeListItem = styled.li`
 	display: block;	
 	list-style: none;
 	position: relative;
-	margin: 0 0 7rem 0;
+	margin: 0;
 	font-size: ${StylePatterns.FontSize('m', 'medium')};
 	font-weight: ${StylePatterns.FontWeight('light')};
+	border-top: .2rem solid ${StylePatterns.Color('red-1')};
+
+	&:last-child {
+		border-bottom: .2rem solid ${StylePatterns.Color('red-1')};
+	}
 `;
 const NavLargeLink = styled(Link)`
 	display: block;
-	padding: 2rem 0 2rem;
+	padding: 1.9rem 0 1.9rem;
 	border-bottom: 0;
+
+
+	&:hover {
+		border-bottom: 0;
+	}
+
+`;
+
+/* 
+
 	color: ${StylePatterns.Color('interactive-on-dark-default')};
 
 	&::before {
@@ -314,9 +337,9 @@ const NavLargeLink = styled(Link)`
 		border-color: ${StylePatterns.Color('interactive-on-dark-default')};
 		width: 0;
 	}
-`;
 
 
+*/
 
 export default class Header extends React.Component {
 	constructor(props) {
@@ -364,7 +387,9 @@ export default class Header extends React.Component {
 							<NavSmall
 								showSmallNav={this.state.showSmallNav}
 							>
-								<NavSmallList>
+								<NavSmallList
+									screenType={this.props.screenType}
+								>
 									<NavSmallListItem
 										showSmallNav={this.state.showSmallNav}
 									>

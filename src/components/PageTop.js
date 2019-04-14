@@ -26,7 +26,8 @@ const TopContainer = styled.div`
 	${props => props.screenType === 'medium' && `
 		background-size: 100% auto, 100% auto, cover;
 		background-position: left top, left top, 50% center;
-		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 35%, transparent 40%, ${StylePatterns.Color('blue-1-80-percent')} 60%, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
+		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), 
+		linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 10rem, transparent 21rem, ${StylePatterns.Color('blue-1-80-percent')} 26rem, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
 	`}
 	${props => props.screenType === 'small' && `
 		grid-template-columns: 1fr;
@@ -79,7 +80,6 @@ const TopContentOneContainer = styled.div`
 const TopContentTwoContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		grid-area: midRight;
-		height: 13rem;
 		padding: 0 2rem 0 1rem;
 
 		div.sb-root--top-content {

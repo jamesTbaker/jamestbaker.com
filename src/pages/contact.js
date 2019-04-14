@@ -9,9 +9,6 @@ import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
 import TitleImageMedium from '../img/titleImages/processed/bus.jpg';
 import TitleImageSmall from '../img/titleImages/processed/bus@0,5x.jpg';
-import Collapsible from '../components/Collapsible';
-import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
-import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 
 
 
@@ -21,6 +18,17 @@ import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 // STYLED COMPONENTS
 const EmailContainer = styled.a`
 	border-bottom: 0;
+`;
+const CommentContainer = styled.p`
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('l', 'small')};
+	`}
+	${({ screenType }) => screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('l', 'medium')};
+	`}
+	${({ screenType }) => screenType === 'large' && `
+		font-size: ${StylePatterns.FontSize('l', 'large')};
+	`}
 `;
 
 // CONTENTS
@@ -56,12 +64,14 @@ const returnTopContentThree = screenType => (
 );
 const returnTopContentFour = screenType => (
 	<div className="sb-root--top-content">
-		<p>
+		<CommentContainer
+			screenType={screenType}
+		>
 			Whether you are hiring,
 			starting a project, have feedback,
 			or need consultation,
 			let's start a conversation.
-		</p>
+		</CommentContainer>
 	</div>
 );
 const returnLowerPageContent = screenType => ('');

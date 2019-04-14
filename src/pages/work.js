@@ -7,8 +7,8 @@ import styled from 'styled-components';
 import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
-import TitleImageMedium from '../img/titleImages/processed/fenway-aerial.jpg';
-import TitleImageSmall from '../img/titleImages/processed/fenway-aerial@0,5x.jpg';
+import TitleImageMedium from '../img/titleImages/processed/bikes.jpg';
+import TitleImageSmall from '../img/titleImages/processed/bikes@0,5x.jpg';
 
 // ----- PAGE
 
@@ -17,6 +17,10 @@ const WorkLinkContainer = styled.a`
 	display: inline-block;
 	padding-left: 2rem;
 	border-bottom: 0;
+
+	&:hover {
+		border-bottom: 0;
+	}
 `;
 const ExperienceLinkContainer = styled.a`
 	border-bottom: 0;
