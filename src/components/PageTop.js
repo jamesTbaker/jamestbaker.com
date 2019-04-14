@@ -27,6 +27,7 @@ const TopContainer = styled.div`
 		background-size: 100% auto, 100% auto, cover;
 		background-position: left top, left top, 50% center;
 		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), 
+		
 		linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 10rem, transparent 21rem, ${StylePatterns.Color('blue-1-80-percent')} 26rem, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
 	`}
 	${props => props.screenType === 'small' && `
@@ -37,8 +38,8 @@ const TopContainer = styled.div`
 								"bottom";
 
 		background-size: 100% auto, cover;
-		background-position: left top, 50% center;
-		background-image: linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, ${StylePatterns.Color('blue-1-60-percent')} 35%, ${StylePatterns.Color('blue-1-60-percent')} 40%, ${StylePatterns.Color('blue-1-80-percent')} 60%, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
+		background-position: left center, 50% bottom;
+		background-image: linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 13rem, transparent 20rem, ${StylePatterns.Color('blue-1-50-percent')} 24rem, ${StylePatterns.Color('blue-1-80-percent')} 32rem, ${StylePatterns.Color('blue-1')}),  url('${props.backgroundImage}');
 	`}
 `;
 const TopContentOneContainer = styled.div`
@@ -53,12 +54,13 @@ const TopContentOneContainer = styled.div`
 	`}
 	${({ screenType }) => screenType === 'small' && `
 		grid-area: top;
+		display: flex;
 		height: 10rem;
 		padding: 0 2rem;
 		font-size: ${StylePatterns.FontSize('m', 'small')};
 
 		div.sb-root--top-content {
-			${StylePatterns.VerticalAlignMiddle()};
+			align-self: flex-end;
 		}
 	`}
 	${({ screenType }) => screenType === 'medium' && `
@@ -88,8 +90,13 @@ const TopContentTwoContainer = styled.div`
 	`}
 	${({ screenType }) => screenType === 'small' && `
 		grid-area: midTop;
+		display: flex;
 		height: 19rem;
-		padding: 0 2rem;
+		padding: 0 2rem 1rem;
+
+		div.sb-root--top-content {
+			align-self: flex-end;
+		}
 	`}
 	${({ screenType }) => screenType === 'medium' && `
 		height: 16rem;
@@ -109,7 +116,9 @@ const TopContentThreeContainer = styled.div`
 
 	${({ screenType }) => screenType === 'small' && `
 		grid-area: midBottom;
-		padding: 0 2rem;
+		margin: 0 2rem;
+		padding-top: 1rem;
+		border-top: .2rem solid  ${StylePatterns.Color('yellow-1')};
 		font-size: ${StylePatterns.FontSize('xxl', 'small')};
 	`}
 	${({ screenType }) => screenType === 'medium' && `

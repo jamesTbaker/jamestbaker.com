@@ -7,8 +7,9 @@ import styled from 'styled-components';
 import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
-import TitleImageMedium from '../img/titleImages/processed/bikes.jpg';
-import TitleImageSmall from '../img/titleImages/processed/bikes@0,5x.jpg';
+import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
+import TitleImageMedium from '../img/titleImages/processed/sidewalk-multi.jpg';
+import TitleImageSmall from '../img/titleImages/processed/sidewalk-multi.jpg';
 
 // ----- PAGE
 
@@ -30,6 +31,13 @@ const MoreWorkBanner = styled.p`
 	margin: 0 5rem;
 	text-align: center;
 	background-color: ${StylePatterns.Color('blue-3')};
+
+	${({ screenType }) => screenType === 'small' && `
+		margin: 5rem 2rem 0;
+	`}
+	${({ screenType }) => screenType !== 'small' && `
+		margin: 0 5rem;
+	`}
 `;
 const ClientContainer = styled.p`
 	${({ screenType }) => screenType === 'small' && `
@@ -56,7 +64,12 @@ const returnTopContentOne = screenType => (
 			<ExperienceLinkContainer
 				href="/index"
 			>
-				Find more of my skills and experience.
+				More experience
+				<Icon
+					iconPosition="after"
+					iconContent="angle-double-right"
+					iconSize="1.5"
+				/>
 			</ExperienceLinkContainer>
 		</p>
 	</div>
@@ -97,7 +110,11 @@ const returnTopContentFour = screenType => (
 );
 const returnLowerPageContent = screenType => (
 	<div className="sb-root--bottom-content">
-		<MoreWorkBanner>More work will be placed here soon.</MoreWorkBanner>
+		<MoreWorkBanner
+			screenType={screenType}
+		>
+			More work will be placed here soon.
+		</MoreWorkBanner>
 	</div>
 );
 
