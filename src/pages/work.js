@@ -14,6 +14,7 @@ import TitleImageSmall from '../img/titleImages/processed/sidewalk-multi.jpg';
 // ----- PAGE
 
 // STYLED COMPONENTS
+
 const WorkLinkContainer = styled.a`
 	display: inline-block;
 	padding-left: 2rem;
