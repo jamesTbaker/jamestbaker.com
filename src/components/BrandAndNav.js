@@ -14,6 +14,13 @@ import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 
 // ----- COMPONENT
 
+const BrandLink = styled(Link)`
+	border: 0;
+	
+	&:hover {
+		border: 0;
+	}
+`;
 
 const HamburgerContainer = styled.div`
 	grid-area: 1 / 1 / 2 / 2;
@@ -382,7 +389,11 @@ export default class Header extends React.Component {
 							<BrandContainerSmall
 								screenType={this.props.screenType}
 							>
-								<Brand />
+								<BrandLink
+									to="/"
+								>
+									<Brand />
+								</BrandLink>
 							</BrandContainerSmall>
 							<NavSmall
 								showSmallNav={this.state.showSmallNav}
@@ -427,7 +438,11 @@ export default class Header extends React.Component {
 
 					<HeaderLarge>
 						<BrandContainerLarge>
-							<Brand />
+							<BrandLink
+								to="/"
+							>
+								<Brand />
+							</BrandLink>
 						</BrandContainerLarge>
 						<HeaderLargeTagline>
 							<p>Greater Boston</p>

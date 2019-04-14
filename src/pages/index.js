@@ -20,6 +20,9 @@ import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 
 // STYLED COMPONENTS
 
+const LowerPageContentContainer = styled.div`
+	padding: 0 2rem
+`;
 
 // CONTENTS
 
@@ -67,7 +70,7 @@ const returnTopContentFour = screenType => (
 	</div>
 );
 const returnLowerPageContent = screenType => (
-	<div className="sb-root--top-content">
+	<LowerPageContentContainer className="sb-root--top-content">
 		<h2>Business Skills</h2>
 		<ul>
 			<li>Communicating and motivating across organizational levels and boundaries</li>
@@ -89,7 +92,7 @@ const returnLowerPageContent = screenType => (
 			<li>Art direction</li>
 			<li>A/B testing</li>
 		</ul>
-	</div>
+	</LowerPageContentContainer>
 );
 
 // 	SEND TO PAGE COMPONENT
