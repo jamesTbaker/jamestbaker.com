@@ -11,6 +11,7 @@ export default styled.span`
 	display: inline-block;
 	font-size: inherit;
 	font: normal normal normal ${props => props.iconSize}rem / 1 "LineAwesome";
+	color: ${props => props.color ? props.color : 'default' };
 	text-decoration: inherit;
 	text-rendering: optimizeLegibility;
 	text-transform: none;
