@@ -8,6 +8,8 @@ import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
+import Collapsible from '../components/Collapsible';
+import Brief from '../components/Brief';
 import TitleImageMedium from '../img/titleImages/processed/bridge.jpg';
 import TitleImageSmall from '../img/titleImages/processed/bridge@0,5x.jpg';
 
@@ -107,6 +109,24 @@ const Section = styled.section`
 const SectionHeader = styled.h2`
 	grid-area: header;
 `;
+const SubsectionHeader = styled.h3`
+	${StylePatterns.BlockHidden()}
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const BriefContainer = styled.div`
 	grid-area: brief;
 	${props => props.screenType === 'small' && `
@@ -121,18 +141,28 @@ const BriefStatementsContainer = styled.div`
 		
 	`}
 	${props => props.screenType !== 'small' && `
-		column-count: 5;
-		column-gap: 2rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-areas:	"briefGridOne briefGridTwo briefGridThree briefGridFour briefGridFive"
+	`}
+`;
+const BriefStatementGroupContainer = styled.div`
+	${props => props.screenType === 'small' && `
+		
+	`}
+	${props => props.screenType !== 'small' && `
+		grid-area: ${props.gridArea};
+		padding: 0 3rem 0 1rem;
+		border-left: .2rem solid ${StylePatterns.Color('blue-3')};
+
+		p:last-child {
+			margin-bottom: 0;
+		}
 	`}
 `;
 const BriefStatement = styled.p`
 	${props => props.screenType === 'small' && `
 		
-	`}
-	${props => props.screenType !== 'small' && `
-		display: inline-block;
-		padding-left: 1rem;
-		border-left: .2rem solid ${StylePatterns.Color('blue-7')};
 	`}
 	${props => props.screenType === 'medium' && `
 		font-size: ${StylePatterns.FontSize('s', 'medium')};
@@ -205,47 +235,69 @@ const returnLowerPageContent = screenType => (
 			<BriefContainer
 				screenType={screenType}
 			>
-				<h3>Brief</h3>
+				<SubsectionHeader>Brief</SubsectionHeader>
 				<BriefStatementsContainer
 					screenType={screenType}
 				>
-					<BriefStatement
+					<BriefStatementGroupContainer
 						screenType={screenType}
+						gridArea="briefGridOne"
 					>
-						This is brief statement 1.
-					</BriefStatement>
-					<BriefStatement
+						<BriefStatement
+							screenType={screenType}
+						>
+							This is brief statement 1.
+						</BriefStatement>
+						<BriefStatement
+							screenType={screenType}
+						>
+							This is brief statement 2. This is brief statement 2.
+						</BriefStatement>
+					</BriefStatementGroupContainer>
+					<BriefStatementGroupContainer
 						screenType={screenType}
+						gridArea="briefGridTwo"
 					>
-						This is brief statement 2. This is brief statement 2.
-					</BriefStatement>
-					<BriefStatement
+						<BriefStatement
+							screenType={screenType}
+						>
+							This is brief statement 3. This is another. This is brief statement 3. This is another.
+						</BriefStatement>
+					</BriefStatementGroupContainer>
+					<BriefStatementGroupContainer
 						screenType={screenType}
+						gridArea="briefGridThree"
 					>
-						This is brief statement 3. This is brief statement 3. This is brief statement 3.
-					</BriefStatement>
-					<BriefStatement
+						<BriefStatement
+							screenType={screenType}
+						>
+							This is brief statement 4. This is another.
+						</BriefStatement>
+						<BriefStatement
+							screenType={screenType}
+						>
+							This is brief statement 5.
+						</BriefStatement>
+					</BriefStatementGroupContainer>
+					<BriefStatementGroupContainer
 						screenType={screenType}
+						gridArea="briefGridFour"
 					>
-						This is brief statement 4. This is another.
-					</BriefStatement>
-					<BriefStatement
-						screenType={screenType}
-					>
-						This is brief statement 5.
-					</BriefStatement>
-					<BriefStatement
-						screenType={screenType}
-					>
-						This is brief statement 6. This is another. This is another. This is another.
-					</BriefStatement>
-					<BriefStatement
-						screenType={screenType}
-					>
-						This is brief statement 7.
-					</BriefStatement>
+						<BriefStatement
+							screenType={screenType}
+						>
+							This is brief statement 6. This is another. This is another. This is another.
+						</BriefStatement>
+						<BriefStatement
+							screenType={screenType}
+						>
+							This is brief statement 7.
+						</BriefStatement>
+					</BriefStatementGroupContainer>
 				</BriefStatementsContainer>
 			</BriefContainer>
+
+			<SubsectionHeader>Brief</SubsectionHeader>
 		</Section>
 	</div>
 );
