@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
 	@import url('https://rsms.me/inter/inter.css');
 	* { box-sizing: border-box; }
 	html {
-		font-family: 'Inter', -apple-system, BlinkMacSystemFont,'Roboto', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, 'Liberation Sans', Arial, 'Lucida Grande', sans-serif;
+		${StylePatterns.FontFamily()}
 		font-size: 10px;
 		text-align: center;
 	}

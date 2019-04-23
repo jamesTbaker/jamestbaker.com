@@ -30,6 +30,7 @@ const ButtonBase = styled.button.attrs(props => ({
 	background-color: ${props => props.defaultBackgroundColor};
 	color: ${props => props.defaultContentColor};
 	cursor: pointer;
+	text-align: ${props => props.textAlignment || 'left'};
 	transition: color ${StylePatterns.StandardTransitionTime()}, background-color ${StylePatterns.StandardTransitionTime()};
 
 	&:hover {
@@ -41,7 +42,7 @@ const ButtonBase = styled.button.attrs(props => ({
 const VisibleTextWrapper = styled.span`
 	font-size: ${props => props.textSize}rem;
 	font-weight: ${StylePatterns.FontWeight('light')};
-	text-align: ${props => props.textAlignment || 'left'};
+	${StylePatterns.FontFamily()}
 	${props => ReturnVisibleTextWrapperHorizontalPadding(props.iconPosition)}
 `;
 

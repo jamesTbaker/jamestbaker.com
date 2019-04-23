@@ -31,14 +31,14 @@ export default class Collapsible extends React.Component {
 
 					<CollapsibleSectionButton
 						buttonHeight="3"
-						iconPosition="before"
+						iconPosition="after"
 						iconContent={this.state.collapsed ? "angle-down" : "angle-up"}
 						contentHeight="1.8"
 						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
 						defaultBackgroundColor="transparent"
-						defaultContentColor={StylePatterns.Color('interactive-on-light-default')}
+						defaultContentColor={StylePatterns.Color('interactive-on-dark-default')}
 						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('interactive-on-light-active')}
+						activeContentColor={StylePatterns.Color('interactive-on-dark-active')}
 						clickHandler={this.handleCollapsibleClick}
 					/>
 				}
@@ -52,14 +52,14 @@ export default class Collapsible extends React.Component {
 
 					<CollapsibleSectionButton
 						buttonHeight="3"
-						iconPosition="before"
+						iconPosition="after"
 						iconContent={this.state.collapsed ? "angle-down" : "angle-up"}
 						contentHeight="1.8"
 						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
 						defaultBackgroundColor="transparent"
-						defaultContentColor={StylePatterns.Color('interactive-on-light-default')}
+						defaultContentColor={StylePatterns.Color('interactive-on-dark-default')}
 						activeBackgroundColor="transparent"
-						activeContentColor={StylePatterns.Color('interactive-on-light-active')}
+						activeContentColor={StylePatterns.Color('interactive-on-dark-active')}
 						clickHandler={this.handleCollapsibleClick}
 					/>
 				}

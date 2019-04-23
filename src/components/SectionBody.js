@@ -39,29 +39,46 @@ const QuoteContainer = styled.div`
 	`}
 `;
 const QuoteContentContainer = styled.p`
-	${props => props.screenType === 'large' && `
-		${StylePatterns.VerticalAlignMiddle()}
-		font-size: ${StylePatterns.FontSize('l', 'large')};
-		font-style: italic;
-		text-align: center;
+	${StylePatterns.VerticalAlignMiddle()}
+	font-style: italic;
+	text-align: center;
+	border-top: .2rem solid ${StylePatterns.Color('blue-4')};
+	border-bottom: .2rem solid ${StylePatterns.Color('blue-4')};
+	margin: 0;
+	
+	${props => props.screenType !== 'small' && `
 		padding: 2rem;
-		border-top: .2rem solid ${StylePatterns.Color('blue-4')};
-		border-bottom: .2rem solid ${StylePatterns.Color('blue-4')};
-		margin: 0;
 		color: ${StylePatterns.Color('yellow-2')};
+	`}
+	${props => props.screenType === 'small' && `
+		margin-top: 2rem;
+		padding: 2rem 0;
+		width: 50%;
+		font-size: ${StylePatterns.FontSize('s', 'small')};
+		color: ${StylePatterns.Color('blue-8')};
+	`}
+	${props => props.screenType === 'medium' && `
+		font-size: ${StylePatterns.FontSize('l', 'medium')};
+	`}
+	${props => props.screenType === 'large' && `
+		font-size: ${StylePatterns.FontSize('l', 'large')};
 	`}
 `;
 const BodyContentContainer = styled.div`
 	grid-area: content;
+	${props => props.screenType === 'small' && `
+
+	`}
 	${props => props.screenType !== 'small' && `
-		column-count: 4;
 		column-gap: 2rem;
 		margin-top: 5rem;
-
-		> p:last-child,
-		> ul:last-child {
-			margin-bottom: 0;
-		}
+	`}
+	${props => props.screenType === 'medium' && `
+		column-count: 3;
+		margin-bottom: 5rem;
+	`}
+	${props => props.screenType === 'large' && `
+		column-count: 4;
 	`}
 `;
 
@@ -73,13 +90,15 @@ export default (props) => (
 		quote={props.quote}
 	>
 		<SubsectionHeader>All About {props.sectionTitle}</SubsectionHeader>
-		<BodyContentContainer>
+		<BodyContentContainer
+			screenType={props.screenType}
+		>
 			{
 				props.screenType === 'small' && 
 
 				<Collapsible
-					expandText="Discover more business skills"
-					collapseText="Show fewer business skills"
+					expandText={`Learn more about ${props.sectionTitle}`}
+					collapseText={`Show less about ${props.sectionTitle}`}
 					buttonPosition="after"
 				>
 					{props.children}

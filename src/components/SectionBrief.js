@@ -25,12 +25,16 @@ const BriefContainer = styled.div`
 `;
 const BriefStatementsContainer = styled.div`
 	${props => props.screenType === 'small' && `
-		
+		padding: 0 0 0 1rem;
+		border-left: .2rem solid ${StylePatterns.Color('blue-4')};
 	`}
-	${props => props.screenType !== 'small' && `
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-		grid-template-areas:	"one two three four five"
+	${props => props.screenType === 'medium' && `
+		column-count: 3;
+		column-gap: 2rem;
+	`}
+	${props => props.screenType === 'large' && `
+		column-count: 5;
+		column-gap: 2rem;
 	`}
 `;
 const BriefStatementGroupContainer = styled.div`
@@ -38,7 +42,7 @@ const BriefStatementGroupContainer = styled.div`
 		
 	`}
 	${props => props.screenType !== 'small' && `
-		grid-area: ${props.gridArea};
+		display: inline-block;
 		padding: 0 3rem 0 1rem;
 		border-left: .2rem solid ${StylePatterns.Color('blue-4')};
 
@@ -49,7 +53,7 @@ const BriefStatementGroupContainer = styled.div`
 `;
 const BriefStatement = styled.p`
 	${props => props.screenType === 'small' && `
-		
+		font-size: ${StylePatterns.FontSize('s', 'small')};
 	`}
 	${props => props.screenType === 'medium' && `
 		font-size: ${StylePatterns.FontSize('s', 'medium')};

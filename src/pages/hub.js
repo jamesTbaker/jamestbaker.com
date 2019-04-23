@@ -84,30 +84,14 @@ const Section = styled.section`
 
 	border-top: .2rem solid ${StylePatterns.Color('blue-10')};
 	display: grid;
-
-	${props => props.screenType === 'small' && `
-		grid-template-rows: auto auto auto auto;
-		grid-template-areas:	"header"
-								"brief"
-								"main"
-								"quote";
-	`}
-	${props => props.screenType === 'medium' && `
-		grid-template-rows: auto auto auto auto;
-		grid-template-areas:	"header"
-								"brief"
-								"main"
-								"quote";
-	`}
-	${props => props.screenType === 'large' && `
-		grid-template-rows: auto auto auto;
-		grid-template-areas:	"header"
-								"brief"
-								"mainAndQuote";
-	`}
+	grid-template-rows: auto auto auto;
+	grid-template-areas:	"header"
+							"brief"
+							"mainAndQuote";
 `;
 const SectionHeader = styled.h2`
 	grid-area: header;
+	width: 33%;
 `;
 
 
@@ -204,18 +188,6 @@ const returnLowerPageContent = screenType => (
 							'This is brief statement 4. This is another.',
 							'This is brief statement 5.'
 						]
-					/* }, {
-						area: 'four',
-						statements: [
-							'This is brief statement 6. This is another. This is another. This is another.',
-							'This is brief statement 7.'
-						]
-					}, {
-						area: 'five',
-						statements: [
-							'This is brief statement 8. This is another. This is another. This is another.',
-							'This is brief statement 9.'
-						] */
 					}
 				]}
 			/>

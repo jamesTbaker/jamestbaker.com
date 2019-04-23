@@ -3,9 +3,14 @@ module.exports = {
 
 	
 	// FONT
+
+	FontFamily: () =>
+		`font-family: 'Inter', -apple-system, BlinkMacSystemFont,'Roboto', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, 'Liberation Sans', Arial, 'Lucida Grande', sans-serif;`,
+
+
 	// for large screens
 	// augmented fourth scale above 1
-	// minor thirs scale below 1
+	// minor third scale below 1
 	FontSize: (token, screenType) => {
 		if (screenType !== 'small') {
 			switch (token) {
