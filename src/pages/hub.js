@@ -167,6 +167,73 @@ const returnLowerPageContent = screenType => (
 		<Section
 			screenType={screenType}
 		>
+			<SectionHeader>Problems and Solutions</SectionHeader>
+			<SectionBrief
+				screenType={screenType}
+				areas={[
+					{
+						area: 'one',
+						statements: [
+							'This is brief statement 1.',
+							'This is brief statement 2. This is brief statement 2.'
+						]
+					}, {
+						area: 'two',
+						statements: [
+							'This is brief statement 3. This is another. This is brief statement 3. This is another.'
+						]
+					}, {
+						area: 'three',
+						statements: [
+							'This is brief statement 4. This is another.',
+							'This is brief statement 5.'
+						]
+					}
+				]}
+			/>
+			<SectionBody
+				screenType={screenType}
+				sectionTitle="Problems and Solutions"
+				quote={{
+					largeScreenPosition: 'left',
+					content: 'I am a businessperson, using design and technology to solve business problems'
+				}}
+			>
+				<h3>Problems</h3>
+				<p>
+					The Museum had an extensive but problematic group of web-based, enterprise software applications and contents.
+					</p>
+				<ul>
+					<li>These were built in the late 90s / early 2000s, mostly in ColdFusion, a language now used by relatively few people and no one on staff.</li>
+					<li>They stopped evolving over a decade earlier and no longer matched the organization’s business processes.</li>
+					<li>A partial reboot effort several years prior left staff navigating between two systems.</li>
+					<li>On the older server's web root were over 400k files, ranging from logs to image uploads to a prolific level of patched and repatched spaghetti code. no human could make sense of all of this.
+						</li>
+					<li>A staff member needing to update her own published document had to submit a work order.</li>
+					<li>Staff members were clamoring for apps that worked the way they worked, wherever they worked, and more apps to solve more problems.</li>
+					<li>The on-premise server running the old apps violated PCI standards and the organization was faced with the prospect of investing in costly upgrades.</li>
+				</ul>
+				<p>
+					For all their deficiencies, these apps were indispensable. Hundreds of staff and board members used them daily, not only to accomplish discrete, structured tasks and familiarize themselves with policies, but to service more organic needs like collaborating on grant proposals, finding translators for onsite visitors, identifying subject matter experts for media requests, and recruiting ad hoc help for private events, marketing campaigns, product testing, fundraisers, and cleaning up the Charles River.
+				</p>
+				<h3>Solutions</h3>
+				<p>Since the old system was significantly outdated and was incomprehensible from the backend (again, ColdFusion and over 400k files), I avoided even looking at it very much. Instead, I collaborated with every stakeholder group &mdash; over 80 stakeholders in all &mdash; to determine what their software should do.
+					</p>
+				<p>The results:</p>
+				<ul>
+					<li>56 JavaScript-based workflow apps.</li>
+					<li>Each app conforms to updated business rules.</li>
+					<li>A responsive and accessible UX, receiving near-universal praise.</li>
+					<li>One server shut down in 2016, and the other in 2019. No PCI-related risks were realized. Almost everything is now in Microsoft's cloud. An on-premise API server was created but will likely move to AWS.</li>
+					<li>100k lines of code, down from from 400k+ files.</li>
+					<li>Simple, point-and-click access control.</li>
+					<li>Distributed content management &mdash; with my oversight and support, staff members manage their own documents and web content.</li>
+				</ul>
+			</SectionBody>
+		</Section>
+		<Section
+			screenType={screenType}
+		>
 			<SectionHeader>Change Management</SectionHeader>
 			<SectionBrief
 				screenType={screenType}
