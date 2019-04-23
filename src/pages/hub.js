@@ -8,8 +8,8 @@ import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
-import Collapsible from '../components/Collapsible';
-import Brief from '../components/Brief';
+import SectionBrief from '../components/SectionBrief';
+import SectionBody from '../components/SectionBody';
 import TitleImageMedium from '../img/titleImages/processed/bridge.jpg';
 import TitleImageSmall from '../img/titleImages/processed/bridge@0,5x.jpg';
 
@@ -109,9 +109,6 @@ const Section = styled.section`
 const SectionHeader = styled.h2`
 	grid-area: header;
 `;
-const SubsectionHeader = styled.h3`
-	${StylePatterns.BlockHidden()}
-`;
 
 
 
@@ -127,51 +124,6 @@ const SubsectionHeader = styled.h3`
 
 
 
-const BriefContainer = styled.div`
-	grid-area: brief;
-	${props => props.screenType === 'small' && `
-		
-	`}
-	${props => props.screenType !== 'small' && `
-
-	`}
-`;
-const BriefStatementsContainer = styled.div`
-	${props => props.screenType === 'small' && `
-		
-	`}
-	${props => props.screenType !== 'small' && `
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-		grid-template-areas:	"briefGridOne briefGridTwo briefGridThree briefGridFour briefGridFive"
-	`}
-`;
-const BriefStatementGroupContainer = styled.div`
-	${props => props.screenType === 'small' && `
-		
-	`}
-	${props => props.screenType !== 'small' && `
-		grid-area: ${props.gridArea};
-		padding: 0 3rem 0 1rem;
-		border-left: .2rem solid ${StylePatterns.Color('blue-3')};
-
-		p:last-child {
-			margin-bottom: 0;
-		}
-	`}
-`;
-const BriefStatement = styled.p`
-	${props => props.screenType === 'small' && `
-		
-	`}
-	${props => props.screenType === 'medium' && `
-		font-size: ${StylePatterns.FontSize('s', 'medium')};
-	`}
-	${props => props.screenType === 'large' && `
-		font-size: ${StylePatterns.FontSize('s', 'large')};
-	`}
-
-`;
 
 /* const XXX = styled.div`
 
@@ -232,72 +184,60 @@ const returnLowerPageContent = screenType => (
 			screenType={screenType}
 		>
 			<SectionHeader>Change Management</SectionHeader>
-			<BriefContainer
+			<SectionBrief
 				screenType={screenType}
+				areas={[
+					{
+						area: 'one',
+						statements: [
+							'This is brief statement 1.',
+							'This is brief statement 2. This is brief statement 2.'
+						]
+					}, {
+						area: 'two',
+						statements: [
+							'This is brief statement 3. This is another. This is brief statement 3. This is another.'
+						]
+					}, {
+						area: 'three',
+						statements: [
+							'This is brief statement 4. This is another.',
+							'This is brief statement 5.'
+						]
+					/* }, {
+						area: 'four',
+						statements: [
+							'This is brief statement 6. This is another. This is another. This is another.',
+							'This is brief statement 7.'
+						]
+					}, {
+						area: 'five',
+						statements: [
+							'This is brief statement 8. This is another. This is another. This is another.',
+							'This is brief statement 9.'
+						] */
+					}
+				]}
+			/>
+			<SectionBody
+				screenType={screenType}
+				sectionTitle="Change Management"
+				quote={{
+					largeScreenPosition: 'right',
+					content: 'Execution is everything'
+				}}
 			>
-				<SubsectionHeader>Brief</SubsectionHeader>
-				<BriefStatementsContainer
-					screenType={screenType}
-				>
-					<BriefStatementGroupContainer
-						screenType={screenType}
-						gridArea="briefGridOne"
-					>
-						<BriefStatement
-							screenType={screenType}
-						>
-							This is brief statement 1.
-						</BriefStatement>
-						<BriefStatement
-							screenType={screenType}
-						>
-							This is brief statement 2. This is brief statement 2.
-						</BriefStatement>
-					</BriefStatementGroupContainer>
-					<BriefStatementGroupContainer
-						screenType={screenType}
-						gridArea="briefGridTwo"
-					>
-						<BriefStatement
-							screenType={screenType}
-						>
-							This is brief statement 3. This is another. This is brief statement 3. This is another.
-						</BriefStatement>
-					</BriefStatementGroupContainer>
-					<BriefStatementGroupContainer
-						screenType={screenType}
-						gridArea="briefGridThree"
-					>
-						<BriefStatement
-							screenType={screenType}
-						>
-							This is brief statement 4. This is another.
-						</BriefStatement>
-						<BriefStatement
-							screenType={screenType}
-						>
-							This is brief statement 5.
-						</BriefStatement>
-					</BriefStatementGroupContainer>
-					<BriefStatementGroupContainer
-						screenType={screenType}
-						gridArea="briefGridFour"
-					>
-						<BriefStatement
-							screenType={screenType}
-						>
-							This is brief statement 6. This is another. This is another. This is another.
-						</BriefStatement>
-						<BriefStatement
-							screenType={screenType}
-						>
-							This is brief statement 7.
-						</BriefStatement>
-					</BriefStatementGroupContainer>
-				</BriefStatementsContainer>
-			</BriefContainer>
-
-			<SubsectionHeader>Brief</SubsectionHeader>
+				<p>Rather than tackling the entire platform at once, my first step was to identify one best app for R&D, and use that app for testing and for midscale, organic publicity. I chose an app "owned" by my IT colleagues so that my first stakeholders would be among the most patient and understanding with my R&D. It also turned out that my IT colleagues had some of the highest expectations and most trenchant criticism, but that was good because it forced me to iterate to an elevated standard that likely saved me trouble later and saved time in the long run. As the app was used by managers across the organization, people quickly became aware of what I were doing.
+				</p>
+				<p>I continued the theme of leveraging relationships throughout this process. There was internal pressure to shut down one of the two servers in order to show progress, and I eventually did so. However, I insisted on blending that approach with working with one group of stakeholders at a time, regardless of where their apps were located. This was easier and sensible for the stakeholders, who don't think in terms of servers, but I also knew that this was the quickest path to the finish line. That's because the biggest bottleneck I faced was stakeholders' schedules, so working group by group resulted in less scheduling overhead.
+				</p>
+				<p>It's also important to note that I used an agile, graduated release process, averaging one app every few weeks. Because of this, my support requirement was spread across a large time horizon, which meant that I never had a huge number of support requests. In turn, that meant that I was able to respond to support requests quickly, often releasing iterations on several apps per day. This was important for fostering good will across the organization; I suspect that if I'd taken a waterfall approach and released all 56 apps simultaneously, some stakeholders would have been waiting months before I could address their concerns.
+				</p>
+				<p>As apps were replaced and contents migrated, the legacy gateway to the system was maintained with messaging and continually updating links to new apps, allowing me to guide people to new apps through their familiar pathways. Similarly, the initial draft of the new system's central gateway strikes a balance between familiar concepts and a strong impression of innovation that communicates a high ROI.
+				</p>
+				<p>As part of the final transition from old to new, I hosted multiple drop-in help sessions. Many questions were answered, and change-resistant hands were held. One of the more surprising outcomes of these sessions was the feedback that people would have preferred even more guidance throughout these changes. To that end, I've planned that significant future changes will be accompanied by screens explaining usage in text, for those who prefer reading, and demonstrating usage in video (and audio), for those who prefer viewing or listening.
+				</p>
+			</SectionBody>
 		</Section>
 	</div>
 );
