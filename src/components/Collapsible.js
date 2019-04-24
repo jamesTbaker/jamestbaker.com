@@ -31,7 +31,7 @@ export default class Collapsible extends React.Component {
 
 					<CollapsibleSectionButton
 						buttonHeight="3"
-						iconPosition="after"
+						iconPosition="before"
 						iconContent={this.state.collapsed ? "angle-down" : "angle-up"}
 						contentHeight="1.8"
 						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}
@@ -52,7 +52,7 @@ export default class Collapsible extends React.Component {
 
 					<CollapsibleSectionButton
 						buttonHeight="3"
-						iconPosition="after"
+						iconPosition="before"
 						iconContent={this.state.collapsed ? "angle-down" : "angle-up"}
 						contentHeight="1.8"
 						text={this.state.collapsed ? this.props.expandText : this.props.collapseText}

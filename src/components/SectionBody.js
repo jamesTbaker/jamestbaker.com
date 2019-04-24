@@ -24,18 +24,19 @@ const BodyContainer = styled.div`
 	`}
 	${props => props.screenType == 'large' && props.quote.largeScreenPosition == 'left' && `
 		display: grid;
-		grid-template-columns: 1fr 4fr;
+		grid-template-columns: 20% 80%;
 		grid-template-areas: "quote content";
 	`}
 	${props => props.screenType == 'large' && props.quote.largeScreenPosition == 'right' && `
 		display: grid;
-		grid-template-columns: 4fr 1fr;
+		grid-template-columns: 80% 20%;
 		grid-template-areas: "content quote";
 	`}
 `;
 const QuoteContainer = styled.div`
-	${props => props.screenType !== 'small' && `
-		grid-area: quote;
+	grid-area: quote;
+	${props => props.screenType === 'medium' && `
+		margin-top: 5rem;
 	`}
 `;
 const QuoteContentContainer = styled.p`
@@ -43,7 +44,6 @@ const QuoteContentContainer = styled.p`
 	font-style: italic;
 	text-align: center;
 	border-top: .2rem solid ${StylePatterns.Color('blue-4')};
-	border-bottom: .2rem solid ${StylePatterns.Color('blue-4')};
 	margin: 0;
 	
 	${props => props.screenType !== 'small' && `
@@ -59,27 +59,20 @@ const QuoteContentContainer = styled.p`
 	`}
 	${props => props.screenType === 'medium' && `
 		font-size: ${StylePatterns.FontSize('l', 'medium')};
+		padding-top: 5rem;
+		padding-bottom: 0;
 	`}
 	${props => props.screenType === 'large' && `
+		width: calc(100% - 3rem);
 		font-size: ${StylePatterns.FontSize('l', 'large')};
+		border-bottom: .2rem solid ${StylePatterns.Color('blue-4')};
+	`}
+	${props => props.screenType == 'large' && props.quote.largeScreenPosition == 'right' && `
+		margin-left: auto;
 	`}
 `;
 const BodyContentContainer = styled.div`
 	grid-area: content;
-	${props => props.screenType === 'small' && `
-
-	`}
-	${props => props.screenType !== 'small' && `
-		column-gap: 2rem;
-		margin-top: 5rem;
-	`}
-	${props => props.screenType === 'medium' && `
-		column-count: 3;
-		margin-bottom: 5rem;
-	`}
-	${props => props.screenType === 'large' && `
-		column-count: 4;
-	`}
 `;
 
 // CONTENTS
@@ -110,9 +103,12 @@ export default (props) => (
 				props.children
 			}
 		</BodyContentContainer>
-		<QuoteContainer>
+		<QuoteContainer
+			screenType={props.screenType}
+		>
 			<QuoteContentContainer
 				screenType={props.screenType}
+				quote={props.quote}
 			>
 				{props.quote.content}
 			</QuoteContentContainer>

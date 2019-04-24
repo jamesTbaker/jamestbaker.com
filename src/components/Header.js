@@ -146,6 +146,9 @@ const GlobalStyle = createGlobalStyle`
 		color: ${StylePatterns.Color('blue-12')};
 		font-style: normal;
 	}
+	b {
+		font-weight: ${StylePatterns.FontWeight('bold')};
+	}
 	${({ screenType }) => screenType === 'small' && `
 		body {
 			font-size: ${StylePatterns.FontSize('m', 'small')};

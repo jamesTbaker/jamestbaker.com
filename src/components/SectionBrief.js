@@ -16,11 +16,11 @@ const SubsectionHeader = styled.h3`
 `;
 const BriefContainer = styled.div`
 	grid-area: brief;
-	${props => props.screenType === 'small' && `
-		
+	${props => props.screenType === 'medium' && `
+		margin-bottom: 2rem;
 	`}
-	${props => props.screenType !== 'small' && `
-
+	${props => props.screenType === 'large' && `
+		margin-bottom: 5rem;
 	`}
 `;
 const BriefStatementsContainer = styled.div`
@@ -64,6 +64,7 @@ const BriefStatement = styled.p`
 `;
 
 // CONTENTS
+const returnHtml = (html) => ({ __html: `${html}` });
 
 export default (props) => (
 	<BriefContainer
@@ -87,9 +88,11 @@ export default (props) => (
 								<BriefStatement
 									key={shortid.generate()}	
 									screenType={props.screenType}
-								>
-									{statementValue}
-								</BriefStatement>
+									dangerouslySetInnerHTML={
+										returnHtml(statementValue)
+							}
+
+								/>
 							))
 						}
 					</BriefStatementGroupContainer>
