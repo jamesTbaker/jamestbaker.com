@@ -9,6 +9,15 @@ import StylePatterns from '../services/StylePatterns';
 
 // --- COMPONENT
 
+const handleBackToMenuNavItemClick = () => {
+	scroller.scrollTo('deeper-dive-container', {
+		duration: 500,
+		offset: 0,
+		delay: 0,
+		smooth: 'easeInOutQuart',
+	});
+};
+
 // STYLED COMPONENTS
 
 const SubsectionHeader = styled.h3`
@@ -113,5 +122,9 @@ export default (props) => (
 				{props.quote.content}
 			</QuoteContentContainer>
 		</QuoteContainer>
+		<a
+			onClick={handleBackToMenuNavItemClick}
+		>Other Sections</a>
+
 	</BodyContainer>
 );

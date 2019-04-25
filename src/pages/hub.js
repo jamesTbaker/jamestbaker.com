@@ -24,6 +24,7 @@ import ContactsSmall from '../img/hub/Contacts@0,75x.png';
 import PrivateMedium from '../img/hub/Private.png';
 import PrivateSmall from '../img/hub/Private@0,75x.png';
 import Stars from '../img/hub/Stars.jpg';
+import { scroller } from 'react-scroll';
 
 // ----- PAGE
 
@@ -296,7 +297,14 @@ const XXX = styled.div`
 
 // CONTENTS
 
-
+const handleProblemsAndSolutionsNavItemClick = () => {
+	scroller.scrollTo('problems-and-solutions', {
+		duration: 500,
+		offset: 0,
+		delay: 0,
+		smooth: 'easeInOutQuart',
+	});
+};
 
 
 
@@ -311,6 +319,7 @@ const returnLowerPageContent = screenType => (
 	<div className="sb-root--bottom-content">
 		<Section
 			screenType={screenType}
+			id="problems-and-solutions"
 		>
 			<SectionHeader>Problems and Solutions</SectionHeader>
 			<SectionBrief
@@ -433,6 +442,7 @@ const returnLowerPageContent = screenType => (
 		</ProductViewsSubsectionsContainer>
 		<Section
 			screenType={screenType}
+			id="team"
 		>
 			<SectionHeader>Team</SectionHeader>
 			<SectionBrief
@@ -469,6 +479,7 @@ const returnLowerPageContent = screenType => (
 
 		<Section
 			screenType={screenType}
+			id="change-management"
 		>
 			<SectionHeader>Change Management</SectionHeader>
 			<SectionBrief
@@ -523,6 +534,7 @@ const returnLowerPageContent = screenType => (
 
 		<Section
 			screenType={screenType}
+			id="tech"
 		>
 			<SectionHeader>Tech</SectionHeader>
 			<SectionBrief
@@ -593,6 +605,7 @@ const returnLowerPageContent = screenType => (
 
 		<Section
 			screenType={screenType}
+			id="branding"
 		>
 			<SectionHeader>Branding</SectionHeader>
 			<SectionBrief
@@ -826,7 +839,10 @@ const returnTopContentThree = screenType => (
 	</div>
 );
 const returnTopContentFour = screenType => (
-	<div className="sb-root--top-content">
+	<div
+		className="sb-root--top-content"
+		id="deeper-dive-container"
+	>
 		<h2>
 			Deeper Dive
 		</h2>
@@ -836,7 +852,9 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#">
+				<DeepDiveLink
+					onClick={handleProblemsAndSolutionsNavItemClick}
+				>
 					<Icon
 						iconPosition="after"
 						iconContent="wrench"
@@ -849,7 +867,7 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#">
+				<DeepDiveLink href="#team">
 					<Icon
 						iconPosition="after"
 						iconContent="users"
@@ -862,7 +880,7 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#">
+				<DeepDiveLink href="#change-management">
 					<Icon
 						iconPosition="after"
 						iconContent="refresh"
@@ -875,7 +893,7 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#">
+				<DeepDiveLink href="#tech">
 					<Icon
 						iconPosition="after"
 						iconContent="cloud"
@@ -888,7 +906,7 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#">
+				<DeepDiveLink href="#branding">
 					<Icon
 						iconPosition="after"
 						iconContent="trademark"
