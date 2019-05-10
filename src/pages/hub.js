@@ -17,12 +17,9 @@ import DesktopViewMedium from '../img/hub/Desktop-view.jpg';
 import DesktopViewSmall from '../img/hub/Desktop-view@0,5x.jpg';
 import MobileViewMedium from '../img/hub/Mobile-view.jpg';
 import MobileViewSmall from '../img/hub/Mobile-view@0,5x.jpg';
-import PalletPreviewMedium from '../img/hub/Pallet-preview.jpg';
-import PalletPreviewSmall from '../img/hub/Pallet-preview@0,5x.jpg';
-import ContactsMedium from '../img/hub/Contacts.png';
-import ContactsSmall from '../img/hub/Contacts@0,75x.png';
-import PrivateMedium from '../img/hub/Private.png';
-import PrivateSmall from '../img/hub/Private@0,75x.png';
+import Private from '../img/hub/Private';
+import PalletPreview from '../img/hub/Pallet-preview';
+import Contacts from '../img/hub/Contacts';
 import Stars from '../img/hub/Stars.jpg';
 import { scroller } from 'react-scroll';
 
@@ -80,14 +77,19 @@ const DeepDiveListItem = styled.li`
 `;
 const DeepDiveLink = styled.a`
 	border: 0;
+	cursor: pointer;
 	
 	&:hover {
 		border: 0;
 	}
 `;
 const Section = styled.section`
-	${props => props.screenType !== 'small' && `
+	${props => props.screenType === 'large' && `
 		padding: 5rem 0;
+		margin: 0 5rem;
+	`}
+	${props => props.screenType === 'medium' && `
+		padding: 5rem 0 2rem 0;
 		margin: 0 5rem;
 	`}
 	${props => props.screenType === 'small' && `
@@ -194,12 +196,15 @@ const BrandContainer = styled.div`
 		max-width: 80%;
 		margin: auto;
 	}
-	${props => props.onBackground && `
-		background: url(${props.onBackground});
+	${props => props.backgroundImage && `
+		background: url(${props.backgroundImage});
 
 		g.letterforms path {
 			fill: white;
 		}
+	`}
+	${props => props.light && `
+		background-color: ${StylePatterns.Color('white')};
 	`}
 	${props => props.greyScale && `
 		background-color: ${StylePatterns.Color('grey-15')};
@@ -212,12 +217,19 @@ const BrandContainer = styled.div`
 		}
 	`}
 `;
+const CalloutLink = styled.a`
+	border: 0;
+	
+	&:hover {
+		border: 0;
+	}
+`;
 const PrivateRestrainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		text-align: right;
 
-		img {
-			max-width: 40rem;
+		svg {
+			max-width: 35rem;
 			margin-right: 0;
 			margin-left: auto;
 			margin-bottom: 2rem;
@@ -229,8 +241,8 @@ const PrivateRestrainer = styled.div`
 `;
 const ContactRestrainer = styled.div`
 	${props => props.screenType !== 'small' && `
-		img {
-			max-width: 40rem;
+		svg {
+			max-width: 35rem;
 			margin-left: 0;
 			margin-right: auto;
 			margin-bottom: 2rem;
@@ -299,6 +311,38 @@ const XXX = styled.div`
 
 const handleProblemsAndSolutionsNavItemClick = () => {
 	scroller.scrollTo('problems-and-solutions', {
+		duration: 500,
+		offset: 0,
+		delay: 0,
+		smooth: 'easeInOutQuart',
+	});
+};
+const handleTeamNavItemClick = () => {
+	scroller.scrollTo('team', {
+		duration: 500,
+		offset: 0,
+		delay: 0,
+		smooth: 'easeInOutQuart',
+	});
+};
+const handleChangeManagementNavItemClick = () => {
+	scroller.scrollTo('change-management', {
+		duration: 500,
+		offset: 0,
+		delay: 0,
+		smooth: 'easeInOutQuart',
+	});
+};
+const handleTechNavItemClick = () => {
+	scroller.scrollTo('tech', {
+		duration: 500,
+		offset: 0,
+		delay: 0,
+		smooth: 'easeInOutQuart',
+	});
+};
+const handleBrandingNavItemClick = () => {
+	scroller.scrollTo('branding', {
 		duration: 500,
 		offset: 0,
 		delay: 0,
@@ -640,8 +684,7 @@ const returnLowerPageContent = screenType => (
 				}}
 			>
 				<BrandIntroContainer>
-					<p>Aside from typical branding concerns, I was especially interested in using branding to communicate that this important part of the organization, which had been neglected for so long, was now in profressional hands. I truly believe that a great brand can inspire confidence and trust, and a brand doesn't have to be terrible to make people feel like they're dealing with an amateur they can't trust.
-				</p>
+					Aside from typical branding concerns, I was especially interested in using branding to communicate that this important part of the organization, which had been neglected for so long, was now in profressional hands. I truly believe that a great brand can inspire confidence and trust, and a brand doesn't have to be terrible to make people feel like they're dealing with an amateur they can't trust.
 				</BrandIntroContainer>
 				<BrandingSubsectionsContainer
 					screenType={screenType}
@@ -665,12 +708,13 @@ const returnLowerPageContent = screenType => (
 					>
 						<BrandContainer
 							screenType={screenType}
+							light
 						>
 							<HubBrand />
 						</BrandContainer>
 						<BrandContainer
 							screenType={screenType}
-							onBackground={Stars}
+							backgroundImage={Stars}
 						>
 							<HubBrand />
 						</BrandContainer>
@@ -690,10 +734,16 @@ const returnLowerPageContent = screenType => (
 					</p>
 						<p>I wanted to use the organization’s parent brand pallet, but I knew that to maximize color usage I would need to put colored type on a colored background &mdash; and maintain accessiblity standards for foreground-background contrast. Therefore, I had to create a light-to-dark scale for each hue, and then create Sass variables and transparency mixins for each one.
 					</p>
-						<p>
-							<a href="https://www.figma.com/file/e6ttbXfwvFZa5jhj0FHVAT3o/Color">
-								Check out the full pallet in Figma
-						</a>.
+					<p>
+						<CalloutLink href="https://www.figma.com/file/e6ttbXfwvFZa5jhj0FHVAT3o/Color" target="_blank">
+							Check out the full pallet in Figma&nbsp;
+							<Icon
+								iconPosition="after"
+								iconContent="arrow-right"
+								iconSize="1.8"
+								color={StylePatterns.Color('grey-12')}
+							/>
+						</CalloutLink>
 					</p>
 					</BrandingSubsection>
 					<BrandingSubsection
@@ -704,8 +754,8 @@ const returnLowerPageContent = screenType => (
 							screenType === 'small' &&
 
 							<div>
-								<img src={PrivateSmall} width="100%" />
-								<img src={PalletPreviewSmall} width="100%" />
+								<Private />
+								<PalletPreview />
 							</div>
 						}
 						{
@@ -715,9 +765,9 @@ const returnLowerPageContent = screenType => (
 								<PrivateRestrainer
 									screenType={screenType}
 								>
-									<img src={PrivateMedium} width="100%" />
+									<Private />
 								</PrivateRestrainer>
-								<img src={PalletPreviewMedium} width="100%" />
+								<PalletPreview />
 							</div>
 						}
 					</BrandingSubsection>
@@ -745,7 +795,7 @@ const returnLowerPageContent = screenType => (
 							{
 								screenType === 'small' &&
 
-								<img src={ContactsSmall} width="100%" />
+								<Contacts />
 							}
 							{
 								screenType !== 'small' &&
@@ -753,7 +803,7 @@ const returnLowerPageContent = screenType => (
 								<ContactRestrainer
 									screenType={screenType}
 								>
-									<img src={ContactsMedium} width="100%" />
+									<Contacts />
 								</ContactRestrainer>
 							}
 							<div style={{ position: 'relative', paddingTop: '56.25%' }}>
@@ -867,7 +917,9 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#team">
+				<DeepDiveLink
+					onClick={handleTeamNavItemClick}
+				>
 					<Icon
 						iconPosition="after"
 						iconContent="users"
@@ -880,7 +932,9 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#change-management">
+				<DeepDiveLink
+					onClick={handleChangeManagementNavItemClick}
+				>
 					<Icon
 						iconPosition="after"
 						iconContent="refresh"
@@ -893,20 +947,24 @@ const returnTopContentFour = screenType => (
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#tech">
+				<DeepDiveLink
+					onClick={handleTechNavItemClick}
+				>
 					<Icon
 						iconPosition="after"
 						iconContent="cloud"
 						iconSize="1.8"
 						color={StylePatterns.Color('grey-12')}
 					/>&nbsp;
-					Technologies used
+					Technologies Used
 				</DeepDiveLink>
 			</DeepDiveListItem>
 			<DeepDiveListItem
 				screenType={screenType}
 			>
-				<DeepDiveLink href="#branding">
+				<DeepDiveLink
+					onClick={handleBrandingNavItemClick}
+				>
 					<Icon
 						iconPosition="after"
 						iconContent="trademark"

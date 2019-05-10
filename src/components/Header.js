@@ -218,7 +218,9 @@ const GlobalStyle = createGlobalStyle`
 			font-size: ${StylePatterns.FontSize('m', 'large')};
 		}
 	`}
-
+	div.sticky-outer-wrapper.active div.sticky-inner-wrapper {
+		z-index: ${StylePatterns.ZIndex('smallNav')};
+	}
 `;
 
 // --- COMPONENT

@@ -4,61 +4,72 @@
 import React from 'react';
 import styled from 'styled-components';
 import Collapsible from '../components/Collapsible';
+import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import StylePatterns from '../services/StylePatterns';
+import { scroller } from 'react-scroll';
 
 
 // --- COMPONENT
 
-const handleBackToMenuNavItemClick = () => {
-	scroller.scrollTo('deeper-dive-container', {
-		duration: 500,
-		offset: 0,
-		delay: 0,
-		smooth: 'easeInOutQuart',
-	});
+const handleBackToMenuNavItemClick = (screenType) => {
+	if (screenType === 'large') {
+		scroller.scrollTo('deeper-dive-container', {
+			duration: 500,
+			offset: 0,
+			delay: 0,
+			smooth: 'easeInOutQuart',
+		});
+	} else {
+		scroller.scrollTo('deeper-dive-container', {
+			duration: 500,
+			offset: -110,
+			delay: 0,
+			smooth: 'easeInOutQuart',
+		});
+	}
 };
 
 // STYLED COMPONENTS
 
-const SubsectionHeader = styled.h3`
-	${StylePatterns.BlockHidden()}
-`;
-const BodyContainer = styled.div`
+const SubsectionBodyContainer = styled.div`
 	grid-area: mainAndQuote;
 	${props => props.screenType !== 'large' && `
 		display: grid;
-		grid-template-rows: auto auto;
+		grid-template-rows: auto auto auto;
 		grid-template-areas: 	"content"
-								"quote";
+								"quote"
+								"link";
 	`}
 	${props => props.screenType == 'large' && props.quote.largeScreenPosition == 'left' && `
 		display: grid;
+		grid-template-rows: auto auto;
 		grid-template-columns: 20% 80%;
-		grid-template-areas: "quote content";
+		grid-template-areas:	"quote content"
+								"link link";
 	`}
 	${props => props.screenType == 'large' && props.quote.largeScreenPosition == 'right' && `
 		display: grid;
+		grid-template-rows: auto auto;
 		grid-template-columns: 80% 20%;
-		grid-template-areas: "content quote";
+		grid-template-areas:	"content quote"
+								"link link";
 	`}
 `;
-const QuoteContainer = styled.div`
+const SubsectionHeader = styled.h3`
+	${StylePatterns.BlockHidden()}
+`;
+const SubsectionBodyQuoteContainer = styled.div`
 	grid-area: quote;
 	${props => props.screenType === 'medium' && `
 		margin-top: 5rem;
 	`}
 `;
-const QuoteContentContainer = styled.p`
+const SubsectionBodyQuoteContentContainer = styled.p`
 	${StylePatterns.VerticalAlignMiddle()}
 	font-style: italic;
-	text-align: center;
 	border-top: .2rem solid ${StylePatterns.Color('blue-4')};
 	margin: 0;
 	
-	${props => props.screenType !== 'small' && `
-		padding: 2rem;
-		color: ${StylePatterns.Color('yellow-2')};
-	`}
 	${props => props.screenType === 'small' && `
 		margin-top: 2rem;
 		padding: 2rem 0;
@@ -68,31 +79,49 @@ const QuoteContentContainer = styled.p`
 	`}
 	${props => props.screenType === 'medium' && `
 		font-size: ${StylePatterns.FontSize('l', 'medium')};
-		padding-top: 5rem;
-		padding-bottom: 0;
+		padding: 5rem 0 5rem 0;
+		color: ${StylePatterns.Color('yellow-2')};
 	`}
 	${props => props.screenType === 'large' && `
 		width: calc(100% - 3rem);
+		padding: 2rem;
 		font-size: ${StylePatterns.FontSize('l', 'large')};
 		border-bottom: .2rem solid ${StylePatterns.Color('blue-4')};
+		color: ${StylePatterns.Color('yellow-2')};
 	`}
 	${props => props.screenType == 'large' && props.quote.largeScreenPosition == 'right' && `
 		margin-left: auto;
 	`}
 `;
-const BodyContentContainer = styled.div`
+const SubsectionBodyContentContainer = styled.div`
 	grid-area: content;
+`;
+const SubsectionBodyEndLinkContainer = styled.p`
+	grid-area: link;
+	margin: 0;
+
+	${props => props.screenType === 'small' && `
+		margin-top: 2rem;
+	`}
+`;
+const SubsectionBodyEndLink = styled.a`
+	cursor: pointer;
+	border: 0;
+
+	&:hover {
+		border: 0;
+	}
 `;
 
 // CONTENTS
 
 export default (props) => (
-	<BodyContainer
+	<SubsectionBodyContainer
 		screenType={props.screenType}
 		quote={props.quote}
 	>
 		<SubsectionHeader>All About {props.sectionTitle}</SubsectionHeader>
-		<BodyContentContainer
+		<SubsectionBodyContentContainer
 			screenType={props.screenType}
 		>
 			{
@@ -111,20 +140,31 @@ export default (props) => (
 
 				props.children
 			}
-		</BodyContentContainer>
-		<QuoteContainer
+		</SubsectionBodyContentContainer>
+		<SubsectionBodyQuoteContainer
 			screenType={props.screenType}
 		>
-			<QuoteContentContainer
+			<SubsectionBodyQuoteContentContainer
 				screenType={props.screenType}
 				quote={props.quote}
 			>
 				{props.quote.content}
-			</QuoteContentContainer>
-		</QuoteContainer>
-		<a
-			onClick={handleBackToMenuNavItemClick}
-		>Other Sections</a>
-
-	</BodyContainer>
+			</SubsectionBodyQuoteContentContainer>
+		</SubsectionBodyQuoteContainer>
+		<SubsectionBodyEndLinkContainer
+			screenType={props.screenType}
+		>
+			<SubsectionBodyEndLink
+				onClick={() => handleBackToMenuNavItemClick(props.screenType)}
+			>
+				Back to Deeper Dive List&nbsp;
+				<Icon
+					iconPosition="after"
+					iconContent="arrow-up"
+					iconSize="1.8"
+					color={StylePatterns.Color('grey-12')}
+				/>
+			</SubsectionBodyEndLink>
+		</SubsectionBodyEndLinkContainer>
+	</SubsectionBodyContainer>
 );
