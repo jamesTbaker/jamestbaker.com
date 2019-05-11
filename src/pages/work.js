@@ -9,7 +9,7 @@ import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import TitleImageMedium from '../img/titleImages/processed/sidewalk-multi.jpg';
-import TitleImageSmall from '../img/titleImages/processed/sidewalk-multi.jpg';
+import TitleImageSmall from '../img/titleImages/processed/sidewalk-multi@0,5x.jpg';
 
 // ----- PAGE
 
