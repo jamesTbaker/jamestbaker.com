@@ -7,13 +7,13 @@ import Collapsible from '../components/Collapsible';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import StylePatterns from '../services/StylePatterns';
 import { scroller } from 'react-scroll';
-
+import BackToDeepDiveLink from '../components/BackToDeepDiveLink';
 
 // --- COMPONENT
 
 const handleBackToMenuNavItemClick = (screenType) => {
 	if (screenType === 'large') {
-		scroller.scrollTo('deeper-dive-container', {
+		scroller.scrollTo('deep-dive-container', {
 			duration: 500,
 			offset: 0,
 			delay: 0,
@@ -96,7 +96,7 @@ const SubsectionBodyQuoteContentContainer = styled.p`
 const SubsectionBodyContentContainer = styled.div`
 	grid-area: content;
 `;
-const SubsectionBodyEndLinkContainer = styled.p`
+/* const SubsectionBodyEndLinkContainer = styled.p`
 	grid-area: link;
 	margin: 0;
 
@@ -112,7 +112,7 @@ const SubsectionBodyEndLink = styled.a`
 		border: 0;
 	}
 `;
-
+ */
 // CONTENTS
 
 export default (props) => (
@@ -151,20 +151,6 @@ export default (props) => (
 				{props.quote.content}
 			</SubsectionBodyQuoteContentContainer>
 		</SubsectionBodyQuoteContainer>
-		<SubsectionBodyEndLinkContainer
-			screenType={props.screenType}
-		>
-			<SubsectionBodyEndLink
-				onClick={() => handleBackToMenuNavItemClick(props.screenType)}
-			>
-				Back to Deeper Dive List&nbsp;
-				<Icon
-					iconPosition="after"
-					iconContent="arrow-up"
-					iconSize="1.8"
-					color={StylePatterns.Color('grey-12')}
-				/>
-			</SubsectionBodyEndLink>
-		</SubsectionBodyEndLinkContainer>
+		<BackToDeepDiveLink />
 	</SubsectionBodyContainer>
 );
