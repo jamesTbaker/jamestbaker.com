@@ -11,20 +11,20 @@ const SkillRatingVisualizationContainer = styled.span`
 	&:before {
 		display: block;
 		position: absolute;
-		top: .6rem;
+		top: .7rem;
 		content: '';
 		width: 100%;
-		height: 1rem;
+		height: .8rem;
 		background-color: ${StylePatterns.Color('blue-3')};
 	}
 	&:after {
 		display: block;
 		position: absolute;
-		top: .6rem;
+		top: .7rem;
 		content: '';
 		width: 	${({ level }) => level && `${level}0%`};
-		height: 1rem;
-		background-color: ${StylePatterns.Color('yellow-3')};
+		height: .8rem;
+		background-color: ${StylePatterns.Color('blue-9')};
 	}
 `;
 

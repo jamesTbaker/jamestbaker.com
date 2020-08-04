@@ -75,8 +75,13 @@ const DeepDiveLink = styled.a`
 `;
 const Section = styled.section`
 	padding: 5rem 0;
-	margin: 0 5rem;
-	border-top: .2rem solid ${StylePatterns.Color('blue-10')};
+	${props => props.screenType === 'small' && `
+		margin: 0 2rem;
+	`}
+	${props => props.screenType !== 'small' && `
+		margin: 0 5rem;
+	`}
+	border-top: .2rem solid ${StylePatterns.Color('grey-8')};
 `;
 const SectionHeader = styled.h2`
 	${props => props.screenType === 'large' && `
@@ -95,14 +100,14 @@ const LowerPageContentContainer = styled.div`
 // =============
 
 const SkillsListContainer = styled.div`
+	border-top: .1rem solid ${StylePatterns.Color('grey-5')};
+	padding: 3rem 0 6rem;
 	${props => props.screenType !== 'small' && `
 		display: grid;
 		grid-template-areas:"skillsHeader skillsBody";
 		grid-template-rows: auto;
 		grid-template-columns: 1fr 2fr;
 		grid-gap: 3rem;
-		border-top: .1rem solid ${StylePatterns.Color('blue-5')};
-		padding: 3rem 0 6rem;
 	`}
 `;
 const SkillListHeader = styled.h3`
@@ -116,17 +121,33 @@ const SkillList = styled.ul`
 	${props => props.screenType === 'large' && `
 		grid-area: ${props.gridArea};
 	`}
-	${props => props.screenType === 'large' && props.columns && `
+	${props => props.screenType !== 'small' && props.columns && `
 		column-count: ${props.columns};
 		column-gap: 3rem;
 	`}
+	${props => props.screenType === 'small' && `
+		padding-top: 2rem;
+	`}
+`;
+const SkillBasicContainer = styled.li`
+	margin-bottom: 1.5rem;
 `;
 const SkillRatingContainer = styled.li`
 	display: grid;
 	grid-template-areas:"skillText skillVisualization";
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 3rem;
-	margin-bottom: 1.25rem;
+	margin-left: 0;
+	${props => props.screenType !== 'small' && `
+		margin-bottom: 1.25rem;
+	`}
+	${props => props.screenType === 'small' && `
+		padding: 1.5rem 0;
+		border-bottom: .1rem solid ${StylePatterns.Color('grey-2')};
+	`}
+	&:last-child {
+		border-color: transparent;
+	}
 `;
 const SkillRatingText = styled.span`
 	grid-area: skillText;
@@ -135,12 +156,24 @@ const SkillRatingText = styled.span`
 // =============
 
 const JobContainer = styled.div`
-	margin-bottom: 2rem;
+	border-top: .1rem solid ${StylePatterns.Color('grey-5')};
+	padding: 3rem 0 6rem;
+	${props => props.screenType !== 'small' && `
+		display: grid;
+		grid-template-areas:"jobMeta jobBody";
+		grid-template-rows: auto;
+		grid-template-columns: 1fr 2fr;
+		grid-gap: 3rem;
+	`}
+`;
+const JobMetaContainer = styled.div`
+	${props => props.screenType !== 'small' && `
+		grid-area: jobMeta;
+	`}
 `;
 const JobTitle = styled.h3`
-	${props => props.screenType === 'large' && `
-		max-width: 60%;
-	`}
+	margin: 0;
+	line-height: 1;
 `;
 const JobEmployer = styled.p`
 	font-weight: ${StylePatterns.FontWeight('medium')};
@@ -155,13 +188,9 @@ const JobDescription = styled.div`
 	font-weight: ${StylePatterns.FontWeight('light')};
 	margin: 1rem 0 .25rem;
 
-	${props => props.screenType === 'medium' && `
+	${props => props.screenType !== 'small' && `
 		column-count: 2;
-		column-gap: 5rem;
-	`}
-	${props => props.screenType === 'large' && `
-		column-count: 3;
-		column-gap: 5rem;
+		column-gap: 3rem;
 	`}
 `;
 
@@ -398,7 +427,9 @@ const returnLowerPageContent = screenType => (
 					screenType={screenType}
 					gridArea="skillsBody"
 				>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							JavaScript / ES6 / ES7
 						</SkillRatingText>
@@ -406,7 +437,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							React
 						</SkillRatingText>
@@ -414,7 +447,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							REST API development
 						</SkillRatingText>
@@ -422,7 +457,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Node.js
 						</SkillRatingText>
@@ -430,7 +467,9 @@ const returnLowerPageContent = screenType => (
 							level="8"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							MongoDB
 						</SkillRatingText>
@@ -438,7 +477,9 @@ const returnLowerPageContent = screenType => (
 							level="7"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Serverless / AWS Lambda
 						</SkillRatingText>
@@ -446,7 +487,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							System architecture
 						</SkillRatingText>
@@ -454,7 +497,9 @@ const returnLowerPageContent = screenType => (
 							level="8"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Drupal
 						</SkillRatingText>
@@ -462,7 +507,9 @@ const returnLowerPageContent = screenType => (
 							level="8"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Git
 						</SkillRatingText>
@@ -470,7 +517,9 @@ const returnLowerPageContent = screenType => (
 							level="8"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							PHP
 						</SkillRatingText>
@@ -478,7 +527,9 @@ const returnLowerPageContent = screenType => (
 							level="7"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							SQL
 						</SkillRatingText>
@@ -486,7 +537,9 @@ const returnLowerPageContent = screenType => (
 							level="5"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							ColdFusion
 						</SkillRatingText>
@@ -494,7 +547,9 @@ const returnLowerPageContent = screenType => (
 							level="5"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Linux
 						</SkillRatingText>
@@ -502,7 +557,9 @@ const returnLowerPageContent = screenType => (
 							level="4"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							VirtualBox
 						</SkillRatingText>
@@ -526,19 +583,19 @@ const returnLowerPageContent = screenType => (
 					gridArea="skillsBody"
 					columns={2}
 				>
-					<li>Communicating and motivating across organizational levels and boundaries</li>
-					<li>Analysis, research, information integration and synthesis, design thinking, systems thinking</li>
-					<li>Team building, individual mentorship</li>
-					<li>Agile process, Scrum Master</li>
-					<li>Process engineering</li>
-					<li>Financial management</li>
-					<li>Product / project / program management</li>
-					<li>Customer service and support</li>
-					<li>Business strategy, strategic planning, strategic management</li>
-					<li>Change management</li>
-					<li>Collaboration, conflict management, delegation, negotiation</li>
-					<li>Prioritizing, scheduling, decision making, delegation</li>
-					<li>Emotional intelligence, cultural intelligence, empathy, mentoring, diplomacy, patience, building trust</li>
+					<SkillBasicContainer>Communicating and motivating across organizational levels and boundaries</SkillBasicContainer>
+					<SkillBasicContainer>Analysis, research, information integration and synthesis, design thinking, systems thinking</SkillBasicContainer>
+					<SkillBasicContainer>Team building, individual mentorship</SkillBasicContainer>
+					<SkillBasicContainer>Agile process, Scrum Master</SkillBasicContainer>
+					<SkillBasicContainer>Process engineering</SkillBasicContainer>
+					<SkillBasicContainer>Financial management</SkillBasicContainer>
+					<SkillBasicContainer>Product / project / program management</SkillBasicContainer>
+					<SkillBasicContainer>Customer service and support</SkillBasicContainer>
+					<SkillBasicContainer>Business strategy, strategic planning, strategic management</SkillBasicContainer>
+					<SkillBasicContainer>Change management</SkillBasicContainer>
+					<SkillBasicContainer>Collaboration, conflict management, delegation, negotiation</SkillBasicContainer>
+					<SkillBasicContainer>Prioritizing, scheduling, decision making, delegation</SkillBasicContainer>
+					<SkillBasicContainer>Emotional intelligence, cultural intelligence, empathy, mentoring, diplomacy, patience, building trust</SkillBasicContainer>
 				</SkillList>
 			</SkillsListContainer>
 			<SkillsListContainer
@@ -554,7 +611,9 @@ const returnLowerPageContent = screenType => (
 					screenType={screenType}
 					gridArea="skillsBody"
 				>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Universal design (accessibility)
 						</SkillRatingText>
@@ -562,7 +621,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Art direction
 						</SkillRatingText>
@@ -570,7 +631,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							UX / CX engineering
 						</SkillRatingText>
@@ -578,7 +641,9 @@ const returnLowerPageContent = screenType => (
 							level="8"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Brand strategy, development
 						</SkillRatingText>
@@ -586,7 +651,9 @@ const returnLowerPageContent = screenType => (
 							level="8"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Content strategy
 						</SkillRatingText>
@@ -594,7 +661,9 @@ const returnLowerPageContent = screenType => (
 							level="8"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Data visualization
 						</SkillRatingText>
@@ -602,7 +671,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Typography, color, composition
 						</SkillRatingText>
@@ -610,7 +681,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Figma
 						</SkillRatingText>
@@ -618,7 +691,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Adobe Illustrator
 						</SkillRatingText>
@@ -626,7 +701,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Adobe Photoshop
 						</SkillRatingText>
@@ -634,7 +711,9 @@ const returnLowerPageContent = screenType => (
 							level="9"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Adobe After Effects
 						</SkillRatingText>
@@ -642,7 +721,9 @@ const returnLowerPageContent = screenType => (
 							level="3"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Adobe Premiere
 						</SkillRatingText>
@@ -650,7 +731,9 @@ const returnLowerPageContent = screenType => (
 							level="3"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Adobe InDesign
 						</SkillRatingText>
@@ -658,7 +741,9 @@ const returnLowerPageContent = screenType => (
 							level="7"
 						/>
 					</SkillRatingContainer>
-					<SkillRatingContainer>
+					<SkillRatingContainer
+						screenType={screenType}
+					>
 						<SkillRatingText>
 							Digital asset management
 						</SkillRatingText>
@@ -684,197 +769,233 @@ const returnLowerPageContent = screenType => (
 			>
 				Professional Experience
 			</SectionHeader>
-				<JobContainer>
+			<JobContainer
+					screenType={screenType}
+				>
+				<JobMetaContainer
+					screenType={screenType}
+				>
 					<JobTitle>Programs Manager: Web Enterprise Processes, Digital Media Asset Management, Business Data Feeds</JobTitle>
 					<JobEmployer>Museum of Science, Boston</JobEmployer>
 					<JobDates>July 2013 &mdash; Present</JobDates>
-					<JobDescription
-						screenType={screenType}
-					>
-						<ul>
-							<li>
-								Manage multiple enterprise software development programs, including all phases of SDLC, in a matrix organization.
-								<ul>
-									<li>
-										Web Enterprise Processes &mdash; With dozens of stakeholders across the organization, analyzing 56 business processes, re-engineering for process improvements, and converting from paper and 1990s digital workflows to apps built on Office 365 / SharePoint Online. In many cases, reducing business process cycle time from days to minutes.							
-									</li>
-									<li>
-										Digital Media Asset Management – Maintain and update DAMS used to store, organize, and search 30k+ images. Determine requirements for successor system, which will also house 40TB video and thousands of audio files, with help of stakeholders: marketing, product managers and developers, media producers, system administrators, and storage architects, finance/legal, librarians/archivists.
-									</li>
-									<li>
-										Business Data Feeds – Work with software engineers, database administrators, and system administrators on requirements (data schemas, generation frequency), development, generation, storage, and maintenance of feeds (XML, JSON) communicating between enterprise and consumer-facing applications.
-									</li>
-								</ul>
-							</li>
-							<li>
-								Developed proprietary business process API (JavaScript), in turn leveraging Microsoft’s REST APIs, to allow for rapid production of custom apps. Recognized by Microsoft personnel as a pioneer in the use of JavaScript and the REST APIs to solve proprietary business problems.
-							</li>
-							<li>
-								Communicating with stakeholders and with hundreds of users: staff members, senior management, Chairman of the Board, vendors, and collaborating partners.
-							</li>
-							<li>
-								Continually monitoring and controlling quality. Collecting and analyzing user feedback, and using it to inform and prioritize user stories.
-							</li>
-							<li>
-								Alert stakeholders and senior management to risks and provide risk mitigation strategies.
-							</li>
-							<li>
-								Converted programs from waterfall to agile and continue to drive other internal process improvements.
-							</li>
-							<li>
-								Report to AVP of Information and Interactive Technology.
-							</li>
-						</ul>
-					</JobDescription>
-				</JobContainer>
-					
+				</JobMetaContainer>
+				<JobDescription
+					screenType={screenType}
+				>
+					<ul>
+						<li>
+							Manage multiple enterprise software development programs, including all phases of SDLC, in a matrix organization.
+							<ul>
+								<li>
+									Web Enterprise Processes &mdash; With dozens of stakeholders across the organization, analyzing 56 business processes, re-engineering for process improvements, and converting from paper and 1990s digital workflows to apps built on Office 365 / SharePoint Online. In many cases, reducing business process cycle time from days to minutes.							
+								</li>
+								<li>
+									Digital Media Asset Management – Maintain and update DAMS used to store, organize, and search 30k+ images. Determine requirements for successor system, which will also house 40TB video and thousands of audio files, with help of stakeholders: marketing, product managers and developers, media producers, system administrators, and storage architects, finance/legal, librarians/archivists.
+								</li>
+								<li>
+									Business Data Feeds – Work with software engineers, database administrators, and system administrators on requirements (data schemas, generation frequency), development, generation, storage, and maintenance of feeds (XML, JSON) communicating between enterprise and consumer-facing applications.
+								</li>
+							</ul>
+						</li>
+						<li>
+							Developed proprietary business process API (JavaScript), in turn leveraging Microsoft’s REST APIs, to allow for rapid production of custom apps. Recognized by Microsoft personnel as a pioneer in the use of JavaScript and the REST APIs to solve proprietary business problems.
+						</li>
+						<li>
+							Communicating with stakeholders and with hundreds of users: staff members, senior management, Chairman of the Board, vendors, and collaborating partners.
+						</li>
+						<li>
+							Continually monitoring and controlling quality. Collecting and analyzing user feedback, and using it to inform and prioritize user stories.
+						</li>
+						<li>
+							Alert stakeholders and senior management to risks and provide risk mitigation strategies.
+						</li>
+						<li>
+							Converted programs from waterfall to agile and continue to drive other internal process improvements.
+						</li>
+						<li>
+							Report to AVP of Information and Interactive Technology.
+						</li>
+					</ul>
+				</JobDescription>
+			</JobContainer>
+				
 
-				<JobContainer>
+			<JobContainer
+					screenType={screenType}
+				>
+				<JobMetaContainer
+					screenType={screenType}
+				>
 					<JobTitle>Program Manager: Consumer Web Products</JobTitle>
 					<JobEmployer>Museum of Science, Boston</JobEmployer>
 					<JobDates>July 2011 &mdash; July 2013</JobDates>
-					<JobDescription
-						screenType={screenType}
-					>
-						<ul>
-							<li>
-								Manage web development program in a matrix organization.
-							</li>
-							<li>
-								Program dimensions:
-								<ul>
-									<li>
-										20+ websites / web apps: organization’s main website, numerous marketing and fundraising campaigns, research data collection used to influence environmental policy, education-oriented products, and internal digital signage.
-									</li>
-									<li>
-										350k unique monthly visitors.
-									</li>
-									<li>
-										Ecommerce, backend architecture, DevOps with internal and external admins, information architecture and content strategy, interactive UI features, accessibility meeting the standards for NSF and NASA funding, and visual branding and aesthetic.
-									</li>
-								</ul>
-							</li>
-							<li>
-								Built agile (scrum) development team from scratch, including co-located and distributed team members (Boston and Shanghai), and including editors, UX designers, software engineers, and QA staff. Began as a very hands-on manager. Once the team was functioning and practices were set, stepped back to become primarily a ScrumMaster (helping product owners with backlogs and facilitating processes with the development team), as well as an advisor to the development team, and a liaison to senior management.
-							</li>
-							<li>
-								Ensure revenue channels and opportunities are adequately supported, product goals were met, and organizational resources were utilized efficiently.
-							</li>
-							<li>
-								Lead Web Governance Team (21 key stakeholders) and communicate with numerous other stakeholders across the organization. Lead prioritization and strategic discussions.
-							</li>
-							<li>
-								Review analytics to evaluate and report on efficacy of web properties.
-							</li>
-							<li>
-								Alert stakeholders and senior management to risks and provide risk mitigation strategies.
-							</li>
-							<li>
-								Transformed culture surrounding these central and vital organizational assets. Led the introduction of agile processes to the organization.
-							</li>
-							<li>
-								Report to AVP of Information and Interactive Technology.
-							</li>
-						</ul>
-					</JobDescription>
-				</JobContainer>
+				</JobMetaContainer>
+				<JobDescription
+					screenType={screenType}
+				>
+					<ul>
+						<li>
+							Manage web development program in a matrix organization.
+						</li>
+						<li>
+							Program dimensions:
+							<ul>
+								<li>
+									20+ websites / web apps: organization’s main website, numerous marketing and fundraising campaigns, research data collection used to influence environmental policy, education-oriented products, and internal digital signage.
+								</li>
+								<li>
+									350k unique monthly visitors.
+								</li>
+								<li>
+									Ecommerce, backend architecture, DevOps with internal and external admins, information architecture and content strategy, interactive UI features, accessibility meeting the standards for NSF and NASA funding, and visual branding and aesthetic.
+								</li>
+							</ul>
+						</li>
+						<li>
+							Built agile (scrum) development team from scratch, including co-located and distributed team members (Boston and Shanghai), and including editors, UX designers, software engineers, and QA staff. Began as a very hands-on manager. Once the team was functioning and practices were set, stepped back to become primarily a ScrumMaster (helping product owners with backlogs and facilitating processes with the development team), as well as an advisor to the development team, and a liaison to senior management.
+						</li>
+						<li>
+							Ensure revenue channels and opportunities are adequately supported, product goals were met, and organizational resources were utilized efficiently.
+						</li>
+						<li>
+							Lead Web Governance Team (21 key stakeholders) and communicate with numerous other stakeholders across the organization. Lead prioritization and strategic discussions.
+						</li>
+						<li>
+							Review analytics to evaluate and report on efficacy of web properties.
+						</li>
+						<li>
+							Alert stakeholders and senior management to risks and provide risk mitigation strategies.
+						</li>
+						<li>
+							Transformed culture surrounding these central and vital organizational assets. Led the introduction of agile processes to the organization.
+						</li>
+						<li>
+							Report to AVP of Information and Interactive Technology.
+						</li>
+					</ul>
+				</JobDescription>
+			</JobContainer>
 
 
-				<JobContainer>
+			<JobContainer
+					screenType={screenType}
+				>
+				<JobMetaContainer
+					screenType={screenType}
+				>
 					<JobTitle>Designer / Full Stack Web Developer</JobTitle>
 					<JobEmployer>Museum of Science, Boston</JobEmployer>
 					<JobDates>August 2010 &mdash; July 2011</JobDates>
-					<JobDescription
-						screenType={screenType}
-					>
-						<ul>
-							<li>
-								Developed consumer web products inside a waterfall paradigm.
-							</li>
-							<li>
-								Collaborated with stakeholders, content strategist, system administrators, other designers.
-							</li>
-							<li>
-								Created visual designs and interactive user experiences, sometimes from scratch, and sometimes based on the work of exhibit designers and/or print marketing designers.
-							</li>
-							<li>
-								Used PHP, MySQL, HTML, CSS, JavaScript, Flash, Illustrator, and Photoshop.
-							</li>
-						</ul>
-					</JobDescription>
-				</JobContainer>
+				</JobMetaContainer>
+				<JobDescription
+					screenType={screenType}
+				>
+					<ul>
+						<li>
+							Developed consumer web products inside a waterfall paradigm.
+						</li>
+						<li>
+							Collaborated with stakeholders, content strategist, system administrators, other designers.
+						</li>
+						<li>
+							Created visual designs and interactive user experiences, sometimes from scratch, and sometimes based on the work of exhibit designers and/or print marketing designers.
+						</li>
+						<li>
+							Used PHP, MySQL, HTML, CSS, JavaScript, Flash, Illustrator, and Photoshop.
+						</li>
+					</ul>
+				</JobDescription>
+			</JobContainer>
 
 
-				<JobContainer>
+			<JobContainer
+					screenType={screenType}
+				>
+				<JobMetaContainer
+					screenType={screenType}
+				>
 					<JobTitle>Founder, Consulting Principal</JobTitle>
 					<JobEmployer>jamesTbaker</JobEmployer>
 					<JobDates>April 2002 &mdash; June 2011</JobDates>
-					<JobDescription
-						screenType={screenType}
-					>
-						<ul>
-							<li>
-								Consulted and contracted to develop web products, digital media, brands, and print collateral for small to medium businesses.
-							</li>
-							<li>
-								Clients were primarily marketing departments of medium-sized businesses and owners of small businesses.
-							</li>
-							<li>
-								Built distributed team of subcontractors in Boston, Seoul, Mumbai, London, and Melbourne.
-							</li>
-							<li>
-								In early days, worked in waterfall paradigm, but moved to much more agile practices around 2006.
-							</li>
-							<li>
-								Used PHP, MySQL, HTML, CSS, JavaScript, Flash, Illustrator, and Photoshop.
-							</li>
-						</ul>
-					</JobDescription>
-				</JobContainer>
+				</JobMetaContainer>
+				<JobDescription
+					screenType={screenType}
+				>
+					<ul>
+						<li>
+							Consulted and contracted to develop web products, digital media, brands, and print collateral for small to medium businesses.
+						</li>
+						<li>
+							Clients were primarily marketing departments of medium-sized businesses and owners of small businesses.
+						</li>
+						<li>
+							Built distributed team of subcontractors in Boston, Seoul, Mumbai, London, and Melbourne.
+						</li>
+						<li>
+							In early days, worked in waterfall paradigm, but moved to much more agile practices around 2006.
+						</li>
+						<li>
+							Used PHP, MySQL, HTML, CSS, JavaScript, Flash, Illustrator, and Photoshop.
+						</li>
+					</ul>
+				</JobDescription>
+			</JobContainer>
 
 
-				<JobContainer>
+			<JobContainer
+					screenType={screenType}
+				>
+				<JobMetaContainer
+					screenType={screenType}
+				>
 					<JobTitle>Director of Food and Beverage</JobTitle>
 					<JobEmployer>Hotel Ithaca</JobEmployer>
 					<JobDates>June 2002 &mdash; July 2004</JobDates>
-					<JobDescription
-						screenType={screenType}
-					>
-						<ul>
-							<li>
-								Multimillion-dollar operations including events, restaurant, bar, and room service for 181 rooms.
-							</li>
-							<li>
-								Reduced liquor cost.
-							</li>
-							<li>
-								Stabilized operations.
-							</li>
-						</ul>
-					</JobDescription>
-				</JobContainer>
+				</JobMetaContainer>
+				<JobDescription
+					screenType={screenType}
+				>
+					<ul>
+						<li>
+							Multimillion-dollar operations including events, restaurant, bar, and room service for 181 rooms.
+						</li>
+						<li>
+							Reduced liquor cost.
+						</li>
+						<li>
+							Stabilized operations.
+						</li>
+					</ul>
+				</JobDescription>
+			</JobContainer>
 
 
-				<JobContainer>
+			<JobContainer
+					screenType={screenType}
+				>
+				<JobMetaContainer
+					screenType={screenType}
+				>
 					<JobTitle>Director of Technology and Product</JobTitle>
 					<JobEmployer>University Pride, Ltd.</JobEmployer>
 					<JobDates>November 2000 &mdash; March 2002</JobDates>
-					<JobDescription
-						screenType={screenType}
-					>
-						<ul>
-							<li>
-								Oversaw market research to determine target market size and the features of a web portal desired by said market.
-							</li>
-							<li>
-								Initiated and participated in the production of the redesigned portal.
-							</li>
-							<li>
-								Like many dot-coms during this period, the company failed due to shifts in the viability of advertising-based business models.
-							</li>
-						</ul>
-					</JobDescription>
-				</JobContainer>
+				</JobMetaContainer>
+				<JobDescription
+					screenType={screenType}
+				>
+					<ul>
+						<li>
+							Oversaw market research to determine target market size and the features of a web portal desired by said market.
+						</li>
+						<li>
+							Initiated and participated in the production of the redesigned portal.
+						</li>
+						<li>
+							Like many dot-coms during this period, the company failed due to shifts in the viability of advertising-based business models.
+						</li>
+					</ul>
+				</JobDescription>
+			</JobContainer>
 
 
 			<BackToDeepDiveLink />

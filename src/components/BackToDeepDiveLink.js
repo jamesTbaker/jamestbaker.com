@@ -33,7 +33,7 @@ const handleBackToMenuNavItemClick = (screenType) => {
 const SubsectionBodyEndLinkContainer = styled.p`
 	grid-area: link;
 	margin: 0;
-	border-top: .1rem solid ${StylePatterns.Color('blue-5')};
+	border-top: .1rem solid ${StylePatterns.Color('grey-5')};
 	padding-top: 3rem;
 	${props => props.screenType === 'small' && `
 		margin-top: 2rem;
