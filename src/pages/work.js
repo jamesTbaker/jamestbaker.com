@@ -8,8 +8,6 @@ import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
-import TitleImageMedium from '../img/titleImages/processed/sidewalk-multi.jpg';
-import TitleImageSmall from '../img/titleImages/processed/sidewalk-multi@0,5x.jpg';
 
 // ----- PAGE
 
@@ -129,7 +127,7 @@ export default () => {
 					screenType="small"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageSmall}
+					backgroundImage="downtown-red"
 					topContentOne={returnTopContentOne('small')}
 					topContentTwo={returnTopContentTwoBBB('small')}
 					topContentThree={returnTopContentThree('small')}
@@ -145,7 +143,7 @@ export default () => {
 					screenType="medium"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="downtown-red"
 					topContentOne={returnTopContentOne('medium')}
 					topContentTwo={returnTopContentTwoBBB('medium')}
 					topContentThree={returnTopContentThree('medium')}
@@ -158,7 +156,7 @@ export default () => {
 					screenType="large"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="downtown-red"
 					topContentOne={returnTopContentOne('large')}
 					topContentTwo={returnTopContentTwoBBB('large')}
 					topContentThree={returnTopContentThree('large')}

@@ -21,14 +21,14 @@ const TopContainer = styled.div`
 	${props => props.screenType === 'large' && `
 		background-size: 100% auto, 100% auto, cover;
 		background-position: left top, left top, 50% center;
-		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 14rem, transparent 28rem, ${StylePatterns.Color('blue-1-80-percent')} 33rem, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
+		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 14rem, transparent 28rem, ${StylePatterns.Color('blue-1-80-percent')} 33rem, ${StylePatterns.Color('blue-1')}), url('/${props.backgroundImage}--large.jpg'), url('/${props.backgroundImage}--low.jpg');
 	`}
 	${props => props.screenType === 'medium' && `
 		background-size: 100% auto, 100% auto, cover;
 		background-position: left top, left top, 50% center;
 		background-image: linear-gradient(to right, transparent, transparent 30%,  ${StylePatterns.Color('blue-1-70-percent')} 60%, ${StylePatterns.Color('blue-1')}), 
 		
-		linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 10rem, transparent 21rem, ${StylePatterns.Color('blue-1-80-percent')} 26rem, ${StylePatterns.Color('blue-1')}), url('${props.backgroundImage}');
+		linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 10rem, transparent 21rem, ${StylePatterns.Color('blue-1-80-percent')} 26rem, ${StylePatterns.Color('blue-1')}), url('/${props.backgroundImage}--medium.jpg'), url('/${props.backgroundImage}--low.jpg');
 	`}
 	${props => props.screenType === 'small' && `
 		grid-template-columns: 1fr;
@@ -39,7 +39,7 @@ const TopContainer = styled.div`
 
 		background-size: 100% auto, cover;
 		background-position: left center, 50% bottom;
-		background-image: linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 13rem, transparent 20rem, ${StylePatterns.Color('blue-1-50-percent')} 24rem, ${StylePatterns.Color('blue-1-80-percent')} 32rem, ${StylePatterns.Color('blue-1')}),  url('${props.backgroundImage}');
+		background-image: linear-gradient(to bottom, ${StylePatterns.Color('blue-1')}, transparent 13rem, transparent 20rem, ${StylePatterns.Color('blue-1-50-percent')} 24rem, ${StylePatterns.Color('blue-1-80-percent')} 32rem, ${StylePatterns.Color('blue-1')}),  url('/${props.backgroundImage}--small.jpg'), url('/${props.backgroundImage}--low.jpg');
 	`}
 `;
 const TopContentOneContainer = styled.div`

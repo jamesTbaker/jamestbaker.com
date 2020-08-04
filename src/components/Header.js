@@ -145,6 +145,7 @@ const GlobalStyle = createGlobalStyle`
 	em {
 		color: ${StylePatterns.Color('blue-12')};
 		font-style: normal;
+		font-weight: ${StylePatterns.FontWeight('medium')};
 	}
 	b {
 		font-weight: ${StylePatterns.FontWeight('bold')};

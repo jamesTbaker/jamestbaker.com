@@ -7,11 +7,6 @@ import styled from 'styled-components';
 import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
-import TitleImageMedium from '../img/titleImages/processed/bus.jpg';
-import TitleImageSmall from '../img/titleImages/processed/bus@0,5x.jpg';
-
-
-
 
 // ----- PAGE
 
@@ -86,7 +81,7 @@ export default () => {
 					screenType="small"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageSmall}
+					backgroundImage="bus"
 					topContentOne={returnTopContentOne('small')}
 					topContentTwo={returnTopContentTwoBBB('small')}
 					topContentThree={returnTopContentThree('small')}
@@ -102,7 +97,7 @@ export default () => {
 					screenType="medium"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="bus"
 					topContentOne={returnTopContentOne('medium')}
 					topContentTwo={returnTopContentTwoBBB('medium')}
 					topContentThree={returnTopContentThree('medium')}
@@ -115,7 +110,7 @@ export default () => {
 					screenType="large"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="bus"
 					topContentOne={returnTopContentOne('large')}
 					topContentTwo={returnTopContentTwoBBB('large')}
 					topContentThree={returnTopContentThree('large')}

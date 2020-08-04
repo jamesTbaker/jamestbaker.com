@@ -10,8 +10,6 @@ import Page from '../components/Page';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import SectionBrief from '../components/SectionBrief';
 import SectionBody from '../components/SectionBody';
-import TitleImageMedium from '../img/titleImages/processed/bridge.jpg';
-import TitleImageSmall from '../img/titleImages/processed/bridge@0,5x.jpg';
 import HubBrand from '../img/hub/Brand';
 import DesktopViewMedium from '../img/hub/Desktop-view.jpg';
 import DesktopViewSmall from '../img/hub/Desktop-view@0,5x.jpg';
@@ -988,7 +986,7 @@ export default () => {
 					screenType="small"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageSmall}
+					backgroundImage="bridge"
 					topContentOne={returnTopContentOne('small')}
 					topContentTwo={returnTopContentTwoBBB('small')}
 					topContentThree={returnTopContentThree('small')}
@@ -1004,7 +1002,7 @@ export default () => {
 					screenType="medium"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="bridge"
 					topContentOne={returnTopContentOne('medium')}
 					topContentTwo={returnTopContentTwoBBB('medium')}
 					topContentThree={returnTopContentThree('medium')}
@@ -1017,7 +1015,7 @@ export default () => {
 					screenType="large"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="bridge"
 					topContentOne={returnTopContentOne('large')}
 					topContentTwo={returnTopContentTwoBBB('large')}
 					topContentThree={returnTopContentThree('large')}

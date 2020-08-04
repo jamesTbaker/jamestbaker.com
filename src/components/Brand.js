@@ -10,12 +10,14 @@ import StylePatterns from '../services/StylePatterns';
 const BrandContainer = styled.div`
 	color: ${StylePatterns.Color('blue-12')};
 
-	rect.brand--rectangle,
-	g.brand--letterforms-container path {
-		fill:#2c5163;
+	rect.brand--rectangle {
+		fill:${StylePatterns.Color('blue-5')};
 	}
 	polygon.brand--temptation {
-		fill:#ffa200;
+		fill: ${StylePatterns.Color('yellow-1')};
+	}
+	g.brand--letterforms-container path {
+		fill: ${StylePatterns.Color('blue-8')};
 	}
 `;
 const Brand = props => (

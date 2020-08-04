@@ -86,7 +86,6 @@ const BrandLink = styled.a`
 
 	${props => props.screenType !== 'small' && `
 		display: inline-block;
-		${StylePatterns.VerticalAlignMiddle()};
 		border: 0;
 
 		&:hover {

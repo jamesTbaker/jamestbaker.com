@@ -33,7 +33,8 @@ const handleBackToMenuNavItemClick = (screenType) => {
 const SubsectionBodyEndLinkContainer = styled.p`
 	grid-area: link;
 	margin: 0;
-
+	border-top: .1rem solid ${StylePatterns.Color('blue-5')};
+	padding-top: 3rem;
 	${props => props.screenType === 'small' && `
 		margin-top: 2rem;
 	`}
@@ -56,7 +57,7 @@ export default (props) => (
 		<SubsectionBodyEndLink
 			onClick={() => handleBackToMenuNavItemClick(props.screenType)}
 		>
-			Back to Deeper Dive List&nbsp;
+			Back to Deep Dive List&nbsp;
 			<Icon
 				iconPosition="after"
 				iconContent="arrow-up"

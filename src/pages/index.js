@@ -7,14 +7,11 @@ import styled from 'styled-components';
 import ScreenSizes from '../services/ScreenSizes';
 import StylePatterns from '../services/StylePatterns';
 import Page from '../components/Page';
-import TitleImageMedium from '../img/titleImages/processed/storrow-drive.jpg';
-import TitleImageSmall from '../img/titleImages/processed/storrow-drive@0,5x.jpg';
-import Collapsible from '../components/Collapsible';
 import Icon from '../components/sb/SBMedia.Icon/SBMedia.Icon.Pres.www';
 import ProfileBrief from '../pdf/Profile Brief - James T. Baker.pdf';
 import { scroller } from 'react-scroll';
 import BackToDeepDiveLink from '../components/BackToDeepDiveLink';
-
+import SkillRatingVisualization from '../components/SkillRatingVisualization';
 
 // ----- PAGE
 
@@ -23,20 +20,38 @@ import BackToDeepDiveLink from '../components/BackToDeepDiveLink';
 const BriefContainer = styled.p`
 	${({ screenType }) => screenType === 'small' && `
 		font-size: ${StylePatterns.FontSize('m', 'small')};
+		line-height: ${(StylePatterns.FontSize('l', 'small').slice(0, -3) * 1.5)}rem;
 	`}
 	${({ screenType }) => screenType === 'medium' && `
 		font-size: ${StylePatterns.FontSize('m', 'medium')};
+		line-height: ${(StylePatterns.FontSize('l', 'medium').slice(0, -3) * 1.5)}rem;
 	`}
 	${({ screenType }) => screenType === 'large' && `
 		font-size: ${StylePatterns.FontSize('m', 'large')};
+		line-height: ${(StylePatterns.FontSize('l', 'large').slice(0, -3) * 1.3)}rem;
+	`}
+	em {
+		${({ screenType }) => screenType === 'small' && `
+			font-size: ${StylePatterns.FontSize('l', 'small')};
+		`}
+		${({ screenType }) => screenType === 'medium' && `
+			font-size: ${StylePatterns.FontSize('l', 'medium')};
+		`}
+		${({ screenType }) => screenType === 'large' && `
+			font-size: ${StylePatterns.FontSize('l', 'large')};
+		`}
+	}
+`;
+const DeepDiveHeader = styled.h2`
+	${({ screenType }) => screenType === 'small' && `
+		font-size: ${StylePatterns.FontSize('xl', 'small')};
 	`}
 `;
-
 const DeepDiveList = styled.ul`
-	margin: 0;
+	margin: 2rem 0 0 0;
 
 	${({ screenType }) => screenType === 'small' && `
-		padding-bottom: 1.8rem;
+		padding-bottom: 3.8rem;
 	`}
 `;
 const DeepDiveListItem = styled.li`
@@ -59,65 +74,83 @@ const DeepDiveLink = styled.a`
 	}
 `;
 const Section = styled.section`
-	${props => props.screenType === 'large' && `
-		padding: 5rem 0;
-		margin: 0 5rem;
-	`}
-	${props => props.screenType === 'medium' && `
-		padding: 5rem 0 2rem 0;
-		margin: 0 5rem;
-	`}
-	${props => props.screenType === 'small' && `
-		padding: 2rem 0;
-		margin: 0 2rem;
-	`}
-
+	padding: 5rem 0;
+	margin: 0 5rem;
 	border-top: .2rem solid ${StylePatterns.Color('blue-10')};
 `;
 const SectionHeader = styled.h2`
+	${props => props.screenType === 'large' && `
+		margin-bottom: 2.25rem;
+	`}
+	${props => props.screenType === 'medium' && `
+		margin-bottom: 2.25rem;
+	`}
+	${props => props.screenType === 'small' && `
+		margin-bottom: 2.25rem;
+	`}
 `;
-
-
 const LowerPageContentContainer = styled.div`
 `;
-const SkillsListsContainer = styled.div`
+
+// =============
+
+const SkillsListContainer = styled.div`
 	${props => props.screenType !== 'small' && `
 		display: grid;
-		grid-template-areas: "business design tech";
+		grid-template-areas:"skillsHeader skillsBody";
 		grid-template-rows: auto;
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-gap: 5rem 5rem;
+		grid-template-columns: 1fr 2fr;
+		grid-gap: 3rem;
+		border-top: .1rem solid ${StylePatterns.Color('blue-5')};
+		padding: 3rem 0 6rem;
 	`}
 `;
-const SkillsList = styled.div`
-	${props => props.screenType !== 'small' && `
+const SkillListHeader = styled.h3`
+	${props => props.screenType === 'large' && `
+		grid-area: ${props.gridArea};
+		margin: 0;
+		line-height: 1;
+	`}
+`;
+const SkillList = styled.ul`
+	${props => props.screenType === 'large' && `
 		grid-area: ${props.gridArea};
 	`}
+	${props => props.screenType === 'large' && props.columns && `
+		column-count: ${props.columns};
+		column-gap: 3rem;
+	`}
 `;
-
+const SkillRatingContainer = styled.li`
+	display: grid;
+	grid-template-areas:"skillText skillVisualization";
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 3rem;
+	margin-bottom: 1.25rem;
+`;
+const SkillRatingText = styled.span`
+	grid-area: skillText;
+	text-align: right;
+`;
+// =============
 
 const JobContainer = styled.div`
 	margin-bottom: 2rem;
 `;
-
-
 const JobTitle = styled.h3`
 	${props => props.screenType === 'large' && `
 		max-width: 60%;
 	`}
 `;
-
 const JobEmployer = styled.p`
 	font-weight: ${StylePatterns.FontWeight('medium')};
 	margin: .5rem 0 .25rem;
 `;
-
 const JobDates = styled.p`
 	font-weight: ${StylePatterns.FontWeight('regular')};
 	font-style:  italic;
 	margin: .5rem 0 .25rem;
 `;
-
 const JobDescription = styled.div`
 	font-weight: ${StylePatterns.FontWeight('light')};
 	margin: 1rem 0 .25rem;
@@ -132,9 +165,7 @@ const JobDescription = styled.div`
 	`}
 `;
 
-
-
-
+// =============
 
 const EducationAndCertificationsSectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
@@ -150,22 +181,19 @@ const EducationAndCertificationsSection = styled.div`
 		grid-area: ${props.gridArea};
 	`}
 `;
-
-
 const SchoolTitle = styled.h3`
 `;
-
 const SchoolSubjectOrDegree = styled.p`
 	font-weight: ${StylePatterns.FontWeight('medium')};
 	margin: .5rem 0 .25rem;
 `;
-
 const SchoolDates = styled.p`
 	font-weight: ${StylePatterns.FontWeight('regular')};
 	font-style:  italic;
 	margin: .5rem 0 .25rem;
 `;
 
+// =============
 
 const VolunteerExperiencesSectionsContainer = styled.div`
 	${props => props.screenType !== 'small' && `
@@ -183,12 +211,10 @@ const VolunteerExperiencesSection = styled.div`
 `;
 const VolExpContribution = styled.h3`
 `;
-
 const VolExpOrganization = styled.p`
 	font-weight: ${StylePatterns.FontWeight('medium')};
 	margin: .5rem 0 .25rem;
 `;
-
 const VolExpDates = styled.p`
 	font-weight: ${StylePatterns.FontWeight('regular')};
 	font-style:  italic;
@@ -229,7 +255,6 @@ const handleVolunteerExperienceNavItemClick = () => {
 		smooth: 'easeInOutQuart',
 	});
 };
-
 const HeadTitle = 'Profile';
 const HeadDescription = 'Profile of James T. Baker';
 const returnTopContentOne = screenType => (
@@ -260,13 +285,12 @@ const returnTopContentThree = screenType => (
 		<BriefContainer
 			screenType={screenType}
 		>
-			My <em>19 years'</em> experience in&nbsp;
+			My <em>20 years'</em> experience in&nbsp;
 			<em>design</em>,&nbsp;
 			<em>technical product development</em>, and&nbsp;
 			<em>management</em>&nbsp;
 			have allowed me to <em>lead and execute</em> projects and operations
-			at the intersection of business, software development, and
-			visual / UX design + digital media.
+			at the intersection of <em>business</em>, <em>software</em>, <em>design</em>, and <em>digital media</em>.
 		</BriefContainer>
 
 	</div>
@@ -276,9 +300,11 @@ const returnTopContentFour = screenType => (
 		className="sb-root--top-content"
 		id="deep-dive-container"
 	>
-		<h2>
+		<DeepDiveHeader
+			screenType={screenType}
+		>
 			Deep Dive
-		</h2>
+		</DeepDiveHeader>
 		<DeepDiveList
 			screenType={screenType}
 		>
@@ -324,7 +350,7 @@ const returnTopContentFour = screenType => (
 						iconSize="1.8"
 						color={StylePatterns.Color('grey-12')}
 					/>&nbsp;
-					Education & Certifications
+					Education and Certifications
 				</DeepDiveLink>
 			</DeepDiveListItem>
 			<DeepDiveListItem
@@ -354,105 +380,294 @@ const returnLowerPageContent = screenType => (
 			screenType={screenType}
 			id="skills"
 		>
-			<SectionHeader>Skills</SectionHeader>
-			<SkillsListsContainer
+			<SectionHeader
 				screenType={screenType}
 			>
-				<SkillsList
+				Skills
+			</SectionHeader>
+			<SkillsListContainer
+				screenType={screenType}
+			>
+				<SkillListHeader
 					screenType={screenType}
-					gridArea="business"
+					gridArea="skillsHeader"
 				>
-					<h3>Business Skills</h3>
-					<ul>
-						<li>Communicating and motivating across organizational levels and boundaries</li>
-						<li>Leadership</li>
-						<li>Analysis, research, design thinking, systems thinking</li>
-						<li>Staff development, team building</li>
-						<Collapsible
-							expandText="Discover more business skills"
-							collapseText="Show fewer business skills"
-							buttonPosition="after"
-						>
-							<li>Active listening</li>
-							<li>Financial management</li>
-							<li>Developing and coaching individuals</li>
-							<li>JIRA, Microsoft Project, Trello, Figma</li>
-							<li>Process engineering</li>
-							<li>Product development</li>
-							<li>Product / project / program management</li>
-							<li>Scrum Master</li>
-							<li>Customer service and support</li>
-							<li>Information integration and synthesis </li>
-							<li>Verbal and written communication</li>
-							<li>Cross-functional leadership / management</li>
-							<li>Business strategy, strategic planning, strategic management</li>
-							<li>Documentation</li>
-							<li>Risk management</li>
-							<li>Change management</li>
-							<li>Collaboration, conflict management, delegation, negotiation</li>
-							<li>Prioritizing, scheduling, decision making, delegation</li>
-							<li>Emotional intelligence, cultural intelligence, empathy, mentoring, diplomacy, patience, building trust</li>
-							<li>Critical observation, constructive feedback</li>
-						</Collapsible>
-					</ul>
-				</SkillsList>
-				<SkillsList
+					Tech
+				</SkillListHeader>
+				<SkillList
 					screenType={screenType}
-					gridArea="design"
+					gridArea="skillsBody"
 				>
-					<h3>Design / Engineering Skills</h3>
-					<ul>
-						<li>Art direction</li>
-						<li>A/B testing</li>
-						<li>Analysis, research, design thinking, systems thinking</li>
-						<li>User / customer experience engineering</li>
-						<li>Wireframing, prototyping, user testing</li>
-						<li>Creative problem solving</li>
-						<Collapsible
-							expandText="Discover more design and engineering skills"
-							collapseText="Show fewer design skills"
-							buttonPosition="after"
-						>
-							<li>Digital and print</li>
-							<li>Content strategy, content management, copywriting, copy editing</li>
-							<li>Data visualization</li>
-							<li>Typography, color, composition</li>
-							<li>Adobe Illustrator, Photoshop, After Effects, Audition, InDesign, Premiere, XD</li>
-							<li>Figma</li>
-							<li>Video editing, basic animation</li>
-							<li>Digital asset management</li>
-							<li>Brand strategy, brand development</li>
-						</Collapsible>
-					</ul>
-				</SkillsList>
-				<SkillsList
+					<SkillRatingContainer>
+						<SkillRatingText>
+							JavaScript / ES6 / ES7
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							React
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							REST API development
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Node.js
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							MongoDB
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="7"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Serverless / AWS Lambda
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							System architecture
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Drupal
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Git
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							PHP
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="7"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							SQL
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="5"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							ColdFusion
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="5"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Linux
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="4"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							VirtualBox
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+				</SkillList>
+			</SkillsListContainer>
+			<SkillsListContainer
+				screenType={screenType}
+			>
+				<SkillListHeader
 					screenType={screenType}
-					gridArea="tech"
+					gridArea="skillsHeader"
 				>
-					<h3>Tech Skills</h3>
-					<ul>
-						<li>JavaScript / ES6</li>
-						<li>React</li>
-						<li>NodeJS</li>
-						<li>NoSQL, MongoDB</li>
-						<li>SQL</li>
-						<li>REST API development</li>
-						<li>Serverless / AWS Lambda functions</li>
-						<li>Creative problem solving</li>
-						<li>Design strategy</li>
-						<Collapsible
-							expandText="Discover more tech skills"
-							collapseText="Show fewer tech skills"
-							buttonPosition="after"
-						>
-							<li>JIRA, Microsoft Project, Trello, Figma, JIRA system administration</li>
-							<li>Product / project / program management</li>
-							<li>Scrum Master</li>
-							<li>macOS, Windows, Ubuntu Linux</li>
-						</Collapsible>
-					</ul>
-				</SkillsList>
-			</SkillsListsContainer>
+					Business
+				</SkillListHeader>
+				<SkillList
+					screenType={screenType}
+					gridArea="skillsBody"
+					columns={2}
+				>
+					<li>Communicating and motivating across organizational levels and boundaries</li>
+					<li>Analysis, research, information integration and synthesis, design thinking, systems thinking</li>
+					<li>Team building, individual mentorship</li>
+					<li>Agile process, Scrum Master</li>
+					<li>Process engineering</li>
+					<li>Financial management</li>
+					<li>Product / project / program management</li>
+					<li>Customer service and support</li>
+					<li>Business strategy, strategic planning, strategic management</li>
+					<li>Change management</li>
+					<li>Collaboration, conflict management, delegation, negotiation</li>
+					<li>Prioritizing, scheduling, decision making, delegation</li>
+					<li>Emotional intelligence, cultural intelligence, empathy, mentoring, diplomacy, patience, building trust</li>
+				</SkillList>
+			</SkillsListContainer>
+			<SkillsListContainer
+				screenType={screenType}
+			>
+				<SkillListHeader
+					screenType={screenType}
+					gridArea="skillsHeader"
+				>
+					Design / Engineering
+				</SkillListHeader>
+				<SkillList
+					screenType={screenType}
+					gridArea="skillsBody"
+				>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Universal design (accessibility)
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Art direction
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							UX / CX engineering
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Brand strategy, development
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Content strategy
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="8"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Data visualization
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Typography, color, composition
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Figma
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Adobe Illustrator
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Adobe Photoshop
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Adobe After Effects
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="3"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Adobe Premiere
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="3"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Adobe InDesign
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="7"
+						/>
+					</SkillRatingContainer>
+					<SkillRatingContainer>
+						<SkillRatingText>
+							Digital asset management
+						</SkillRatingText>
+						<SkillRatingVisualization
+							level="9"
+						/>
+					</SkillRatingContainer>
+				</SkillList>
+			</SkillsListContainer>
 
 			<BackToDeepDiveLink />
 		</Section>
@@ -464,9 +679,11 @@ const returnLowerPageContent = screenType => (
 			screenType={screenType}
 			id="professional-experience"
 		>
-			<SectionHeader>Professional Experience</SectionHeader>
-
-
+			<SectionHeader
+				screenType={screenType}
+			>
+				Professional Experience
+			</SectionHeader>
 				<JobContainer>
 					<JobTitle>Programs Manager: Web Enterprise Processes, Digital Media Asset Management, Business Data Feeds</JobTitle>
 					<JobEmployer>Museum of Science, Boston</JobEmployer>
@@ -617,7 +834,7 @@ const returnLowerPageContent = screenType => (
 
 
 				<JobContainer>
-					<JobTitle>Director of Food & Beverage</JobTitle>
+					<JobTitle>Director of Food and Beverage</JobTitle>
 					<JobEmployer>Hotel Ithaca</JobEmployer>
 					<JobDates>June 2002 &mdash; July 2004</JobDates>
 					<JobDescription
@@ -671,7 +888,11 @@ const returnLowerPageContent = screenType => (
 			screenType={screenType}
 			id="education-and-certifications"
 		>
-			<SectionHeader>Education & Certifications</SectionHeader>
+			<SectionHeader
+				screenType={screenType}
+			>
+				Education and Certifications
+			</SectionHeader>
 
 			<EducationAndCertificationsSectionsContainer
 				screenType={screenType}
@@ -746,9 +967,11 @@ const returnLowerPageContent = screenType => (
 			screenType={screenType}
 			id="volunteer-experience"
 		>
-			<SectionHeader>Volunteer Experience</SectionHeader>
-
-
+			<SectionHeader
+				screenType={screenType}
+			>
+				Volunteer Experience
+			</SectionHeader>
 			<VolunteerExperiencesSectionsContainer
 				screenType={screenType}
 			>
@@ -781,7 +1004,7 @@ const returnLowerPageContent = screenType => (
 					gridArea="mid"
 				>
 					<VolExpContribution>Consultant</VolExpContribution>
-					<VolExpOrganization>Museum of Science & Industry (MOSI)</VolExpOrganization>
+					<VolExpOrganization>Museum of Science and Industry (MOSI)</VolExpOrganization>
 					<VolExpDates>2013</VolExpDates>
 					<p>Building web apps on top of Drupal.</p>
 
@@ -839,7 +1062,7 @@ export default () => {
 					screenType="small"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageSmall}
+					backgroundImage="storrow-drive--horizontal"
 					topContentOne={returnTopContentOne('small')}
 					topContentTwo={returnTopContentTwoBBB('small')}
 					topContentThree={returnTopContentThree('small')}
@@ -855,7 +1078,7 @@ export default () => {
 					screenType="medium"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="storrow-drive--horizontal"
 					topContentOne={returnTopContentOne('medium')}
 					topContentTwo={returnTopContentTwoBBB('medium')}
 					topContentThree={returnTopContentThree('medium')}
@@ -868,7 +1091,7 @@ export default () => {
 					screenType="large"
 					headTitle={HeadTitle}
 					headDescription={HeadDescription}
-					backgroundImage={TitleImageMedium}
+					backgroundImage="storrow-drive--horizontal"
 					topContentOne={returnTopContentOne('large')}
 					topContentTwo={returnTopContentTwoBBB('large')}
 					topContentThree={returnTopContentThree('large')}

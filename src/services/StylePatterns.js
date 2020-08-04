@@ -115,11 +115,7 @@ module.exports = {
 
 
 
-
-
-
-
-			case 'blue-1':
+				case 'blue-1':
 				return '#081015';
 			case 'blue-1-10-percent':
 				return 'rgba(8,16,21,.1)';
